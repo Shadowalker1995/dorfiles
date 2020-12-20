@@ -1,0 +1,1197 @@
+version 3.28 (2020-04-13)
+* IMPORTANT: drop support for EOL Python 2.6-3.4 (#1896), by Hugo van Kemenade
+* clock module: add "locale" config parameter to change time representation (#1910), by inemajo
+* docs: update debian instructions fix #1916
+* mpd_status module: use currentsong command if possible (#1924), by girst
+* networkmanager module: allow using the currently active AP in formats (#1921), by Benoît Dardenne
+* volume_status module: change amixer flag ordering fix #1914 (#1920)
+
+version 3.27 (2020-03-01)
+* i3status: support read_file module (#1909), by @lasers thx to @dohseven
+
+version 3.26 (2020-02-23)
+* IMPORTANT: drop support for EOL Python 2.6-3.4 (#1904), by Hugo van Kemenade
+
+version 3.25 (2020-02-09)
+* core: fix collections.abc imports for Python 3.9 (#1889), by Hugo van Kemenade
+* qa: fix black formatting
+* fix documentation build
+* do_not_disturb module: add Mako support for wayland environment. (#1898), by Cyrinux
+* frame module: expose output of submodules for use in format (#1900), by Akim Sadaoui
+* imap module: fix idle for courier (#1899), by Alexander Görtz
+* imap module: handle OAuth TransportError (#1886), by Justyn Butler
+* imap module: implement degraded_when_stale (#1885), by girst
+* imap module: implement retry logic (works around badly configured mail servers) (#1881), by girst
+* mpd_status module: use idle feature (major cpu savings) (#1884), by girst
+* mpd_status module: clean up idle code (#1890), by girst
+* mpd_status module: properly terminate idling thread (#1895), by girst
+* mpd_status: fix color output (#1893), by L0ric0
+* net_iplist module: fix iface regex wrt #1892 thx to @segaja
+* spotify module: document dep on python-dbus fix #1888
+* xrandr module: fix force_on_change logic when udev is not available #1873 (#1874), by Andrwe Lord Weber
+
+version 3.24 (2020-01-10)
+* core: some commands expectedly return non 0 output, dont log them, thanks to steinex
+* fix tests and update setup for python 3.8 (#1880), by Maxim Baz
+* imap module: add OAuth2 support (#1879), by Justyn Butler
+
+version 3.23 (2020-01-04)
+* core: report CommandError on logs
+* xkb_input: new module from scratch to support sway too (#1869), by lasers
+* backlight module: use logind as a fallback (#1870), by Boucman
+* spaceapi module: fix offline attributeerror exception (#1872), by lasers
+* getjson module: support basic auth via username/password fix #1875 (#1876)
+* speedtest module: document how to run the test wrt #1878
+
+version 3.22 (2019-12-10)
+* doc/configuration.rst: fix unexpected unindents (#1867), by lasers
+* imap module: fix black code formatting to pass tests (#1857), by lasers
+* module_test: support config cli arguments (#1859), by lasers
+* mpris module: add vlc nowplaying field (#1855), by Cedric Girard
+* new module systemd_suspend_inhibitor, to be able to inhibit suspend managed by systemd logind (#1861), by Cyrinux
+* ns_checker module: use post_config_hook (#1850), by lasers
+* remove nvidia_temp in favor of nvidia_smi (#1853), by lasers
+* remove scratchpad_{async,counter} in favor of scratchpad (#1852), by lasers
+* remove window_title{,_async} in favor of window (#1854), by lasers
+* treewide: fix typos, grammar improvements (#1858), by Torstein Husebø
+* usbguard module: update for versioned dbus in 0.7.5 (#1856), by Maxim Baz
+* volume_status module: simplify code (#1851), by lasers
+* window: get name instead of window_title, get nodes or empty lists (#1860), by lasers
+
+version 3.21 (2019-10-13)
+* implement global request_retry_times and request_retry_wait options (#1847)
+* arch_updates module: checkupdates throws exit code on zero updates (#1848), by Daniel Jenssen
+* bitcoin_price module: change api request to http (#1836), by dosera
+* coin_market module: skip empty datas (#1849), by lasers
+* fix `long_description_content_type` missing
+* fix entry_point typo in docstring (#1830), by Oliver Bestwalter
+* fix project's long_description has invalid markup which will not be rendered on PyPI
+* i3status: support memory module, remove valid_config_param (#1833), by lasers
+* new module networkmanager: display network status (#1766), by Kevin Pulo
+* module testing: fix testmode fails because it uses is_gevent property. (#1832), by Valdur Kana
+* mpris module: fix KeyError exception closes #1827 (#1831), by lasers
+* nvidia_temp module: add safeformat for separator, rename separator (#1846), by lasers
+* spotify module: add playback placeholder (#1829), by Bazyli Cyran
+* sysdata module: prevent a divide by zero on empty swap (#1838), by Pierre GINDRAUD
+* weather_owm module: add safeformat for separator, rename separator (#1845), by lasers
+* weather_own module: add thresholds for humidity (#1844), by lasers
+* wifi module: fix bug introduced in PR #1834 (#1835), by ownaginatious
+* wifi module: specify device by name or MAC address (#1834), by ownaginatious
+
+version 3.20 (2019-08-06)
+* IMPORTANT: py3status now supports importing modules from pypi packages, see 'writing modules' section on docs!
+* introduce entry point based discovery of packaged custom modules (#1823), by Oliver Bestwalter
+* core, module: add an ability to import resources (#1673), by lasers
+* fix logo url in README (#1814), by Daniel Peukert
+* formatter: add expand_color() (#1787), by lasers
+* formatter: fix colors in composites after expand_color addition (#1821), by lasers
+* tox is always lowercase (#1824), by Oliver Bestwalter
+* new module xkb_layouts: to display keyboard layouts and variants (#1817), by lasers
+* add 100ms delay before refreshing modules on udev trigger #1805
+* arch_updates module: add trizen support (#1813), by Daniel Peukert
+* arch_updates module: auracle throws exit code on zero updates (#1809), by Piotr Miller
+* arch_updates module: change trizen command to track exit code (#1815), by Daniel Peukert
+* backlight module: round brightness percentage instead of truncating (#1803), by Piotr Miller
+* bluetooth module: switch to pydbus (#1804), by Maxim Baz
+* clementine module: upgrade to MPRIS2 support (#1797), by Rodrigo Leite
+* sysdata module: add cpus, format_cpu, format_cpu_separator, etc (#1798), by lasers
+* uptime module: specify strftime characters to display system up since (#1810), by lasers
+* volume_status module: pactl improvements (#1765), by Kevin Pulo
+* volume_status module: support icon blocks to reflect volume (#1812), by Daniel Peukert
+* volume_status: pamixer cleanups/improvs (#1806), by lasers
+* weather_owm module: switch from timezoneapi to our own api (Fix #1818) (#1819)
+* wifi module: split up unit placeholders, remove round_bitrate (#1791), by lasers
+* wwan module: add missing curly brackets to examples (#1820), by luto
+* xrandr module: allow users to use an icon instead of OUTPUT text (#1801), by lasers
+
+version 3.19 (2019-04-30)
+* NEWS: py3status now has a logo thanks to @tobaloidee!
+* constants: QA uppercase hex color codes (#1786), by lasers
+* core: log loaded i3status modules on startup (#1772), by lasers
+* group: calculate remaining times to cycle more accurately (#1785), by lasers
+* logo upload & readme update  (#1768), by tobaloidee
+* module: fix pango markup for non-composite modules (#1784), by lasers
+* py3: move py3.get_color_names helper to formatter (#1778), by lasers
+* py3: support multiple matches on get_placeholders_list (#1773), by lasers
+* py3: support converting bits to bytes on format_units() (#1793), by lasers
+* new module khal: display your khal calendar (#1741), by xenrox
+* diskdata module: explicitly request kb from df (#1763), by Kevin Pulo
+* diskdata module: optimize formatting composites, units, etc  (#1774), by lasers
+* i3pystatus module: check python first before telling python2 users to install (#1760), by lasers
+* i3pystatus module: support universal/py3status module options (#1758), by lasers
+* i3pystatus module: remove composites and keys to make dicts more comparable (#1762), by lasers
+* keyboard_layout module: use xkblayout-state to switch layout (#1780), by Pipat Saengow
+* keyboard_layout module: xkblayout-state should prefer variant if available (#1795), by ecks
+* mpris module: detect and report error when used with gevent (#1771)
+* mpris module: make new default and click buttons changes (#1761), by lasers
+* net_rate module: call functions once instead of twice (#1792), by lasers
+* nvidia_smi module: add memory units placeholders (#1790), by lasers
+* pomodoro module: use py3.play_sound helper (#1770), by lasers
+
+version 3.18 (2019-03-30)
+* bugfix release: regresion on group cycling
+* group: don't cycle on zero (#1757), by lasers
+* updated configuration and modules paths detection using XDG_CONFIG_HOME (#1694), by lasers
+* reorder docs index
+* update i3wm.github.io py3status page with newer links and doc fix #1010 (#1745)
+* docs: make unordered list, update docs, fix typos (#1754), by lasers
+* parse_config: raise errors when using modules in containers in the order directive (#1747), by lasers
+* frame module: add safeformat for the separator (#1746), by lasers
+* mpris module: handle disconnected players gracefully on clicks (#1759), by lasers
+
+version 3.17 (2019-03-24)
+* IMPORTANT: py3status is now compatible with sway on wayland
+* add sway support with --wm option (#1718), by lasers
+* argparsers: add slash on paths (#1710), by lasers
+* broken frame modules when pango markup is used fix #1736
+* cli, core: refactor cli stuff from core to cli (#1667), by lasers
+* events: remove unused if statement for \$OUTPUT{,_PART} (#1752), by lasers
+* formatter, py3: use color hidden to hide blocks (#1726), by lasers
+* py3status: transform modules and docstring commands (#1677), by lasers
+* module cleanups and tweaks #2 (#1701), by lasers
+* module cleanups and tweaks (#1691), by lasers
+* module: add pango markup conversion (#1723), by lasers
+* module: add pango markup conversion (py2+module_options) (#1729), by lasers
+* module: fix indexerror exception (#1749), by lasers
+* move list and docstring from py3status to py3-cmd (#1713), by lasers
+* rename cli.py to argparsers.py (#1696), by lasers
+* simplify include_paths early to valid paths (#1695), by lasers
+* tests: add consistency tests for modules (#1690), by lasers
+* new module: scroll (#1748), by lasers
+* air_quality module: expose and optimize thresholds (#1684), by lasers
+* arch_updates module: add auracle support (#1674), by Yaroslav Dronskii
+* arch_updates module: fix SPEC VIOLATION: full_text is NULL! (#1735), by lasers
+* arch_updates module: remove include_aur in favor of auto, refactoring (#1727), by lasers
+* arch_updates module: remove obsolete cower from docs (#1720), by lasers
+* arch_updates module: use py3.command_output helper (#1721), by lasers
+* async_script module: fix typo (#1702), by Cody Hiar
+* battery_level: fix case when an invalid battery is detected (#1751), by Thiago Kenji Okada
+* coin_market module: optimize thresholds (#1682), by lasers
+* graphite module: use func mapping instead of eval('func') (#1700), by lasers
+* group module: stop cycling on urgent module closes #890 (#1753)
+* hddtemp module: optimize thresholds (#1683), by lasers
+* imap module: fix flake8 F999 errors (#1671), by lasers
+* mail module: raise invalid filters, add log option to print folders (#1708), by lasers
+* mpris module: remove min_width pixels in favor of spaces (#1738), by lasers
+* netdata module: normalize speed rate (#1730), by Ajeet D'Souza
+* netdata module: optimize thresholds (#1679), by lasers
+* screenshot module: catch up with the standards (#1714), by lasers
+* sysdata module: add used units (#1715), by lasers
+* sysdata module: optimize cpu_freqs (#1685), by lasers
+* sysdata module: optimize meminfo parsing (#1697), by lasers
+* sysdata module: optimize thresholds (#1678), by lasers
+* thunderbird_todos module: optimize thresholds (#1680), by lasers
+* tor_rate module: allow users to hide socket errors (#1666), by cyrinux
+* transmission module: optimize thresholds (#1681), by lasers
+* twitch module: clean up some code (#1698), by lasers
+* twitch module: use self.py3.request helper (#1699), by lasers
+* usbguard module: simpler implementation (#1707), by Maxim Baz
+* vnstat module: replace coloring with optimized thresholds (#1686), by lasers
+* weather_owm module: flip coordinates to (lat, lon) (#1732), by lasers
+* weather_owm module: print error message and status code (#1672), by lasers
+* wifi module: add optimized thresholds (#1688), by lasers
+* wifi module: code cleanup (#1689), by lasers
+* wifi module: remove use_sudo in favor of auto (#1703), by lasers
+* wifi module: switch to wifi device auto detection by default (#1706), by lasers
+
+version 3.16 (2019-01-20)
+* @maximbaz has become the third collaborator of the py3status project !
+* add -u, --i3status to specify or override i3status path (#1649), by lasers
+* add more module and global options, see documentation (#1620), by lasers
+* added zen of py3status
+* notify users of obsolete module and their alternatives (#1618)
+* module_test: add urgent support in --term (#1626), by lasers
+* modules: deprecate timeout parameter and honor request_timeout everywhere
+* modules: don't set module options on disabled modules (#1637), by lasers
+* modules: normalize main methods and add tests (#1641), by lasers
+* doc: Update NixOS docs (#1639), by Thiago Kenji Okada
+* doc: write documentation about request_timeout, by lasers
+* doc: fix doc generation warnings (#1636), by lasers
+* py3: adjust cache_timeout intervals to the right second (#1650), by lasers
+* py3: get_color_names_list to return an empty list on false value (#1631), by lasers
+* py3: threshold_get_color to set color=None on exception (#1634), by lasers
+* fix i3status path detection and setting on startup (#1662), by lasers
+* fixed typo in naming ('gradiant' -> 'gradient') (#1658), by Thomas F. Duellmann
+* remove obsolete cli interval argument (#1661)
+* git-hooks: add black tests to run first before pushing (#1653), by lasers
+* update arch installation instructions (#1622), by Maxim Baz
+* update contribution guidelines (#1623), by Maxim Baz
+* update screenshots (#1616), by lasers
+* new conky module: display conky system monitoring (#1664), by lasers
+* diskdata module: call functions once instead of twice (#1640), by lasers
+* diskdata module: optimize thresholds (#1629), by lasers
+* diskdata: Added used_percent threshold (#1628), by Thiago Kenji Okada
+* do_not_disturb module: dunst with state=None is invalid (#1625), by lasers
+* do_not_disturb module: fix pause logic hiding startup notifications (#1624)
+* do_not_disturb: simplify dunst logic (#1654), by Maxim Baz
+* do_not_disturb: use pkill instead of killall to support NixOS (#1638), by Thiago Kenji Okada
+* exchange_rate module: change feed to exchangeratesapi.io (#1655), by lasers
+* file_status module: optimize thresholds (#1632), by lasers
+* i3block module: normalize docstrings (#1635), by lasers
+* mpd_status module: max_width was not working because of composite fixes #1613 (#1615)
+* mpris module: fix clementine attributeerror exception (#1648), by lasers
+* net_rate module: optimize thresholds (#1630), by lasers
+* net_rate module: prevent errors after resuming from sleep (#1659), by cyrinux
+* pingdom module: add author ultrabug (#1651), by lasers
+* sysdata module: added cpu frequency placeholders (#1609), by Jack Doan
+* sysdata module: support sysfs paths to temp sensors (#1614), by Jack Doan
+* systemd module: support user systemd units (#1657), by cyrinux
+* taskwarrior module: add tasks placeholder (#1647), by ecks
+* velib_metropole module: fix format thresholds (#1633), by lasers
+* weather_yahoo module: removed due to full API change by Yahoo/Oath
+* xrandr module: add dynamic primary configuration (#1665), by lasers
+
+version 3.15 (2018-12-30)
+* CI now checks for black format on modules
+* add support for background and border (i3-gaps) colors (#1486), by lasers
+* py3-cmd: allow sending click events with modifiers (#1589), by lasers
+* dont log every udev event per default
+* fix check for modifiers at click events (#1601), by L0ric0
+* formatter: avoid duplicate soft blocks (#1595), by @lasers, by lasers
+* log signals for easier debugging
+* arch_updates module: alternatively use yay for AUR check (#1545), by Simon Legner
+* backlight module: added "hide_when_unavailable" option (#1607), by Thiago Kenji Okada
+* battery_level module: refresh with udev, increase default cache_timeout (#1573), by Maxim Baz
+* deadbeef module: return deadbeef data without error codes (#1581), by lasers
+* do_not_disturb module: major refactoring (#1471), by lasers
+* dropbox_status module: add support for unicode character output from dropbox-cli (#1578), by Keith Hughitt
+* dropboxd_status module: add documentation about dropbox-cli (#1598), by sridhars
+* external_script module: allow display full output as notification on click (#1585), by Maxim Baz
+* gitlab module: use py3.get_color_names_list helper (#1522), by lasers
+* google_calendar module: fix url indexerror exception (#1603), by lasers
+* i3pystatus module: add sample output, fix docstrings (#1587), by lasers
+* keyboard_layout module: add variant placeholder (#1492), by lasers
+* mail module: report account name collision with folder names (#1544), by L0ric0
+* mail module: add imap subscriptions to filter mailbox folders (#1606), by lasers
+* mail module: validate mailboxes, names to avoid collisions (#1593), by lasers
+* new module async_script: allow for background scripts output to update the bar themselves (#1265), by girst
+* new module emerge_status: display information about running gentoo emerge (#1275), by AnwariasEu
+* new module hueshift: change your screen color temperature (#1142), by lasers
+* new module mega_sync: to check for MEGA service synchronization (#1458), by Maxim Baz
+* new module speedtest: to check your internet bandwidth (#1435), by cyrinux
+* new module usbguard: control usbguard from your bar (#1376), by cyrinux
+* new module velib_metropole: display velib metropole stations and (e)bikes (#1515), by cyrinux
+* screenshots module: don't use f-strings (#1590), by lasers
+* screenshots module: fix parsing missing last screenshots (#1586), by lasers
+* systemd module:  add option to suppress output if unit is in default state (#1382), by flyingapfopenguin
+* systemd module: add config parameter to hide service extension (#1381), by flyingapfopenguin
+* transmission module: use --list when no aditional arguments are given (#1604), by L0ric0
+* vnstat module: replace deprecated --exportdb with --oneline (#1570), by lasers
+* volume_status module: use human-scale volume percentages like alsamixer (#1579), by justin j lin
+* vpn_status module: handle multiple vpns (#1596), by @oceyral, by oceyral
+* wifi module: add mhz and ghz frequency placeholders (#1574), by Till Backhaus
+* xrandr module: new force_on_change feature to follow screens automatically (#1597)
+
+version 3.14 (2018-11-10)
+* IMPORTANT: this version adds an optional dependency with pyudev that is recommended to use
+* core & modules: add helpers to allow modules to react to udev events (#1546)
+* black: py3status core uses black formatter
+* fix default i3status.conf detection
+* add ~/.config/i3 as a default config directory, closes #1548
+* add .config/i3/py3status in default user modules include directories
+* add markup (pango) support for modules (#1408), by @MikaYuoadas
+* add missing documentation on gevent option
+* setup.py, travis.yml: add python 3.7 support, by lasers
+* module_test: print modules in terminal, by lasers
+* clean and improve screenshots generation (#1535), by @tobes
+* py3: add threshold string support (#1480), by @lasers
+* py3: notify_user module name in the title (#1556), by @lasers, by lasers
+* parse_config: raise error on invalid modules (fixes #1523), by @lasers
+* fix flake8 W605 errors in core and disable test for modules (#1560), by @tobes
+* module: rename min_width,align to min_length,position (#1551), by @lasers
+* allow test_modules to use udev_monitor (#1558), by @lasers
+* refactor and document extra requirements
+* print module information to sdtout instead of stderr (#1565), by @robertnf
+* battery_level: Default to using sys instead of acpi (#1562), by @eddie-dunn
+* enhanced help message thx to @lasers #1555
+* reduce flake8 checks on errors to concentrate on functional errors
+* fix errors on empty module error message, fixes #1567
+* imap module: fix output formatting issue (#1559), by @girst
+* xrandr module: now only updates on a "drm" udev event if pyudev is installed
+
+
+version 3.13 (2018-09-28)
+* WARNING: after this release, py3status coding style CI will enforce the 'black' formatter: https://pypi.org/project/black/
+* @lasers has become the second collaborator of the py3status project !
+* README: update Arch Linux installation instructions, by Alexis Horgix Chotard
+* config functions base64() and hide(), by @tobes
+* config parser: add explicit exceptions, by @tobes
+* config parser: cleaner functions, by @tobes
+* config parser: improve unicode support, by @tobes
+* config parser: unify quote removal, by @tobes
+* documentation: module docstring fixes to remove sphinx errors plus formatting, by @tobes
+* documentation: update formater and configuration docs, by @L0ric0
+* fix BOM related documentation breakage, by @tobes
+* fix empty seeming composite block issue, by @tobes
+* fix LANGUAGE environment variable for english output, by @wojtex
+* flake8: resolve several warnings and errors, by @lasers
+* formatter: add {:ceil} to return x or x+1, by @lasers
+* formatter: catch both lonely braces, by @tobes
+* formatter: don't strip whitespace, by @lasers
+* formatter: hide block on 'None' string too, by @lasers
+* formatter: return falsey properly, by @lasers
+* formatter: show values instead of faking nonexistent keys, by @lasers
+* lexer fix small glitchs, by @tobes
+* module: align modules with py3status instead of i3bar, by @lasers
+* module: fix universal module options for python2, by @lasers
+* parse_config: fix lookuperror exception, by @lasers
+* parse_config: print file name too in config error messages, by @lasers
+* prevent creating timezone with to large an offset due to suspending, by @tobes
+* py3: add new helper: get_color_names_list, by @lasers
+* py3: threshold_get_colors to allow name with different values, by @lasers
+* py3status lexer updates for docs, by @tobes
+* add new module: lm_sensors, by @lasers
+* add new module: loadavg, by @lasers
+* add new module: mail, by @lasers
+* add new module: nvidia_smi, by @lasers
+* add new module: sql, by @Cereal2nd and @lasers
+* add new module: timewarrior, by @lasers
+* add new module: wanda_the_fish, by @lasers
+* Added sql module, by Maikel Punie
+* allow us to get params from formats and also update them, by @tobes
+* clock: use format parsing to find placeholder, by @tobes
+* command_output: allow ignoring stderr, by Maxim Baz
+* deadbeef: deprecate 7.0, 7.1 support, by @lasers
+* deadbeef: use py3.command_output helper, by @lasers
+* exchange_rate: fix issue caused by lack of testing, by @lasers
+* external_script: cast numeric output automatically, by @lasers
+* fedora_updates: fix issue caused by lack of testing, by @tobes
+* git-hooks: run flake8 tests first before pushing, by @lasers
+* github: update github notifications link with scope, by @su8
+* gitlab: add pipelines status placeholder, by @cyrinux
+* i3pystatus: standalone fix for thread issue, by @tobes
+* replace http with secure https in all modules, by @lasers
+* setup: add fast-entry_points, by @lasers
+* storage: properly handle and log legacy storage migration, by @Ultrabug
+* storage: use $XDG_CACHE_HOME or ~/.cache, by @lasers
+* sysdata: add htop-like memory usage, by @lasers
+* test_module_doc: fix modules to remove all ignore items, by @lasers
+* updated formater doc, by Lorenz Steinert
+* weather_owm: work without timezoneapi but also if you set city or location, by @tobes
+* whatismyip: don't fetch requests between toggle states, by @lasers
+
+
+version 3.12 (2018-08-09)
+* it looks like some i3 freezes that affected py3status (see #941) have been fixed https://github.com/i3/i3/issues/2539, next i3 release (>4.15) should contain the fix
+* py3.request adds a default User-Agent header when none is provided
+* py3-cmd: refactoring to add more options for click and refresh commands, add frame click support for #1349, by @lasers
+* formatter: parse placeholders with periods, by @lasers
+* air_quality module: display nothing instead of error on api error, by @cyrinux
+* arch_updates module: better error handling when no internet connection, by @btmcg
+* exchange_rate module: use the new core default user-agent
+* file_status module: patch to fix plural wording, by @cyrinux
+* volume_status module: skip pactl and pamixer if no pulseaudio, by @lasers and reported by @raingart
+* volume_status module: (pactl) reinitialize default device, fixes #1402 by @lasers as reported by @sridhars
+* whatismyip module: deprecate negative_cache_timeout parameter
+* xrandr module: add support for setting background, by @evypb
+
+
+version 3.11 (2018-07-05)
+* py3.notify_user: add support for title and icon parameters to tune notifications, by @cyrinux
+* new gitlab module: to powerfully manage your gitlab notifs/todos, by @lasers
+* new wwan network manager module, by @cyrinux
+* arch_updates module: update documentation to include the pacman-contrib requirement by @markrileybot
+* diskdata module: fix stats computation, fixes #1373 by @scotte
+* file_status module: add support for several paths with new format options, by @cyrinux
+* hddtemp module: workaround for hddtemp byte bug, by @lasers
+* net_rate module: handle non-existent interfaces better, fixes #1377, by @scotte
+* sysdata module: use py3.format_units, by @simon04
+* whatismyip module: replace freegeoip.net which has move and now require an api key, by @cyrinux
+
+
+version 3.10 (2018-05-21)
+* fix pip installation reported on #1351 by @lainiwa
+
+
+version 3.9 (2018-05-14)
+* added --disable_click_events (-m) option to disable all click events, by @jamethy
+* allow executing shell code in the config using shell(), by @girst
+* test_formatter: add {:g} to remove trailing zeroes, by @lasers
+* add py3-cmd to Control section of README, by @kmoe
+* fix issue where cache_timeout non-numeric wrt #1340, by @tobes
+* py3: play sounds with ffplay, by @lasers
+* battery_level module: fixed for systems without POWER_SUPPLY_POWER_NOW neither POWER_SUPPLY_CURRENT_NOW, by @adrianlzt
+* bitcoin_price module: changed request url from http to https, by @zack-baker
+* keyboard_layout module: add variants support, by @lasers
+* keyboard_locks module: rearrange locks, by @lasers
+* pomodoro module: fix off-by-one error, rename max_breaks to pomodoros, by @lasers
+* volume_status : prioritize default sound system fixing pulseaudio and alsa detection, by @saengowp
+* weather_yahoo module: date bugfix and a series of changes, by @lasers
+* xrandr module: parse mode properly, by @lasers
+
+
+version 3.8 (2018-04-02)
+* py3: command_output call command with lc_all=c, by woland
+* py3: dismiss empty notifications, by @lasers
+* py3: make thresholds take none for an answer, by @lasers
+* py3: return gradients properly, by @lasers
+* run event in threads to fix latency problems, by @tobes
+* start modules in threads to parallelize, by @tobes
+* persistent storage for modules, by @tobes
+* added support for environment variables in config, by alex o'neill
+* formatter: add {:g} to remove trailing zeroes, by @lasers
+* formatter: inherit commands properly, by @lasers
+* formatter: reject the condition if none, by @lasers
+* improve logging for modules, by @tobes
+* add cookies handling for request, by @raspbeguy
+* add installation instructions for nixos, by daniel schaefer
+* add multiple qa fixes for multiple modules, by @ultrabug
+* add new module: hddtemp, by @lasers
+* add new module: transmission, by @lasers
+* add option to enable support for green threads using gevent, by @ultrabug
+* add yubikey module, by maxim baz
+* added google_calendar module, by igor grebenkov
+* air_quality: new module from scratch, by @lasers
+* allow do_not_disturb signals to be configured, by robert ricci
+* allow external on_click events to run immediately, by @tobes
+* allow named colors, by @tobes
+* allow overiding xrandr resolution using {output}_mode, by @nollain
+* allow selection of keyboard layout, by @tobes
+* allow test modules to use storage, by @tobes
+* allow time_in(cache_forever), by @tobes
+* backlight: allow to use multiple backlight commands, add configuration for light, by @anubiann00b
+* bitcoin_price: use py3.request helper, by @lasers
+* coin_market: expose placeholder, add format_datetime, cleanups, by @lasers
+* coin_market: remove first_run, by @lasers
+* core: make notify_user less ambiguous in the logs, by @lasers
+* core: support shorthand hex colors (thx @tobes), by @lasers
+* deadbeef: add sleep_timeout, by @lasers
+* deadbeef: check if deadbeef is installed, by @lasers
+* display thunderbird_calendar tasks, by themistokle benetatos
+* document availability as a debian package, by sébastien delafond
+* enable click events for spotify, by @nollain
+* exchange_rates: use new feed, by @tobes
+* external_script: fix indexerror exception, by @lasers
+* external_script: use localized command output, by woland
+* external_script: use post_config_hook, by @lasers
+* fix deadbeaf error, by @tobes
+* github: don't treat first run as special, by @tobes
+* google_calendar: code qa, fixups, add new configs, by @ultrabug
+* group: allow waiting for active module, by @tobes
+* imap: support for imap-idle; enabled by default, by @girst
+* keyboard_locks: merge formats, by @lasers
+* make post requests work, by @raspbeguy
+* module storage: add ctime and mtime metadata keys on storage_set, by @ultrabug
+* module storage: move documentation, add methods and overall review with tobes, by @ultrabug
+* move arg parsing to own file to help decouple stuff, by @tobes
+* mpd_status: fix valueerror, allow hiding on error, by @girst
+* net_rate: use post_config_hook, by @lasers
+* netdata: annihilate the lines, by @lasers
+* online_status: fix timeout for ping, by @lasers
+* parse_config: small refactor for append_modules, by alex o'neill
+* pomodoro: fix cached_until intervals, by @lasers
+* pomodoro: make formats more customizable, by robert ricci
+* support i3pystatus modules, by @tobes
+* sysdata: first half of cleanup efforts, by @lasers
+* task to monitor i3status thread, by @tobes
+* taskwarrior: make the command customizable, by @regnat
+* taskwarrior: use post_config_hook, by @lasers
+* thunderbird_calendar: code qa, cleanups, by daniel foerster
+* thunderbird_todos: new module from scratch, by @lasers
+* timer: add urgent + timer: add colors, by @lasers
+* twitch api requires an app client id, by james curtis
+* update standalone testing, by @tobes
+* updated insync module to recognise synced state, by @cypher1
+* volume_status: add boost for pamixer, by @lasers
+* volume_status: check the binaries, by @lasers
+* volume_status: enable mouse buttons, by @lasers
+* volume_status: use py3.command_output, by woland
+* weather_yahoo: new module from scratch, by @lasers
+* wifi: use sudo in post_config_hook, by @lasers
+* window_title: add new placeholders + simplifying, by @lasers
+* xrandr_rotate: display screen properly, by @lasers
+* xrandr_rotate: refresh properly, by @lasers
+
+
+version 3.7 (2017-11-30)
+* NOTE: this is a performance focused release
+* deep rework of the usage and scheduling of threads to run modules: now py3status does not keep one thread per module running permanently but instead uses a queue to spawn a thread to execute the module only when its cache expires, by @tobes
+* memory footprint of py3status got largely reduced thanks to the threads modifications and thanks to a nice hunt on ever growing and useless variables done by @tobes
+* the next release will contain logic to switch from threads to greenlets and go further in optimizing py3status
+* conversion of many modules to use post_config_hook, by @lasers
+* improve spelling in documentation, by @lasers
+* let Py3.contains_format() accept a list of placeholder names
+* py3: print full command in the error logs, by @lasers
+* air_quality module: fix attributeerror exception, by @lasers
+* apt_updates module: improved error if apt not installed, by @lasers
+* backlight module: allow slower value change after a threshold, by @maximbaz
+* backlight module: detect and bypass xbacklight limitations, by @lasers
+* diskdata module: new {total_space} placeholder, by @pcewing
+* do_not_disturb module: better support for dunst, by @maximbaz
+* exchange_rate module: use py3 helper to extract placeholders, by @lasers
+* github module: fix urls so trailing / doesn't cause problems, by @lasers
+* icinga2 module: fix missing color parameter, by @lasers
+* moc module: code/documentation cleanups, by @lasers
+* mpris module: code improvements, by @lasers
+* pingdom module: fix when no useful data returned, by @lasers
+* uptime module: code improvements/simplification, by @lasers
+* volume_status module: allow card to be specified for amixer, by @lasers
+* volume_status module: bugfix for pamixer when volume is zero, by @lasers
+* xrandr_rotate module: run command once, by @lasers
+* xrandr_rotate: replace shell commands with python codes, by @lasers
+* xsel module: allow logging and clear selection, by @JohnAZoidberg
+* yandexdisk_status module: improved error reporting to users, by @lasers
+
+
+version 3.6 (2017-08-22)
+* faster py3-cmd, by @tobes
+* universal gradients functionality, by @tobes
+* share code so module_test improved, by @tobes
+* better report when i3status is missing, by @tobes thx to @Cypher1
+* better module doctest failures, by @alexoneill
+* allow report exception to be available early, by @tobes
+* better error catching for missing {, by @tobes thx to @lasers
+* make hide_if_zero work for net_rate fixes #935, by @tobes thx to @maximbaz
+* fix py3-cmd link in docs, by @tobes
+* fix group width issue when no output, by @tobes
+* docs: add new screenshot directive, by @tobes
+* only show first line of error in i3bar, by @tobes
+* formatter allow some commands to be inherited, by @tobes
+* formatter not zero fix for displayed values, by @tobes thx to @maximbaz
+* new cmus module: to control your cmus music player, by @lasers
+* new coin_market module: to display custom cryptocurrency data, by @lasers
+* new moc module: to control your moc music player, by @lasers
+* backlight module: combine device/device_path params, by @lasers
+* backlight module: improve rounding of brightness value, by @maximbaz
+* battery_level module: fix bug with over 100% full icon, by @docwalter
+* battery_level module: fix divide by zero bug, by @tablet-mode
+* bitcoin_prices module: add safeformat for the separator, by @lasers
+* bluetooth module: add safeformat for the separator, by @lasers
+* clock module: fix unicode time formatting, by @tobes
+* dpms module: add safeformat for all statuses, by @lasers
+* external_script: allow colored output, by @enguerrand
+* fixed some of the documentation headings, by @armandg
+* getjson module: cleanups, by @lasers
+* github module: parse and use GitHub pagination headers (closes #945), by @rixx
+* iw module: use absolute path for iw, by @paradoxisme
+* make headers available via py3.request() and update github module, by @tobes
+* mpris module: fix keyboard interrupt in test mode @ritze
+* mpris module: improvements to player detection @ritze
+* net_iplist module: fix for new formatter, by @guiniol
+* pomorodo module: fix typo on docstring, by @valdur55
+* selinux module: show permissive as degraded and cleanups, by @lasers
+* spaceapi module: Don't die if datetimes are unparseable, by @rixx
+* spaceapi module: prevent 'used before assignment' error, by @fmorgner
+* spotify module: sanitize album/track title by default, by @vvoland
+* sysdata module: Add load support, by @guiniol
+* volume_status module: fix PactlBackend on non english system, by @vvoland
+* volume_status: Default device detection for pactl, by  @lasers
+* volume_status: support for input devices, by @markrileybot
+* volume_status module: allow device as a int, by @tobes thx to @yabbes
+* vpn_status module: change default format on no VPN, by @markrileybot
+* whatismyip module: color_degraded support in status mode, by @aethelz
+* whatismyip module: prevent mouse updates, by @lasers
+* wifi module: add format, merge formats, by @lasers
+* wifi module: fix quality icon python 2 bug, by @markrileybot
+* window_title_async: fix workspace glitch, by @lasers
+
+version 3.5 (2017-04-07)
+* allow improved access to settings from py3status section, by @tobes
+* add a new py3status configuration section and the ability to set i3-nagbar font, by @randomguy
+* update sysdata documentation, by @valdur55
+* group/frame: use safe_format() not build_composite, by @tobes
+* skip empty modules in group, by @tobes
+* remove some un-needed ignored parameters, by @tobes
+* allow runtime errors to be handled in i3bar, by @tobes
+* documentation generation cleanup, by @tobes
+* show urgent on closed containers, by @tobes
+* improve docstring tests to prevent reserved config parameters, by @tobes
+* fix color comparison bug, by @tobes
+* fix issue with empty full_text not showing separator, by @tobes
+* fix issue with blank module causing extra separator to show, by @tobes
+* cleanup i3status config access, by @tobes
+* nicer exceptions on cli-commands, by @tobes
+* py3 logging nicer formatting, by @tobes
+* py3 provide http request functionality, drop requests dependency, by @tobes
+* cleanup: remove transformed from module responses, by @tobes
+* py3 helper: command_output() signal fix, by @tobes
+* py3 helper: allow check_commands() to take a string, by @tobes
+* formatter unicode fixup for python2, by @tobes
+* new air_quality module, to display the air quality of your place, by @beetleman and @lasers
+* new getjson module to display fields from a json url, by @vicyap
+* new keyboard_locks module to display keyboard locks states, by @lasers
+* new systemd module to check the status of a systemd unit, by @adrianlzt
+* new tor_rate module to display the incoming and outgoing data rates of a Tor daemon instance, by @fmorgner
+* new xscreensaver module, by @lasers and @neutronst4r
+* backlight module: fix mouse behavior thanks to @Tadly on #796, by @tobes
+* battery_level module: use helpers, by @lasers
+* bitcoin_price module: add format, use post_config_hook, by @lasers
+* bluetooth module: use helpers, by @lasers
+* bluetooth module: hcitool is deprecated (bluez-5.44) so it is better to use the dbus library directly, by @jmdana
+* check_tcp module: remove hardcoded strings, by @lasers
+* coin_balance: use post_config_hook, by @lasers
+* clementine module: use helpers, fix exception, by @lasers
+* clock module: add %s, %T for time_delta calculation, by @ShareDVI
+* clock module: use helpers, by @lasers
+* clock module: allow better icon selection for given time, by @maximbaz
+* deadbeef module: bug fix and improvements and extra placeholders, by @lasers
+* diskdata module: use helpers, by @lasers
+* diskdata module: fix stats for fs mounted multiple times by @eturner
+* dpms module: add button_off, button_toggle, cache_timeout by @lasers
+* do_not_disturb: use post_config_hook, by @lasers
+* dropbox: use helpers and format fix, by @lasers
+* external_script module: fix exception, remove warning, by @lasers
+* external_script: use helpers, by @lasers
+* frame module: use helpers, by @lasers
+* getjson: use py3.request() + bugfix, by @tobes
+* getjson: bugfix, by @maximbaz
+* github module: use helpers and post_config_hook, by @lasers
+* gpmdp module: fix permission, by @lasers
+* gpmdp module: use helpers, by @lasers
+* hamster module: use helpers, by @lasers
+* hamster module: fix potential exceptions, by @lasers
+* imap module: add depreciation stuffs, by @lasers
+* imap: allow_urgent on unread messages, by @lasers
+* insync module: fix exception, by @lasers
+* insync module: use helpers, by @lasers
+* keyboard_layout module: use helpers, by @lasers
+* mpris module: fix mouse clicks by @ritze
+* mpris module: use helpers, by @lasers
+* mpris module: fixes to player registration, by valdur55
+* net_iplist module: use helpers and post_config_hook, by @lasers
+* netdata module: cleanups and optimization, by @lasers
+* netdata module: add format, by @lasers
+* nvidia_temp module: use helpers, by @lasers
+* nvidia_temp module: fix exception, by @lasers
+* online_status: use helpers, by @lasers
+* pingdom module: add format, by @lasers
+* pomodoro module: use helpers, by @lasers
+* process_status module: add format, use helpers, by @lasers
+* rainbow module: add format, by @lasers
+* scratchpad_async: use post_config_hook, by @lasers
+* selinux module: fix exception, remove hardcoded strings, by @lasers
+* spaceapi module: add format by @lasers
+* sysdata module: avoid dividing by 0, by @guiniol
+* taskwarrior module: use helpers, by @lasers
+* taskwarrior: fix potential exceptions, by @lasers
+* tor_rate: use post_config_hook, by @lasers
+* twitch_streaming: use post_config_hook, by @lasers
+* vnstat module: use helpers, add exception, cleanup, by @lasers
+* volume_status: bugfix for pactl on debian systems, by @DextersHub
+* vpn_status: use post_config_hook, by @lasers
+* whatismyip module: support any format placeholder, always use `url_geo` with a better default, by @maximbaz
+* whatismyip module: expected support and cleanups by @maximbaz
+* wifi module: fix device autodetection magic, by @lasers
+* wifi module: remove command_checks(iw), by @lasers
+* wifi module: support unicode wifi SSID, by @blahgeek
+* wifi module: use helpers, fix exception, by @lasers
+* window_title: cleanup, by @lasers
+* window_title_async module: do not treat workspace name as window name, by @valdur55
+* window_title_async module: use post_config_hook, by @lasers
+* xrandr module: add option to hide output if only one combination is available, by @maximbaz
+* xrandr_rotate module: use post_config_hook, by @lasers
+* xsel module: add format, by @lasers
+* yandexdisk_status module: use helpers, remove hardcoded strings, fix exception, by @lasers
+
+version 3.4 (2017-01-26)
+* fix python2 unicode use in i3status time modules, by @tobes
+* fix python3.6 travis CI, by @tobes
+* cache format string tokens to reduce work done, by @tobes
+* formatter: new not_zero format command, by @tobes
+* simplify the descriptions for all modules, by @lasers
+* new do_not_disturb module to toggle notifications, by @maximbaz
+* new rss_aggregator module to display your unread feed items, by @raspbeguy
+* arch_updates module: add hide_if_zero option, by @lasers
+* arch_updates module: multiple fixes, by @tobes
+* backlight module: fix crash when monitor doesn't support backlight change, by @laxd
+* battery_level module: fix crash when running on a machine with no battery, by @laxd
+* battery_level module: prevent logic issues when zero, by @tobes
+* battery_level module: support a different type of battery, by @bpinto
+* clementine module: add format parameter, by @lasers
+* dpms: add format parameter, by @lasers
+* mpd_status module: fix max_width, by @lasers thanks to report by @girst
+* mpris module: detect players starting after py3status, by @ritze
+* net_rate module: add option to aggregate rate from all interfaces, by @guiniol
+* netdata module: use next available nic, by @lasers
+* online_status module: add deprecation warning, by @lasers
+* online_status module: add format parameter, by @lasers
+* player_control module: add format parameter, by @lasers
+* rainbow module: add multi_color option, by @tobes
+* scratchpad_async module: cleanup format parameter, by @lasers
+* scratchpad_async: fix method names, by @lasers
+* scratchpad_counter and window_title modules: remove i3-py dependencies, by @tobes
+* scratchpad_counter module: add format parameter, by @lasers
+* sysdata module: add swap support, by @valdur55
+* sysdata module: cpu temp no zone bugfix, by @tobes
+* sysdata module: deprecate precision and padding, by @guiniol
+* sysdata module: use color 'bad' instead of 'high' as a default threshold, by @maximbaz
+* taskwarrior module: add format parameter, by @lasers
+* timer module: fix cache_timeout as reported by @lasers, by @tobes
+* uname modume: add deprecation warning, by @lasers
+* volume_status module: PactlBackend does not read user-specified device, by @vicyap
+* whatismyip module: document format placeholder, by @lasers
+* whatsmyip module: added geolocation support using ip-api.com, by @vicyap with original code from @neutronst4r
+* whoami module: add deprecation warning, by @lasers
+* whoami module: add format parameter, by @lasers
+* whoami module: document format placeholder, by @lasers
+* window_title and window_title_async modules: window without name will not crash py3status, by @valdur55
+* window_title module: add format parameter, by @lasers
+* window_title module: fix display of workspace number instead of empty window title, by @valdur55
+* window_title_async module: fix method name, by @lasers
+* xrandr module: update format parameter, by @lasers
+* xsel: fix xsel, by @lasers
+
+version 3.3 (2016-11-20)
+* allow module output to be used in on_click commands, by @tobes
+* py3 helper: add command_run and command_output methods, by @tobes
+* py3 helper: add support for ranged thresholds to dynamically select the color output, by @tobes
+* py3 helper: report better exceptions, by @tobes
+* formatter now accepts per module coloring syntax on containers, by @tobes
+* formatter and composite overall updates, refactoring, tests, by @tobes
+* formatter add attr_getter option, by @tobes
+* formatter: allow formatting numeric strings, by @tobes
+* Allow updating of placeholder formatting of modules, by @tobes
+* universal module config parameter deprecation feature, by @tobes
+* disable modules if post-config_hook() raises Exception, by @tobes
+* log py3status/python versions and git info on start, by @tobes
+* fix multi-line default values support on docstrings, by @guiniol
+* fix i3status time modules updating, by @tobes
+* flake8 fixes and testing improvements, by @tobes
+* add tuples support to doc checker, by @guiniol
+* don't call updates on modules before they have been fully initialised, by @tobes
+* module test: fix unicode error, by @tobes
+* module test: check for alphabetical variable declaration and unicode semantics, by @tobes
+* new clock module to display multiple times and dates informations in a flexible way, by @tobes
+* new diskdata module to shows both usage data and IO data from disks, by @guiniol
+* new net_iplist module to display interfaces and their IPv4 and IPv6 IP addresses, by @guiniol
+* backlight module: allow changing brightness using mouse click events
+* battery_level module: stability and bugfix, by @inclementweather
+* battery_level module: fix on_click() method logic, by @m45t3r
+* battery_level module: add measurement_mode parameter to check for battery using /sys, by @m45t3r
+* exchange_rates module: cache value instead of reporting an error, by @tobes
+* fedora_updates module: add check_security option, by @jakubjedelsky
+* github module: open github home page if no repo is configured and you're getting all notifications, by @rixx
+* glpi module: add cache_timeout and format parameters, by @pferate
+* graphite module: add proxy parameter to allow usage of request's proxy feature, by @btall
+* mpris module: fix AttributeError when click without a running player, by @ritze
+* net_rate module: make compatible with formatter colors, by @guiniol
+* ns_checker module: add format and cache_timeout, by @pferate
+* rate_counter module: add format and majorly refactor code, by @pferate
+* spaceapi module: go to a space's website onclick, by @rixx
+* sysdata module: add dynamic memory unitn by @pferate
+* sysdata module: add support for colors/thresholds, by @guiniol
+* xrandr module: add rotation support, by @coxley
+* volume_status module: add pulseaudio support, by @guiniol
+* volume_status module: add pactl support, by @tobes
+* vpn_status module: remove shebang, by @jakubjedelsky
+
+version 3.2 (2016-10-11)
+* NOTE: this is mainly a bugfix release
+* fix safe format refactoring regressions, by Maxim Baz
+* fix unicode escape sequences in config parsing, by @tobes
+* fix module_test unicode issue, by @tobes
+* fix module_test for post_config_hook staticmethods etc, by @tobes
+* improve error report on missing default value, by @tobes
+* run all post config hooks before starting any modules, by @tobes
+* add defaults to docstrings, by @tobes
+* container modules switch display to urgent modules' output, by @tobes
+* update defaults for modules, by @tobes
+* enhanced module testing, by @tobes
+* docstring checking tests, by @tobes
+* modules to use safe_format(), by @tobes
+* battery_level module: fix hide_seconds when a user has two batteries, by Gabriel Féron
+* bluetooth module: fix issue where duplicate bluetooth connections are shown, by Yuli Khodorkovskiy
+* kdeconnector module: improvements, by Moritz Luedecke
+* process_status module: allow process to accept full process name, by Yuli Khodorkovskiy
+
+version 3.1 (2016-09-11)
+* NOTE: the documentation is getting stronger, check it out to know more about the new features listed
+* @tobes has become the first collaborator of the py3status project !
+* i3status.conf file is read with a new parser which allows for richer objects eg lists to be used in config, better unicode support for python2 and better reporting to the user for errors in the config, by @tobes
+* new format parser allows for rich and conditional format strings, by @tobes
+* it is now possible to use obfuscation on all string module parameters, by @tobes
+* colors are now configurable for all modules with dynamic naming, by @tobes
+* modules now support a post_config_hook special method to allow fine setup, by @tobes
+* click events and updates of modules refactoring, by @tobes
+* CI updates for better testing of py3status
+* fix: multiple enhancements on core performance and CPU reduction
+* fix: tztime modules glitch
+* fix: some crashes due to unicode logging
+* fix: for when config-file happened to be a symbolic link, by @Stautob
+* new module testing framework allowing feature rich standalone tests of modules, by @tobes
+* new backlight module to display the current screen backlight level, by @tjaartvdwalt
+* new coin_balance module to display balances of diverse crypto-currencies, by Felix Morgner
+* new exchange_rate module to check for your favorite currency rates, by @tobes
+* new file_status module to check the presence of a file, by @ritze
+* new frame module to group and display multiple modules inline, by @tobes
+* new gpmdp module for Google Play Music Desktop Player by @Spirotot
+* new kdeconnector module to display information about Android devices, by @ritze
+* new mpris module to control MPRIS enabled music players, by @ritze
+* new process_status module to check the presence of a process, by @ritze
+* new rainbow module to enlight your day, by @tobes
+* new tcp_status module to check for a given TCP port on a host, by @ritze
+* battery_level module: improved detection of active battery, by @ZeiP
+* exchange_rate module: fix rate on singe currency, by Jan Mrázek
+* volume_status module: now shows as color bad when muted, by @chezstov
+* a lot of module fixes and normalization !
+
+version 3.0 (2016-06-23)
+* IMPORTANT NOTE: the changelog is so big that this is a condensed version, apologize for missing contribution reports
+* split the monolithic code into proper modules, by Alexis 'Horgix' Chotard, @tobes and Daniel Foerster
+* major improvements on modules output orchestration and output resulting in considerable CPU consumption reduction, by @tobes
+* refactoring of user notifications with added dbus support and rate limiting, by @tobes
+* refactoring of i3status.conf file generation, by @tobes
+* improved modules error reporting, by @tobes
+* py3status can now survive an i3status crash and will try to respawn it, by @tobes
+* enhanced modules README formatting with CLI support, by @tobes
+* countless of code cleanup and improvements, by @tobes
+* implement a 'container' module output type to give the ability to group modules together, by @tobes
+* implement a helper named 'py3' for modules to ease their development, by @tobes
+* fix and refactoring of the time and tztime modules support, by @tobes
+* some py3status modules using i3-ipc could crash i3 when the i3bar was hidden, py3status now requests i3bar to use SIGTSTP instead of SIGSTOP, by @tobes
+* add min_width and align as universal module options, by johannes karoff
+* add separator and separator_block_width as universal module options, by johannes karoff
+* improved and normalized i3status and modules folder detection, by @tobes
+* added module dosctrings sanity check and modules README generation from CLI, by @tobes
+* qa: flake8 CI to 99 chars, by @tobes
+* docs: added contribution guidlines, by Alexis 'Horgix' Chotard and @tobes
+* docs: migrate over from the wiki to a proper doc/README.md, by @tobes and Daniel Foerster
+* new group module to cycle display of several modules, by @tobes
+* new fedora_updates module to check for your Fedora packages updates, by @tobes
+* new github module to check a github repository and notifications, by @tobes
+* new graphite module to check metrics from graphite
+* new insync module to check your current insync status, by Joshua Pratt
+* new timer module to have a simple countdown displayed, by @tobes
+* new twitch_streaming module to check is a Twitch Streamer is online, by Alex Caswell
+* new vpn_status module to check your VPN status, by Nathan Smith
+* new xrandr_rotate module to rotate your screens, by Maxim Baz
+* new yandexdisk_status module to display Yandex.Disk status, by Vladimir Potapev
+* keyboard_layout module: enhanced by Themistokle Benetatos
+* pomodoro module: now supports more options and still runs when the i3bar is hidden, by @tobes and @egeskow
+* sysdata module: fix python3 compatibility, by Yongming Lai
+* weather_yahoo module: remove deprecated city_code setting in favor of woeid, fixes #228
+* wifi module: enhanced by @tobes
+
+version 2.9 (2016-03-01)
+* fix: handle format_time tztime parameter thx to @cornerman, fix issue #177
+* fix: issue #166, by Daniel Foerster
+* fix: respect ordering of the ipv6 i3status module even on empty configuration, fix #158 as reported by @nazco
+* new arch_updates module, by Iain Tatch
+* new deadbeef module to show current track playing, by Themistokle Benetatos
+* new icinga2 module, by Ben Oswald
+* new scratchpad_async module, by johannes karoff
+* new wifi module, by Markus Weimar
+* battery_level module: add multiple battery support, by 4iar
+* battery_level module: added formatting options, by Alexandre Bonnetain
+* battery_level module: added option hide_seconds, by Andrwe Lord Weber
+* deadbeef module: fix permissions, remove execution mode, by Alexis 'Horgix' Chotard
+* dpms module: added color support, by Andrwe Lord Weber
+* spotify module: added format_down option, by Andrwe Lord Weber
+* spotify module: fixed color & playbackstatus check, by Andrwe Lord Weber
+* spotify module: workaround broken dbus, removed PlaybackStatus query, by christian
+* weather_yahoo module: support woeid, add more configuration parameters, by Rail Aliiev
+* implement flake8 check via travis-ci, by Rail Aliiev
+* yapf formatting on core
+
+version 2.8 (2016-01-03)
+* new hamster module for Project Hamster, by Aaron Fields
+* new selinux module, by Brian Stinson
+* new wwan_status module, by Timo Kohorst
+* battery_level module: Notify when battery is running low, by Maxim Baz
+* pomodoro module: add pyglet support for sound notifications, by Mateusz Probachta (Beetleman)
+* pomodoro module: eliminate intrusive log messages, by Alexandre Bonnetain
+* taskwarrior module: fix parsing of taskWarrior's output, by Alexandre Bonnetain
+* xrandr module: added missing "above" and "below" positioning options, by brianecker
+
+version 2.7 (2015-11-11)
+* major performance and click event detection improvements by Daniel Foerster
+* fix poll() calls to convert from seconds, by Daniel Foerster
+* fix: directive %Z and any other failure in parsing the time and tztime modules format will result in using i3status date output
+* fix: support of %z on time and tztime modules fixes #110 and #123 thx to @derekdreery and @olhotak
+* fix ethernet, wireless and battery _first_ instance detection. thx to @rekoil for reporting
+* i3status.conf writer lower case boolean values
+* i3status.conf parser handles configuration values with the = char
+* new rt module: display ongoing tickets from RT queues
+* new xsel module: display xsel buffers, by umbsublime
+* new window_title_async module, by Anon1234
+* battery_level module: major improvements, documentation, add format option, by Maxim Baz
+* keyboard_layout module: color customisation, add format option, by Ali Mousavi
+* mpd_status module: fix connection leak, by Thomas Sanchez
+* pomodoro module: implement format option and add additional display features, by Christoph Schober
+* spotify module: fix support for new versions, by Jimmy Garpehäll
+* spotify module: add support for colors output based on the playback status, by Sondre Lefsaker
+* sysdata module: trim spaces in `cpu_temp`, by beetleman
+* whatismyip module: change default check URL and make it configurable
+
+version 2.6 (2015-08-27)
+* fix: overall site-packages and user modules detection thx to @coelebs
+* fix: add back support for old school modules wrt issue #117
+* qa: cleanup obsolete position handling and validation
+* new uname module inspired by @ndalliard
+* mpd_status: minor bugfix on error handling, use divmod, pep8-style fixes, by Alexandre `Zopieux` Macabies
+
+version 2.5 (2015-08-17)
+* IMPORTANT NOTE: the legacy modules loading and ordering has been deprecated
+* drop old modules loading mechanism for version 2.5
+* new aws_bill module, by Anthony Brodard
+* new dropboxd_status module, by Tjaart van der Walt
+* new external_script module, by Dominik
+* new nvidia_temp module for displaying NVIDIA GPUs' temperature, by J.M. Dana
+* new rate_counter module, by Amaury Brisou
+* new screenshot module, by Amaury Brisou
+* new static_string module, by Dominik
+* new taskwarrior module, by James Smith
+* new volume_status module, by Jan T.
+* new whatismyip module displaying your public/external IP as well as your online status
+* dpms module: add format string support and add some options, by Kenneth Watson
+* dpms module: external processes might change DPMS so the module should check in the main loop, by J.M. Dana
+* example_module: fix standalone testing thanks to @frimdo issue #103
+* imap module: fix empty color that made text invisible on i3bar when no unread email, by Alexis 'Horgix' Chotard
+* imap module: switch to support format option
+* keyboard_layout module: add missing cache_timeout parameter in the docstring
+* mpd_status module: add coloring output based on state
+* mpd_status: mpc-like templating to remove format_fallback, by Alexandre `Zopieux` Macabies
+* netdata module: fix wrong nic default thx to @h8h on issue #111
+* pingdom module: update by Eric Masser
+* pomodoro: fix display_bar in python3, by Manuel Mendez
+* sysdata module: add format string support, refactor and cleanup, by shrimpza
+* whatismyip module: add a negative cache timeout for quicker check when offline
+* add optional setproctitle, by Federico Ceratto
+* fix i3status config file generation thx to @hlmtre some i3status modules have no default configuration
+* fix sysdata used RAM detection wrt issue #94 reported by @habash1986
+* fix typos in keyboard_layout module, by Jan T
+* implement thread profiling, by Federico Ceratto
+* update README with dropboxd_status docstring
+
+version 2.4 (2015-03-31)
+* IMPORTANT NOTE: this is the last version of py3status supporting the legacy modules loading and ordering, this behavior will be dropped on the next 2.5 version !
+* add CLI support for module listing, by Federico Ceratto
+* catch daylight savings time change, fix issue #75 thx to @Gamonics
+* fix issue #64, ensure modules methods are always iterated alphabetically thx to @shankargopal
+* refactor default config file detection, by Federico Ceratto
+* rename and move the empty_class example module to the doc/ folder
+* improve documentation in the example module, by Federico Ceratto
+* add note for Debian users installation using pip wrt issue #61
+* remove obsolete i3bar_click_events module
+* new online_status module by @obb
+* new bluetooth module by J.M. Dana
+* new player_control module, by Federico Ceratto
+* new spotify module, by Pierre Guilbert
+* new xrandr module to handle your screens layout from your bar
+* add VLC support to player_control module by @rixx
+* dpms module activate/deactivate the screensaver as well by J.M. Dana
+* imap module allows choice of color for unread mails, by rixx
+* imap module allows choosing to hide the mail status if no unseen mails exist, by rixx
+* imap module unread mail string is now fully configurable (format string), by rixx
+* imap module may now check several IMAP folders, by rixx
+* imap module only shows name if there are unread emails, by rixx
+* pomodoro module: add sound support, by Federico Ceratto
+* pomodoro module: sort configuration parameters, by Federico Ceratto
+* pomodoro module: disable progress bar by default, by Federico Ceratto
+* pomodoro module: make progress bar configurable, by Federico Ceratto
+* pomodoro module: display time as a progress bar, by Federico Ceratto
+* pomodoro module: play sounds before nagging the user., by Federico Ceratto
+* pomodoro module: left click can now pause and resume a Pomodoro, by rixx
+* fix spaceapi module for Space APIs without 'lastchange' field, by rixx
+* fix how xrandr module retrieves the layout with polling for hardware changes, by THEBAULT Julien
+* fix and cleanup netdata module as reported by @obb
+* fix keyboard_layout module incorrect parsing of "setxkbmap -query", by J.M. Dana
+* added better python3 compatibility for battery_level module by Thomas
+* added a small debugging output when directly calling battery_level.py by Thomas
+* QA on all modules docstrings for a clean CLI parsing
+* remove useless 'position' from debug logs
+* drop python2.5 from classifiers
+
+version 2.3 (2015-02-17)
+* refactor the main loop for instant i3bar update on module or i3status output change wrt issue #59, handle correctly all and multiple time and tztime instances while updating them only on py3status interval thx to @protosphere and @abello
+* clear cache of user modules on click events by default for maximal i3bar responsiveness
+* fix issue #63 wrt SIGUSR1 spam error, cap it to 1 per 100ms anyway to avoid killing i3status thx to @abello
+* lower the click event refresh mechanism rate limit to 100ms
+* remove legacy module ordering spammy debug logs
+* new spaceapi module, by Timm Szigat
+* new module bitcoin-price-checker, by André Doser
+* fix typo in imap module thx to @tasse
+* fix i3status setup race condition reported by @tasse
+* fix time adjustement for short iteration timers thx to @guilbep
+
+version 2.2 (2015-01-23)
+* rewrite and cleanup the modules loading mechanism to handle correctly user provided modules instances wrt #57 thx to @wlcx and @Zopieux
+* fix module name parsing thx to @guiniol
+* fix python3 default i3status.conf file path detection
+* fix i3status.conf parsing of one-liner configurations
+* support time/tztime definitions with extra parts in the section name, by Jyri-Petteri Paloposki
+* add more user configurable params to the pomodoro module wrt issue #53 thx to @promaq
+* add possibility to color mpd_status, by Thomas Sanchez
+* update get_user_modules docstring
+* add debug log of user provided modules
+* better format module loading error messages
+
+version 2.1 (2015-01-09)
+* fix i3status.conf parsing when config parameters contains brackets wrt issue #51 thx to @ZeiP
+* fix NamedTemporaryFile file delete throwing an OSError as we clean it up ourselves to be compatible with all python versions
+
+version 2.0 (2015-01-04)
+* two main highlights, see the wiki for more details :
+* 1- you can now load, run and order ALL (i3status and py3status) modules from your usual i3status.conf
+* 2- you can handle click events on ALL modules (i3status and py3status) directly from your usual i3status.conf thanks to the new on_click parameter
+* all modules have been changed to match v2 return dict, QA, config and standalone test code
+* implement full i3status.conf parsing wrt issue #44 thx to @tablet-mode
+* generate and use a temporary i3status config on the fly so that we can now extend it with our own modules without breaking i3status
+* move modules folder so we can install it as a module of py3status, all modules are now importable
+* handle loading, running and ordering of py3status modules directly configured from i3status.conf
+* user provided modules win over py3status importable modules
+* add handling of a special on_click parameter in i3status.conf allowing to send i3 messages and execute special py3status actions
+* implement an i3status module name and instance guesser in the event thread to dispatch click events from i3status modules
+* make sure every py3status command line parameter gets a short and long flag
+* new imap mail checker module by @obb
+* add installation instructions for Fedora, by Jakub Jedelsky
+* backport code for issue #43 thx to @scotte
+* enhanced battery_level module with horizontal bar and click event thx to @AdamBSteele wrt issue #48 and #49
+* make i3-nagbar messages non blocking to py3status
+* cleaner debug logs
+* update README with new wiki links and new capabilities explanations
+* update the i3wm.org documentation
+
+version 1.6 (2014-10-07)
+* new vnstat module, by Vasiliy Horbachenko
+* new net_rate module, alternative module for tracking network rate, by Vasiliy Horbachenko
+* Fix include_paths default wrt issue #38, by Frank Haun
+* module clementine.py: Make python3 compatible, by Frank Haun
+* Update sysdata.py module, by @fhaun
+* rename the 'examples' folder to 'modules'
+* add an information note in the keyboard module
+* normalize the CACHE_TIMEOUT variable name
+* PEP8 and cleanup of scratchpad-counter module
+* PEP8 and normalization of mpd_status module
+* PEP8 and rename the current-title to window-title, normalization
+* switch french color to solarized blue on keyboard-layout module
+* rename current-keyboard-layout to keyboard-layout, PEP8 cleanup, implement check using setxkbmap for maximal compatibility, add french coloring
+* add optional CPU temperature to the sysdata module, by Rayeshman
+* new mpd_status module, by Vasiliy Horbachenko
+* add pypip badge for version
+* new scratchpad-counter module and current-title module for displaying current windows title, by Vasiliy Horbachenko
+* fix netdata module to work with python3 wrt issue #31
+* new clementine module displaying the current "artist - title" playing in Clementine, by François LASSERRE
+
+version 1.5 (2014-05-03)
+* add --version parameter wrt issue #29
+* switch back to RST for the README wrt pypi and issue #30 thx to @Weishaupt
+* include modules, changelog and license to sources on pypi
+* rename the examples folder to modules and include it in the installed files
+
+version 1.4 (2014-04-16)
+* new ordering mechanism with verbose logging. fixes rare cases where the modules methods were not always loaded in the same order and caused inconsistent ordering between reloads. thx to @guiniol for reporting/debugging and @IotaSpencer and @tasse for testing.
+* debug: dont catch print() on debug mode
+* debug: add position requested by modules
+* Add new module ns_checker.py, by @nawadanp
+* move README to markdown, change ordering
+* update the README with the new options from --help
+
+version 1.3 (2014-02-23)
+* new standalone mode allowing to bypass i3status when you need a py3status-modules-only i3bar
+* debug mode add log info about py3status invocation config
+* pep8 cosmetics
+* python3 compatibility code wrt issue #24
+* make sure i3status_time encoding is UTF-8 wrt issue #24, thx to @zetok
+
+version 1.2 (2014-01-12)
+* new module dpms.py allowing activation and deactivation of DPMS thx to André Doser
+* order i3status output updates to prevent it from overwritting any modification made on i3status json list by a user module, this avoids a possible user filter flapping on i3status modules
+* fix delay on first execution of each module which could be equal to py3status interval time before being executed
+* the real i3status thread output json list is passed to all modules as the i3status_output_json parameter, this allows any user module to change any of the i3status output by simply altering the given json on the list, inspired thx to @drestebon on issue #23
+* add validation for the position parameter
+* make cpu status cached for 10s and leave the output index to 0, by Patrick Shan
+* add cpu usage info to sysdata script, by Patrick Shan
+
+version 1.1 (2013-12-15)
+* new generic click event handler using the special module file named i3bar_click_events.py which will be forwarded any orphan click event for action. this allows you to take action on clicks made on your i3status modules !
+* add the filename as the module_name property to the Module class
+* drop useless modes on examples
+* new example whoami displaying the currently logged in user
+* be more concrete in the i3status.conf example
+* add IRC information, join us on #py3status on freenode to share your ideas or ask for help
+* redirect stdout and stderr to null to suppress modules outputs, this prevents i3bar from frezzing when a user module prints something to stdout or stderr wrt issue #20
+* use base stdout for the output on i3bar
+* fix first event opening line wrt issue #19 thx to @lathan
+* fix delay on py3status start waiting for i3status, this caused a useless first refresh delay of py3status of i3status interval seconds, thx to @Edholm on issue #18
+* fix i3status time adjustment when format does not contain the necessary items to get an exact datetime wrt issue #18
+* fix respect user's locale for time transformation, thx to @Edholm on issue #18
+* new example module displaying Yahoo Weather forcast
+* Float update-time option, by Tom Hunt
+
+version 1.0 (2013-08-30)
+* total rewrite (yes, again)
+* support for i3bar click_events, they're dispatched to user-written py3status classes based on their name/instance
+* add support for on_click methods in user-written modules to handle i3bar click_events (see the pomodoro example)
+* default is to clear the method's cache (force a refresh) if you middle click (button 2) on a method's output and the module does not support click_events
+* rewrite pomodoro example to showcase the on_click usage
+* use i3-nagbar to display warnings/errors to the user and also log them to syslog
+* new user-written module output ordering mechanism is more intuitive as it uses strictly numeric then alphabetical sorting
+* use select/poll() to implement a non-blocking I/O reading mechanism on threads
+* new Events thread is responsible for reading i3bar JSONs and dispatching them to the correct user module (click_events)
+* each user-written module is started and executed in its own thread
+* remove the pointless -d option
+* add a --debug option to be verbose in syslog (useful for debugging your modules)
+* add a real CHANGELOG
+* add a proper LICENSE file
+* make sure all examples are PEP8 compatible
+* update the empty_class example to explain on_click and kill usage
+
+version 0.13 (2013-06-24)
+* fix instancemethod detection wrt issue #11 thx to @lathan and @bloodred, inspired by pull request #12 by @drahier
+* add information about method execution in the empty_class example
+
+version 0.12 (2013-06-19)
+* update the readme and help
+* dont call private and special methods on Py3status classes
+* handle multiple include paths parameters
+* dont die on IOError upon suspend wrt issue #10 thx to @drahier
+* Three new method added. (net_speed, traffic, ram_info), by Shahin Azad
+
+version 0.11 (2013-04-30)
+* fix UserModules.clear(), by Ed Kellett
+* fix i3status config reader tztime detection
+
+version 0.10 (2013-04-19)
+* fix setup for pypi
+* fix issue #5 thx to @drahier for reporting
+* fix README wiki URL
+* stupid rst
+* update the README for rst, better MANIFEST
+* add MANIFEST.in and switch README.rst for pypi
+
+version 0.9 (2013-04-17)
+* respect positions on injected classes outputs
+* update readme for pypi installation
+* drop invalid classifier for pypi
+* set default i3status colors
+* pingdom module dont need to be aggressive on timeout anymore, add POSITION parameter
+* glpi module dont need to be aggressive on timeout anymore, add POSITION parameter
+* enhanced self key binding pomodoro example as discussed with Fandekasp
+* Handle killing of user-written modules nicely by calling their kill method if implemented upon exit of py3status, ignore kill methods execution when running normally
+* handle case log file does not exists, by Adrien Lemaire
+* plugin now working with keys to start/stop/pause, by Adrien Lemaire
+* reading log file for value. Do I really need watchdog ?, by Adrien Lemaire
+* define watchdog values to listen, and their action, by Adrien Lemaire
+* separate code in send_notification method, by Adrien Lemaire
+* adding new pomodoro plugin, by Adrien Lemaire
+* drop useless print
+
+version 0.8 (2013-04-08)
+* major rewrite
+* handle SIGUSR1 for new threaded modules execution, drop useless globals
+* load user defined modules from a separate thread so that they cannot cause any delay in updating the i3bar
+* PEP8 identation and python3 compatible examples
+* adjust the readme help
+* major cleanup, better threading of i3status, enhanced main logic for better responsiveness, drop useless variables, respect PEP8 identation, more PEP8 variable cleanup
+
+version 0.7 thanks to @Detegr (2013-04-06)
+* add a note on the Control section
+* only adjust sleep interval if i3status interval is greater than ours
+* add Pingdom checks latency example module
+
+version 0.6 (2013-03-25)
+* fix time transformation thx to Lujeni
+* specify default folder for user defined classes
+* clear the user class cache when receiving SIGUSR1
+
+version 0.5 (2013-03-17)
+* add the Control section, cleanup install instructions
+* signal SIGUSR1 forces i3status and i3bar refresh, feature request by Michael Schaefer, add better comments
+
+version 0.4 (2013-03-15)
+* dont fail if i3status output comes slower than py3status message polling interval
+* iterate over user classes in a sorted manner to allow a predictive ordering of outputs
+* add Arch installation URL on the README thx to waaaaargh
+* python3 compatibility inspired by waaaaargh (Johannes Firlefanz)
+* add GLPI open tickets counter module example

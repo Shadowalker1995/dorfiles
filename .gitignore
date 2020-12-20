@@ -19,9 +19,20 @@ nvim/sessions
 # Don't commit tmux resurrect state.
 .tmux/resurrect
 
+# zsh
+zsh/.zcompdump*
+
+# goldendict
+.goldendict/index
+
 # Ignore any file with LOCAL in the name (good for per-machine vars/functions)
 *LOCAL*
 */.git
 */.github
 */.gitignore
 #!.gitignore
+*/.gitattributes
+*/.revision-hash
+*/.gitmodules
+*/.travis.yml
+*/cache

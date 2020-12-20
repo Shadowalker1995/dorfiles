@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="GLOBAL" XmlFormat="9">
+    <General>
+        <Language Name="English (U.S.)"/>
+        <FailSafeFileCopy Enabled="true"/>
+        <CopyLockedFiles Enabled="false"/>
+        <CopyFilePermissions Enabled="false"/>
+        <FileTimeTolerance Seconds="2"/>
+        <FolderAccessTimeout Seconds="20"/>
+        <RunWithBackgroundPriority Enabled="false"/>
+        <LockDirectoriesDuringSync Enabled="true"/>
+        <VerifyCopiedFiles Enabled="false"/>
+        <LastSyncsLogSizeMax Bytes="100000"/>
+        <NotificationSound CompareFinished="" SyncFinished="gong.wav"/>
+        <ProgressDialog AutoClose="false"/>
+        <OptionalDialogs>
+            <ConfirmStartSync Show="true"/>
+            <ConfirmSaveConfig Show="true"/>
+            <ConfirmExternalCommandMassInvoke Show="true"/>
+            <WarnUnresolvedConflicts Show="true"/>
+            <WarnNotEnoughDiskSpace Show="true"/>
+            <WarnSignificantDifference Show="true"/>
+            <WarnRecycleBinNotAvailable Show="true"/>
+            <WarnInputFieldEmpty Show="true"/>
+            <WarnModificationTimeError Show="true"/>
+            <WarnDependentFolderPair Show="true"/>
+            <WarnDependentBaseFolders Show="true"/>
+            <WarnDirectoryLockFailed Show="true"/>
+            <WarnVersioningFolderPartOfSync Show="true"/>
+        </OptionalDialogs>
+    </General>
+    <Gui>
+        <MainDialog Width="900" Height="550" PosX="510" PosY="265" Maximized="false">
+            <ManualCopyTo KeepRelativePaths="false" OverwriteIfExists="false">
+                <FolderHistory LastUsedPath="" MaxSize="15"/>
+            </ManualCopyTo>
+            <Search CaseSensitive="false"/>
+            <FolderPairsVisible Max="6"/>
+            <ConfigPanel ScrollPos="0" SyncOverdue="7" SortByColumn="Name" SortAscending="true">
+                <Columns>
+                    <Item Type="Name" Visible="true" Width="-75" Stretch="1"/>
+                    <Item Type="Last" Visible="true" Width="75" Stretch="0"/>
+                </Columns>
+                <Configurations MaxSize="100">
+                    <Item LastSync="0">/home/zzhenry/.FreeFileSync/LastRun.ffs_gui</Item>
+                </Configurations>
+                <LastUsed>
+                    <Item>/home/zzhenry/.FreeFileSync/LastRun.ffs_gui</Item>
+                </LastUsed>
+            </ConfigPanel>
+            <OverviewPanel ShowPercentage="true" SortByColumn="Bytes" SortAscending="false">
+                <Columns>
+                    <Item Type="Tree" Visible="true" Width="-120" Stretch="1"/>
+                    <Item Type="Count" Visible="true" Width="60" Stretch="0"/>
+                    <Item Type="Bytes" Visible="true" Width="60" Stretch="0"/>
+                </Columns>
+            </OverviewPanel>
+            <FilePanel ShowIcons="true" IconSize="Small" SashOffset="0" HistoryMaxSize="15">
+                <ColumnsLeft PathFormat="Relative">
+                    <Item Type="Path" Visible="true" Width="-100" Stretch="1"/>
+                    <Item Type="Ext" Visible="false" Width="60" Stretch="0"/>
+                    <Item Type="Date" Visible="false" Width="140" Stretch="0"/>
+                    <Item Type="Size" Visible="true" Width="100" Stretch="0"/>
+                </ColumnsLeft>
+                <FolderHistoryLeft/>
+                <ColumnsRight PathFormat="Relative">
+                    <Item Type="Path" Visible="true" Width="-100" Stretch="1"/>
+                    <Item Type="Ext" Visible="false" Width="60" Stretch="0"/>
+                    <Item Type="Date" Visible="false" Width="140" Stretch="0"/>
+                    <Item Type="Size" Visible="true" Width="100" Stretch="0"/>
+                </ColumnsRight>
+                <FolderHistoryRight/>
+            </FilePanel>
+            <DefaultViewFilter Equal="false" Conflict="true" Excluded="false">
+                <CategoryView LeftOnly="true" RightOnly="true" LeftNewer="true" RightNewer="true" Different="true"/>
+                <ActionView CreateLeft="true" CreateRight="true" UpdateLeft="true" UpdateRight="true" DeleteLeft="true" DeleteRight="true" DoNothing="true"/>
+            </DefaultViewFilter>
+            <Perspective>layout2|name=CenterPanel;caption=;state=256;dir=5;layer=0;row=0;pos=0;prop=100000;bestw=808;besth=102;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=TopPanel;caption=Main Bar;state=2099708;dir=1;layer=2;row=1;pos=0;prop=100000;bestw=268;besth=70;minw=180;minh=70;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ProgressPanel;caption=;state=2097662;dir=1;layer=2;row=2;pos=0;prop=100000;bestw=624;besth=103;minw=-1;minh=103;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=FoldersPanel;caption=Folder Pairs;state=2099708;dir=1;layer=2;row=3;pos=0;prop=100000;bestw=808;besth=54;minw=-1;minh=54;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=SearchPanel;caption=Find;state=2099710;dir=3;layer=2;row=2;pos=0;prop=100000;bestw=257;besth=31;minw=100;minh=31;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ViewFilterPanel;caption=View Settings;state=2099708;dir=3;layer=2;row=1;pos=0;prop=100000;bestw=812;besth=47;minw=100;minh=47;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=ConfigPanel;caption=Configuration;state=2099196;dir=4;layer=3;row=0;pos=0;prop=100000;bestw=210;besth=27;minw=190;minh=27;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|name=OverviewPanel;caption=Overview;state=2099196;dir=4;layer=3;row=0;pos=1;prop=100000;bestw=808;besth=102;minw=-1;minh=-1;maxw=-1;maxh=-1;floatx=-1;floaty=-1;floatw=-1;floath=-1|dock_size(5,0,0)=242|dock_size(1,2,1)=70|dock_size(1,2,3)=54|dock_size(3,2,1)=47|dock_size(4,3,0)=302|</Perspective>
+        </MainDialog>
+        <DefaultExclusionFilter>
+            <Item>/.Trash-*/</Item>
+            <Item>/.recycle/</Item>
+        </DefaultExclusionFilter>
+        <CommandHistory MaxSize="8"/>
+        <ExternalApps>
+            <Item Label="Browse directory">xdg-open "%folder_path%"</Item>
+            <Item Label="Open with default application">xdg-open "%local_path%"</Item>
+        </ExternalApps>
+        <LastOnlineCheck>1528630750</LastOnlineCheck>
+        <LastOnlineVersion>10.1</LastOnlineVersion>
+    </Gui>
+</FreeFileSync>

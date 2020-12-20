@@ -1,0 +1,339 @@
+priority -50
+
+extends c
+
+# We want to overwrite everything in parent ft.
+priority -49
+
+###########################################################################
+#                            TextMate Snippets                            #
+###########################################################################
+
+#! header
+snippet header "header information" b
+// ===========================================
+// -FileName:	`!p snip.rv=fn`
+// -Author:		Zhu Zhan
+// -Email:		henry664650770@gmail.com
+// -Date:		`date "+%Y-%m-%d %H:%M:%S"`
+// ===========================================
+
+$0
+endsnippet
+
+snippet beginend "$1.begin(), $1.end() (beginend)"
+${1:v}${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}begin(), $1${1/^.*?(-)?(>)?$/(?2::(?1:>:.))/}end()
+endsnippet
+
+#snippet cl "class .. (class)"
+#class ${1:`!p snip.rv = snip.basename or "name"`} {
+#public:
+#	${1/(\w+).*/$1/} (${2:arguments});
+#	virtual ~${1/(\w+).*/$1/} ();
+#
+#private:
+#	${0:/* data */}
+#};
+#endsnippet
+
+snippet ns "namespace .. (namespace)"
+namespace${1/.+/ /m}${1:`!p snip.rv = snip.basename or "name"`}
+{
+	${VISUAL}${0}
+}${1/.+/ \/* /m}$1${1/.+/ *\/ /m}
+endsnippet
+
+snippet readfile "read file (readF)"
+std::vector<char> v;
+if (FILE *fp = fopen(${1:"filename"}, "r")) {
+	char buf[1024];
+	while(size_t len = fread(buf, 1, sizeof(buf), fp))
+		v.insert(v.end(), buf, buf + len);
+	fclose(fp);
+}
+endsnippet
+
+snippet map "std::map (map)"
+std::map<${1:key}, ${2:value}> map$0;
+endsnippet
+
+snippet vector "std::vector (v)"
+std::vector<${1:char}> v$0;
+endsnippet
+
+snippet tuple "std::tuple"
+std::tuple<$1>$0
+endsnippet
+
+snippet pair "std::pair"
+std::pair<$1, $2>$0
+endsnippet
+
+
+snippet tp "template <typename ..> (template)"
+template <typename ${1:_InputIter}>
+endsnippet
+
+#### DMS
+
+snippet array "array"
+std::array<${1:T}, ${2:N}> ${3};$0
+endsnippet
+
+# std::vector
+snippet vec "vec"
+std::vector<$1>$0
+endsnippet
+
+#snippet vector "vector"
+#std::vector<${1:T}> ${2};${3}
+#endsnippet
+
+# std::deque
+snippet deque "deque"
+std::deque<${1:T}> ${2};${3}
+endsnippet
+
+# std::forward_list
+snippet flist "flist"
+std::forward_list<${1:T}> ${2};${3}
+endsnippet
+
+# std::list
+snippet list "list"
+std::list<${1:T}> ${2};${3}
+endsnippet
+
+# std::set
+snippet set "set"
+std::set<${1:T}> ${2};${3}
+endsnippet
+
+# std::map
+#snippet map "map"
+#std::map<${1:Key}, ${2:T}> ${3};${4}
+#endsnippet
+
+# std::multiset
+snippet mset "mset"
+std::multiset<${1:T}> ${2};${3}
+endsnippet
+
+# std::multimap
+snippet mmap "mmap"
+std::multimap<${1:Key}, ${2:T}> ${3};${4}
+endsnippet
+
+# std::unordered_set
+snippet uset "uset"
+boost::unordered_set<${1:T}> ${2};${3}
+endsnippet
+
+# std::unordered_map
+snippet umap "umap"
+std::unordered_map<${1:Key}, ${2:T}> ${3};${4}
+endsnippet
+
+# std::unordered_multiset
+snippet umset "umset"
+std::unordered_multiset<${1:T}> ${2};${3}
+endsnippet
+
+# std::unordered_multimap
+snippet ummap "ummap"
+std::unordered_multimap<${1:Key}, ${2:T}> ${3};${4}
+endsnippet
+
+# std::stack
+snippet stack "stack"
+std::stack<${1:T}> ${2};${3}
+endsnippet
+
+# std::queue
+snippet queue "queue"
+std::queue<${1:T}> ${2};${3}
+endsnippet
+
+# std::priority_queue
+snippet pqueue "pqueue"
+std::priority_queue<${1:T}> ${2};${3}
+endsnippet
+
+##
+## Access Modifiers
+# private
+snippet pri "pri"
+private
+endsnippet
+
+# protected
+snippet pro "pro"
+protected
+endsnippet
+
+# public
+snippet pub "pub"
+public
+endsnippet
+
+# friend
+snippet fr "fr"
+friend
+endsnippet
+
+# mutable
+snippet mu "mu"
+mutable
+endsnippet
+
+##
+## Class
+# class
+snippet cl "cl"
+class $1 {
+public:
+	$1($2);
+	virtual ~$1();
+	$1(const $1& other) = delete;
+	$1& operator=(const $1& other) = delete;
+	$3
+};$0
+endsnippet
+
+# member function implementation
+snippet mfun "mfun"
+${4:void} ${1:`!v vim_snippets#Filename('$1', 'ClassName')`}::${2:memberFunction}(${3}) {
+	${5}
+}
+endsnippet
+
+##
+## Input/Output
+# std::cout
+snippet cout "cout"
+std::cout << ${1}
+endsnippet
+
+# std::cerr
+snippet cerr "cerr"
+std::cerr << ${1}
+endsnippet
+
+# std::cin
+snippet cin "cin"
+std::cin >> ${1};${2}
+endsnippet
+
+##
+## Iteration
+# for i
+#snippet fori "fori"
+#for (${1}::iterator ${2:itr} = ${3:}.begin();
+#	${4:$2} != ${5:$3}.end();
+#	++${6:$2}) {
+#	${7}
+#}${8}
+#endsnippet
+
+# foreach
+snippet fore "fore"
+for (${1:auto} ${2:i} : ${3:container}) {
+	${4}
+}${5}
+endsnippet
+
+snippet dbg "dbg"
+std::cerr << "${1:} = " << ${2:$1} << std::endl;${3}
+endsnippet
+
+# iterator
+snippet iter "iter"
+for (${1:std::vector}<${2:type}>::${3:const_iterator} ${4:i} = ${5:container}.begin(); $4 != $5.end(); ++$4) {
+	${6}
+}${7}
+endsnippet
+
+# auto iterator
+snippet itera "itera"
+for (auto ${1:i} = $1.begin(); $1 != $1.end(); ++$1) {
+	${2:std::cout << *$1 << std::endl;}
+}${3}
+endsnippet
+
+##
+## Lambdas
+# lamda (one line)
+snippet ld "ld"
+[${1}](${2}){${3}}${4}
+endsnippet
+
+# lambda (multi-line)
+snippet lld "lld"
+[${1}](${2}){
+	${3}
+}${4}
+endsnippet
+
+snippet std "std"
+std::
+endsnippet
+
+snippet bg "bg"
+std::begin()
+endsnippet
+
+snippet end "end"
+std::end()
+endsnippet
+
+snippet sz "sz"
+size_t
+endsnippet
+
+snippet . "."
+::
+endsnippet
+
+snippet cr "cr"
+"\n"
+endsnippet
+
+snippet using "using"
+using namespace ${1:boost}
+endsnippet
+
+snippet scast "scast"
+static_cast<${1}>(${2})${3}
+endsnippet
+
+snippet it "it"
+iterator
+endsnippet
+
+snippet opio "opio"
+std::ostream& operator<<(std::ostream& os, const $1)$0
+endsnippet
+
+#snippet enum "enum"
+#enum ${1:MyEnum} {
+#	${2}
+#};${3}
+#endsnippet
+
+snippet ositer "ositer"
+std::copy($1.begin(), $2.end(), std::ostream_iterator<$3>(${4:std::cout}, ${5:" "}));$0
+endsnippet
+
+snippet shared "shared ptr"
+std::shared_ptr<$1>
+endsnippet
+
+snippet sharednew "shared new"
+std::shared_ptr<$1>(new $1);
+endsnippet
+
+snippet unique "unique ptr"
+std::unique_ptr<$1>
+endsnippet
+
+# vim:ft=snippets:

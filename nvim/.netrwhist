@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg/aitom/classify/deep/unsupervised/autoencoder'
+let g:netrw_dirhist_5='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg/aitom/classify/deep/unsupervised'
+let g:netrw_dirhist_4='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg/aitom/classify/deep'
+let g:netrw_dirhist_3='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg/aitom/classify'
+let g:netrw_dirhist_2='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg/aitom'
+let g:netrw_dirhist_1='/home/zzhenry/miniconda3/envs/aitom/lib/python3.6/site-packages/aitom-0.0.1-py3.6-linux-x86_64.egg'
+let g:netrw_dirhist_0='/etc/bash_completion.d'
+let g:netrw_dirhist_9='/media/zzhenry/5a6fff39-6cef-4709-85ff-dcad27c4e770/zzhenry/Xulab/zzhenry/NLP/ANR/datasets'
+let g:netrw_dirhist_8='/home/zzhenry/Dev/Scripts'
+let g:netrw_dirhist_7='/home/zzhenry/.vim/ctags-5.8'

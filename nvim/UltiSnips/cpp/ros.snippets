@@ -1,0 +1,76 @@
+snippet ros_include "common ros headers"
+#include <ros/ros.h>
+#include <ros/console.h>
+#include <ros/time.h>
+#include <tf/tf.h>
+endsnippet
+
+snippet ros "ros"
+ros::
+endsnippet
+
+snippet rosnow "time stamp now"
+ros::Time::now()
+endsnippet
+
+snippet rosloop "manual ros event loop"
+ros::Rate rate(100);
+while (ros::ok()) {
+	$1
+	rate.sleep();
+	ros::spinOnce();
+}$0
+endsnippet
+
+snippet rospub "ros publisher" b
+ros::Publisher ${1:pub} = nh.advertise<$2>("${3:topic}", 10);$0
+endsnippet
+
+snippet rossub "ros subscruber" b
+ros::Subscriber ${1:sub} = nh.subscribe("${2:topic}", ${3:queue_size}, ${4:callback}, this);$0
+endsnippet
+
+snippet rosnh "ros node handle"
+ros::NodeHandle ${3:nh_}
+endsnippet
+
+snippet roserr "ros error"
+ROS_ERROR_STREAM(${1});$0
+endsnippet
+
+snippet rosinfo "ros info"
+ROS_INFO_STREAM(${1});$0
+endsnippet
+
+snippet rosdbg "ros debug"
+ROS_DEBUG_STREAM(${1});$0
+endsnippet
+
+snippet rosinfovar "ros info var"
+ROS_INFO_STREAM("${1:} = " << ${2:$1});$0
+endsnippet
+
+snippet rosdbgvar "ros debug"
+ROS_DEBUG_STREAM("${1:} = " << ${2:$1});$0
+endsnippet
+
+snippet rosass "ros assert"
+ROS_ASSERT(${1:});$0
+endsnippet
+
+snippet rosparam_get "ros get param"
+if (!nh_.getParam("$1", ${1:name})) { ROS_ERROR("No $1 param"); }
+endsnippet
+
+snippet rostf_broadcast "ros tf broadcast"
+tf::TransformBroadcaster broadcaster;
+tf::Transform baseframe_to_world(tf::Quaternion::getIdentity(), tf::Vector3(0, 0, 0));
+ros::Time ts_now = ros::Time::now();
+broadcaster.sendTransform(tf::StampedTransform(baseframe_to_world.inverse(), ts_now, "/pcs_world", "/base_frame"));
+endsnippet
+
+snippet tf "tf"
+tf::
+endsnippet
+
+# vim:ft=snippets:

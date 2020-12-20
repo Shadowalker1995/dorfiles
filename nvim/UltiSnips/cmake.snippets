@@ -1,0 +1,202 @@
+snippet cmake "cmake templates" b
+cmake_minimum_required(version 2.6)
+project(${1:ProjectName})
+
+find_package(${2:LIBRARY})
+
+include_directories(
+	${$2_INCLUDE_DIR}
+)
+
+add_subdirectory(${3:src})
+
+add_executable($1)
+
+target_link_libraries($1
+	${$2_LIBRARIES}
+)
+endsnippet
+
+snippet catkin_cmake "catkin cmake templates" b
+cmake_minimum_required(VERSION 2.8.3)
+project(${1:name})
+
+find_package(catkin REQUIRED COMPONENTS
+	roscpp
+	cmake_modules
+)
+
+find_package(Boost REQUIRED COMPONENTS system)
+find_package(OpenCV REQUIRED)
+find_package(PCL REQUIRED COMPONENTS common)
+find_package(Eigen REQUIRED)
+
+catkin_package(
+	INCLUDE_DIRS include
+	LIBRARIES
+	CATKIN_DEPENDS roscpp cmake_modules
+	DEPENDS OpenCV PCL Eigen Boost
+)
+
+include_directories(
+	${catkin_INCLUDE_DIRS}
+	${PCL_COMMON_INCLUDE_DIRS}
+	${Eigen_INCLUDE_DIRS}
+	${Boost_INCLUDE_DIRS}
+	include
+)
+
+add_executable(${PROJECT_NAME}_examples src/examples.cpp)
+target_link_libraries(${PROJECT_NAME}_examples
+	${catkin_LIBRARIES}
+	${OpenCV_LIBS}
+	${PCL_COMMON_LIBRARIES}
+)
+endsnippet
+
+#snippet include "include directory" b
+#include_directories(
+#	${${1:INCLUDE_DIR}}
+#)
+#endsnippet
+
+snippet include "include directory" b
+include_directories(
+endsnippet
+
+#snippet find "find package" b
+#find_package(${1:LIBRARY})
+#endsnippet
+
+snippet find "find package" b
+find_package(
+endsnippet
+
+snippet glob "glob files" b
+file(glob ${1:SRCS} *.${2:cpp})
+endsnippet
+
+snippet subdir "add subdir" b
+add_subdirectory(${1:src})
+endsnippet
+
+#snippet lib "add library" b
+#add_library(${1:lib} ${2:STATIC}
+#	${${3:SRCS}}
+#)
+#endsnippet
+
+snippet lib "add library" b
+add_library(
+endsnippet
+
+
+#snippet link "target link lib" b
+#target_link_libraries(${1:bin}
+#	${2:somelib}
+#)
+#endsnippet
+
+snippet link "target link lib" b
+target_link_libraries(
+endsnippet
+
+snippet exec "add execeutable" b
+add_executable(
+endsnippet
+
+snippet set "set var" b
+set(${1:var} ${2:val})
+endsnippet
+
+snippet dep "add dependency" b
+add_dependencies(${1:target}
+	${2:dep}
+)
+endsnippet
+
+snippet props "set property" b
+set_target_properties(${1:target}
+	${2:PROPERTIES} ${3:COMPILE_FLAGS}
+	${4:"-O3 -Wall -pedantic"}
+)
+endsnippet
+
+snippet find_boost "find boost" b
+find_package(Boost REQUIRED COMPONENTS ${1})
+endsnippet
+
+snippet find_cv "find opencv" b
+find_package(OpenCV REQUIRED)
+endsnippet
+
+snippet find_pcl "find pcl" b
+find_package(PCL REQUIRED COMPONENTS common)
+endsnippet
+
+snippet find_eigen "find Eigen" b
+find_package(Eigen REQUIRED)
+endsnippet
+
+snippet include_catkin "include catkin"
+${catkin_INCLUDE_DIRS}
+endsnippet
+
+snippet include_eigen "include eigen"
+${Eigen_INCLUDE_DIRS}
+endsnippet
+
+snippet include_pcl "include pcl"
+${PCL_COMMON_INCLUDE_DIRS}
+endsnippet
+
+snippet include_cv "include opencv"
+${OpenCV_INCLUDE_DIRS}
+endsnippet
+
+snippet lib_catkin "include catkin"
+${catkin_LIBRARIES}
+endsnippet
+
+snippet lib_pcl "link pcl"
+${PCL_COMMON_LIBRARIES}
+endsnippet
+
+snippet lib_boost "link boost"
+${Boost_LIBRARIES}
+endsnippet
+
+snippet lib_cv "link cv"
+${OpenCV_LIBRARIES}
+endsnippet
+
+snippet catkin_simple "catkin_simple example" b
+cmake_minimum_required(VERSION 2.8.3)
+project(foo)
+
+find_package(catkin_simple REQUIRED)
+
+# gathers build_depends, does find_package on each
+# packages that are found are added to find_package(catkin REQUIRED ...)
+# also addes include's
+# also discovers msg, srv, action, and dynamic_reconfigure
+catkin_simple()
+# fails if find_package fails on REQUIRED deps
+# catkin_simple(ALL_DEPS_REQUIRED)
+
+# add_library and target_link_libraries
+cs_add_library(my_lib src/my_lib.cpp)
+
+# similar to add library
+cs_add_executable(my_exec src/main.cpp)
+target_link_libraries(my_exec my_lib)
+
+# install stuff created with cs_* commands
+cs_install()
+
+# other targets, nstalls to ${prefix}/lib/${pkg_name}
+cs_install_scripts(scripts/my_script.py)
+
+# caktin_package()
+cs_export()
+endsnippet

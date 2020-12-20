@@ -1,0 +1,287 @@
+2020-08-18 23:41:54 [PicGo INFO] Before transform
+2020-08-18 23:41:54 [PicGo INFO] Transforming...
+2020-08-18 23:41:54 [PicGo INFO] Before upload
+2020-08-18 23:41:54 [PicGo INFO] Uploading...
+2020-08-18 23:41:54 [PicGo WARN] failed
+2020-08-18 23:41:54 [PicGo ERROR] Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+------Error Stack Begin------
+Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+    at Object.handle (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/uploader/smms.js:26:15)
+    at Lifecycle.doUpload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:70:24)
+    at Lifecycle.start (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:21:24)
+    at async PicGo.upload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/PicGo.js:156:13)
+    at async Command.<anonymous> (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/commander/upload.js:29:13)
+-------Error Stack End-------
+2020-08-18 23:43:31 [PicGo INFO] Before transform
+2020-08-18 23:43:31 [PicGo INFO] Transforming...
+2020-08-18 23:43:31 [PicGo INFO] Before upload
+2020-08-18 23:43:31 [PicGo INFO] Uploading...
+2020-08-18 23:43:31 [PicGo WARN] failed
+2020-08-18 23:43:31 [PicGo ERROR] Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+------Error Stack Begin------
+Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+    at Object.handle (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/uploader/smms.js:26:15)
+    at Lifecycle.doUpload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:70:24)
+    at Lifecycle.start (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:21:24)
+    at async PicGo.upload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/PicGo.js:156:13)
+    at async Command.<anonymous> (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/commander/upload.js:29:13)
+-------Error Stack End-------
+2020-08-18 23:43:46 [PicGo INFO] Before transform
+2020-08-18 23:43:46 [PicGo INFO] Transforming...
+2020-08-18 23:43:46 [PicGo INFO] Before upload
+2020-08-18 23:43:46 [PicGo INFO] Uploading...
+2020-08-18 23:43:46 [PicGo WARN] failed
+2020-08-18 23:43:46 [PicGo ERROR] Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+------Error Stack Begin------
+Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+    at Object.handle (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/uploader/smms.js:26:15)
+    at Lifecycle.doUpload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:70:24)
+    at Lifecycle.start (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:21:24)
+    at async PicGo.upload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/PicGo.js:156:13)
+    at async Command.<anonymous> (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/commander/upload.js:29:13)
+-------Error Stack End-------
+2020-08-18 23:45:57 [PicGo SUCCESS] 插件安装成功
+2020-08-18 23:47:14 [PicGo INFO] Before transform
+2020-08-18 23:47:14 [PicGo INFO] Transforming...
+2020-08-18 23:47:14 [PicGo INFO] Before upload
+2020-08-18 23:47:14 [PicGo INFO] Uploading...
+2020-08-18 23:47:14 [PicGo WARN] failed
+2020-08-18 23:47:14 [PicGo ERROR] Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+------Error Stack Begin------
+Error: Can't find smms config, please provide api token, see https://sm.ms/home/apitoken
+    at Object.handle (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/uploader/smms.js:26:15)
+    at Lifecycle.doUpload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:70:24)
+    at Lifecycle.start (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:21:24)
+    at async PicGo.upload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/PicGo.js:156:13)
+    at async Command.<anonymous> (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/commander/upload.js:29:13)
+-------Error Stack End-------
+2020-08-19 00:22:43 [PicGo INFO] Before transform
+2020-08-19 00:22:43 [PicGo INFO] Transforming...
+2020-08-19 00:22:43 [PicGo INFO] Before upload
+2020-08-19 00:22:43 [PicGo INFO] Uploading...
+2020-08-19 00:22:53 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/19/c6vsND3YP4nJTF9.png
+https://i.loli.net/2020/08/19/DZuG8YQoitgpT2b.png
+2020-08-19 00:23:34 [PicGo INFO] Before transform
+2020-08-19 00:23:34 [PicGo INFO] Transforming...
+2020-08-19 00:23:34 [PicGo INFO] Before upload
+2020-08-19 00:23:34 [PicGo INFO] Uploading...
+2020-08-19 00:23:40 [PicGo INFO] Before transform
+2020-08-19 00:23:40 [PicGo INFO] Transforming...
+2020-08-19 00:23:40 [PicGo INFO] Before upload
+2020-08-19 00:23:40 [PicGo INFO] Uploading...
+2020-08-19 00:23:41 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/19/lmfuOngqpTDsQeG.png
+2020-08-19 00:23:46 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/19/Y3KIl8BPdC7crWb.png
+2020-08-19 00:23:54 [PicGo INFO] Before transform
+2020-08-19 00:23:54 [PicGo INFO] Transforming...
+2020-08-19 00:23:54 [PicGo INFO] Before upload
+2020-08-19 00:23:54 [PicGo INFO] Uploading...
+2020-08-19 00:23:59 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/19/1KJXhFdLqa3c65G.png
+2020-08-19 00:32:12 [PicGo INFO] Before transform
+2020-08-19 00:32:12 [PicGo INFO] Transforming...
+2020-08-19 00:32:12 [PicGo INFO] Before upload
+2020-08-19 00:32:12 [PicGo INFO] Uploading...
+2020-08-19 00:32:16 [PicGo SUCCESS] 
+https://cdn.jsdelivr.net/gh/Shadowalker1995/images/2020/1563155445050.png
+2020-08-19 00:34:46 [PicGo INFO] Before transform
+2020-08-19 00:34:46 [PicGo INFO] Transforming...
+2020-08-19 00:34:46 [PicGo INFO] Before upload
+2020-08-19 00:34:46 [PicGo INFO] Uploading...
+2020-08-19 00:34:51 [PicGo INFO] Before transform
+2020-08-19 00:34:51 [PicGo INFO] Transforming...
+2020-08-19 00:34:51 [PicGo INFO] Before upload
+2020-08-19 00:34:51 [PicGo INFO] Uploading...
+2020-08-19 00:34:52 [PicGo SUCCESS] 
+https://cdn.jsdelivr.net/gh/Shadowalker1995/images/2020/1563156562109.png
+2020-08-19 00:34:54 [PicGo SUCCESS] 
+https://cdn.jsdelivr.net/gh/Shadowalker1995/images/2020/1563200876660.png
+2020-08-19 00:34:58 [PicGo INFO] Before transform
+2020-08-19 00:34:58 [PicGo INFO] Transforming...
+2020-08-19 00:34:58 [PicGo INFO] Before upload
+2020-08-19 00:34:58 [PicGo INFO] Uploading...
+2020-08-19 00:35:02 [PicGo SUCCESS] 
+https://cdn.jsdelivr.net/gh/Shadowalker1995/images/2020/1563200935981.png
+2020-08-19 00:35:10 [PicGo INFO] Before transform
+2020-08-19 00:35:10 [PicGo INFO] Transforming...
+2020-08-19 00:35:10 [PicGo INFO] Before upload
+2020-08-19 00:35:10 [PicGo INFO] Uploading...
+2020-08-19 00:35:12 [PicGo SUCCESS] 
+https://cdn.jsdelivr.net/gh/Shadowalker1995/images/2020/1564489139051.png
+2020-08-24 01:53:34 [PicGo INFO] Before transform
+2020-08-24 01:53:34 [PicGo INFO] Transforming...
+2020-08-24 01:53:34 [PicGo INFO] Before upload
+2020-08-24 01:53:34 [PicGo INFO] Uploading...
+2020-08-24 01:53:38 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/24/cH7Z2I61CzumiSv.jpg
+2020-08-24 01:54:35 [PicGo INFO] Before transform
+2020-08-24 01:54:35 [PicGo INFO] Transforming...
+2020-08-24 01:54:35 [PicGo INFO] Before upload
+2020-08-24 01:54:35 [PicGo INFO] Uploading...
+2020-08-24 01:54:39 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/24/OEAjCTlNXibeyUG.jpg
+2020-08-25 00:41:19 [PicGo INFO] Before transform
+2020-08-25 00:41:19 [PicGo INFO] Transforming...
+2020-08-25 00:41:19 [PicGo INFO] Before upload
+2020-08-25 00:41:19 [PicGo INFO] Uploading...
+2020-08-25 00:41:23 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/25/mOzhW6nsSoZQUg8.png
+2020-08-25 00:41:43 [PicGo INFO] Before transform
+2020-08-25 00:41:43 [PicGo INFO] Transforming...
+2020-08-25 00:41:43 [PicGo INFO] Before upload
+2020-08-25 00:41:43 [PicGo INFO] Uploading...
+2020-08-25 00:41:47 [PicGo WARN] failed
+2020-08-25 00:41:47 [PicGo ERROR] Error: Image upload repeated limit, this image exists at: https://i.loli.net/2020/08/25/mOzhW6nsSoZQUg8.png
+------Error Stack Begin------
+Error: Image upload repeated limit, this image exists at: https://i.loli.net/2020/08/25/mOzhW6nsSoZQUg8.png
+    at Object.handle (/home/zzhenry/.picgo/node_modules/picgo-plugin-smms-user/src/index.js:55:15)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async Lifecycle.doUpload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:70:9)
+    at async Lifecycle.start (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/Lifecycle.js:21:13)
+    at async PicGo.upload (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/core/PicGo.js:156:13)
+    at async Command.<anonymous> (/home/zzhenry/.config/Typora/picgo/linux/node_modules/picgo/dist/src/plugins/commander/upload.js:29:13)
+-------Error Stack End-------
+2020-08-25 00:42:14 [PicGo INFO] Before transform
+2020-08-25 00:42:14 [PicGo INFO] Transforming...
+2020-08-25 00:42:14 [PicGo INFO] Before upload
+2020-08-25 00:42:14 [PicGo INFO] Uploading...
+2020-08-25 00:42:18 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/25/s3z6aBt1wErNvcK.png
+2020-08-25 00:43:07 [PicGo INFO] Before transform
+2020-08-25 00:43:07 [PicGo INFO] Transforming...
+2020-08-25 00:43:07 [PicGo ERROR] request https://enfangzhong.github.io/2019/06/01/个性化推荐算法实践第03章基于图的个性化推荐召回算法PersonalRank/1564727091910.png error
+2020-08-25 00:43:07 [PicGo INFO] Before upload
+2020-08-25 00:43:07 [PicGo INFO] Uploading...
+2020-08-25 00:43:07 [PicGo SUCCESS] 
+
+2020-08-25 00:43:36 [PicGo INFO] Before transform
+2020-08-25 00:43:36 [PicGo INFO] Transforming...
+2020-08-25 00:43:36 [PicGo ERROR] request https://enfangzhong.github.io/2019/06/01/个性化推荐算法实践第03章基于图的个性化推荐召回算法PersonalRank/1564727091910.png error
+2020-08-25 00:43:36 [PicGo INFO] Before upload
+2020-08-25 00:43:36 [PicGo INFO] Uploading...
+2020-08-25 00:43:36 [PicGo SUCCESS] 
+
+2020-08-25 00:43:38 [PicGo INFO] Before transform
+2020-08-25 00:43:38 [PicGo INFO] Transforming...
+2020-08-25 00:43:38 [PicGo ERROR] request https://enfangzhong.github.io/2019/06/01/个性化推荐算法实践第03章基于图的个性化推荐召回算法PersonalRank/1564727091910.png error
+2020-08-25 00:43:38 [PicGo INFO] Before upload
+2020-08-25 00:43:38 [PicGo INFO] Uploading...
+2020-08-25 00:43:38 [PicGo SUCCESS] 
+
+2020-08-25 00:44:13 [PicGo INFO] Before transform
+2020-08-25 00:44:13 [PicGo INFO] Transforming...
+2020-08-25 00:44:13 [PicGo ERROR] request https://enfangzhong.github.io/2019/06/01/个性化推荐算法实践第03章基于图的个性化推荐召回算法PersonalRank/1564727091910.png error
+2020-08-25 00:44:13 [PicGo INFO] Before upload
+2020-08-25 00:44:13 [PicGo INFO] Uploading...
+2020-08-25 00:44:13 [PicGo SUCCESS] 
+
+2020-08-25 00:45:05 [PicGo INFO] Before transform
+2020-08-25 00:45:05 [PicGo INFO] Transforming...
+2020-08-25 00:45:05 [PicGo INFO] Before upload
+2020-08-25 00:45:05 [PicGo INFO] Uploading...
+2020-08-25 00:45:09 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/25/jBZOR5qTKIaMUts.png
+2020-08-25 01:01:27 [PicGo INFO] Before transform
+2020-08-25 01:01:27 [PicGo INFO] Transforming...
+2020-08-25 01:01:27 [PicGo INFO] Before upload
+2020-08-25 01:01:27 [PicGo INFO] Uploading...
+2020-08-25 01:01:31 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/25/NEBvf95eDgtP1i3.png
+2020-08-25 23:32:47 [PicGo INFO] Before transform
+2020-08-25 23:32:47 [PicGo INFO] Transforming...
+2020-08-25 23:32:47 [PicGo INFO] Before upload
+2020-08-25 23:32:47 [PicGo INFO] Uploading...
+2020-08-25 23:32:51 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/26/RkGYOmHB8z9bnIf.png
+2020-08-25 23:33:24 [PicGo INFO] Before transform
+2020-08-25 23:33:24 [PicGo INFO] Transforming...
+2020-08-25 23:33:24 [PicGo INFO] Before upload
+2020-08-25 23:33:24 [PicGo INFO] Uploading...
+2020-08-25 23:33:28 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/26/BPe83QyYG7iM6km.png
+2020-08-25 23:34:43 [PicGo INFO] Before transform
+2020-08-25 23:34:43 [PicGo INFO] Transforming...
+2020-08-25 23:34:43 [PicGo INFO] Before upload
+2020-08-25 23:34:43 [PicGo INFO] Uploading...
+2020-08-25 23:34:47 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/26/LghsIDdrMpPv6Wn.png
+2020-08-25 23:35:04 [PicGo INFO] Before transform
+2020-08-25 23:35:04 [PicGo INFO] Transforming...
+2020-08-25 23:35:04 [PicGo INFO] Before upload
+2020-08-25 23:35:04 [PicGo INFO] Uploading...
+2020-08-25 23:35:07 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/26/JpdKU7c2BTrLH9b.png
+2020-08-25 23:35:19 [PicGo INFO] Before transform
+2020-08-25 23:35:19 [PicGo INFO] Transforming...
+2020-08-25 23:35:19 [PicGo INFO] Before upload
+2020-08-25 23:35:19 [PicGo INFO] Uploading...
+2020-08-25 23:35:22 [PicGo SUCCESS] 
+https://i.loli.net/2020/08/26/jCuR3ONDd4z5b9W.png
+2020-09-06 00:45:04 [PicGo INFO] Before transform
+2020-09-06 00:45:04 [PicGo INFO] Transforming...
+2020-09-06 00:45:04 [PicGo INFO] Before upload
+2020-09-06 00:45:04 [PicGo INFO] Uploading...
+2020-09-06 00:45:08 [PicGo SUCCESS] 
+https://i.loli.net/2020/09/06/kioLJOCGyTY7BWw.png
+2020-09-25 13:52:26 [PicGo INFO] Before transform
+2020-09-25 13:52:26 [PicGo INFO] Transforming...
+2020-09-25 13:52:26 [PicGo INFO] Before upload
+2020-09-25 13:52:26 [PicGo INFO] Uploading...
+2020-09-25 13:52:29 [PicGo SUCCESS] 
+https://i.loli.net/2020/09/26/3saVTW1vKpPrq2z.png
+2020-09-25 13:53:00 [PicGo INFO] Before transform
+2020-09-25 13:53:00 [PicGo INFO] Transforming...
+2020-09-25 13:53:00 [PicGo INFO] Before upload
+2020-09-25 13:53:00 [PicGo INFO] Uploading...
+2020-09-25 13:53:05 [PicGo SUCCESS] 
+https://i.loli.net/2020/09/26/XGICE9krqfxLM3h.png
+2020-09-27 01:15:34 [PicGo INFO] Before transform
+2020-09-27 01:15:34 [PicGo INFO] Transforming...
+2020-09-27 01:15:34 [PicGo INFO] Before upload
+2020-09-27 01:15:34 [PicGo INFO] Uploading...
+2020-09-27 01:15:38 [PicGo SUCCESS] 
+https://i.loli.net/2020/09/27/NArUd1iZ45FYxev.png
+2020-10-15 21:57:36 [PicGo INFO] Before transform
+2020-10-15 21:57:36 [PicGo INFO] Transforming...
+2020-10-15 21:57:36 [PicGo INFO] Before transform
+2020-10-15 21:57:36 [PicGo INFO] Transforming...
+2020-10-15 21:57:36 [PicGo INFO] Before upload
+2020-10-15 21:57:36 [PicGo INFO] Uploading...
+2020-10-15 21:57:36 [PicGo INFO] Before upload
+2020-10-15 21:57:36 [PicGo INFO] Uploading...
+2020-10-15 21:57:41 [PicGo SUCCESS] 
+https://i.loli.net/2020/10/16/CNekUTFAdwvtZG8.png
+2020-10-15 21:57:42 [PicGo SUCCESS] 
+https://i.loli.net/2020/10/16/QCcurZAbV3FmR4J.png
+2020-11-08 13:10:18 [PicGo INFO] Before transform
+2020-11-08 13:10:18 [PicGo INFO] Transforming...
+2020-11-08 13:10:18 [PicGo INFO] Before upload
+2020-11-08 13:10:18 [PicGo INFO] Uploading...
+2020-11-08 13:10:23 [PicGo SUCCESS] 
+https://i.loli.net/2020/11/09/NemQdAcMEOKzShr.png
+2020-11-08 13:11:34 [PicGo INFO] Before transform
+2020-11-08 13:11:34 [PicGo INFO] Transforming...
+2020-11-08 13:11:35 [PicGo INFO] Before upload
+2020-11-08 13:11:35 [PicGo INFO] Uploading...
+2020-11-08 13:11:38 [PicGo SUCCESS] 
+https://i.loli.net/2020/11/09/dBMlSDJ8emTqj5E.png
+2020-12-18 21:34:14 [PicGo INFO] Before transform
+2020-12-18 21:34:14 [PicGo INFO] Transforming...
+2020-12-18 21:34:15 [PicGo INFO] Before upload
+2020-12-18 21:34:15 [PicGo INFO] Uploading...
+2020-12-18 21:34:18 [PicGo SUCCESS] 
+https://i.loli.net/2020/12/19/3owMEBiHmpatZ6L.png
+2020-12-18 21:35:08 [PicGo INFO] Before transform
+2020-12-18 21:35:08 [PicGo INFO] Transforming...
+2020-12-18 21:35:08 [PicGo INFO] Before upload
+2020-12-18 21:35:08 [PicGo INFO] Uploading...
+2020-12-18 21:35:11 [PicGo SUCCESS] 
+https://i.loli.net/2020/12/19/R8rQDMzUcanSf2j.png
+2020-12-18 21:36:49 [PicGo INFO] Before transform
+2020-12-18 21:36:49 [PicGo INFO] Transforming...
+2020-12-18 21:36:49 [PicGo INFO] Before upload
+2020-12-18 21:36:49 [PicGo INFO] Uploading...
+2020-12-18 21:36:53 [PicGo SUCCESS] 
+https://i.loli.net/2020/12/19/wBTYRJxSPFOKeg1.png

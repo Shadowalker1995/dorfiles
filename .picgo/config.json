@@ -1,0 +1,21 @@
+{
+  "picBed": {
+    "current": "smms-user",
+    "showUpdateTip": true,
+    "uploader": "smms-user",
+    "github": {
+      "branch": "master",
+      "customUrl": "https://cdn.jsdelivr.net/gh/Shadowalker1995/images",
+      "path": "2020/",
+      "repo": "Shadowalker1995/images",
+      "token": "8b8a7c2d67b49654c42b75fee4bfac3f8af5c936"
+    },
+    "smms-user": {
+      "Authorization": "GmojYBKQgLk7YFp4KnHeub75uplmU74Y"
+    },
+    "transformer": "path"
+  },
+  "picgoPlugins": {
+    "picgo-plugin-smms-user": true
+  }
+}

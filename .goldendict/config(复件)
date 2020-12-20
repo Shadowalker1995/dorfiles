@@ -1,0 +1,310 @@
+<config>
+ <paths>
+  <path recursive="1">/home/zzhenry/Softwares/Goldendict/Dicts</path>
+ </paths>
+ <sounddirs/>
+ <dictionaryOrder id="0" name="">
+  <dictionary name="专业字典">2e8ef5b4d1bed727d77eb02473f2601e</dictionary>
+  <dictionary name="Bing">9d18f0fe38eebebba67a12c4a85af9e2</dictionary>
+  <dictionary name="新华字典">4fd0bad7a9fbd95394441e03adb9ce5c</dictionary>
+  <dictionary name="汉语成语词典">854f68ac114748210306e7d7b16d7ca3</dictionary>
+  <dictionary name="简明英汉字典增强版 - CSS">02309dbf9aeb5adbf7cece8e896686f2</dictionary>
+  <dictionary name="英语 (US) 构词法">fcf3cd6f9a38cda4f09b27994ee135f9</dictionary>
+  <dictionary name="金山词霸纺织英汉汉英词典">e53bf8ff4f383529ea870e89b127f127</dictionary>
+  <dictionary name="新汉英大辞典">b9ba3e358b30df95563500f824cc7fa6</dictionary>
+  <dictionary name="COCA Frequency 60000">e88f0d6784123f9ff8cba981b5fdf6fb</dictionary>
+  <dictionary name="COCA2W">b287a4acc312b1abb121bddb25313dc4</dictionary>
+  <dictionary name="柯林斯高阶英汉双解学习词典">ebb31396b73b4a9914e39458bc5b171c</dictionary>
+  <dictionary name="Collins English Dictionary, 2015">405152e95f35192f3161648702a3df33</dictionary>
+  <dictionary name="Collins Thesaurus of the English Language, 2015">b2fde590f19099257b981eb1e65f158e</dictionary>
+  <dictionary name="Dictionary">baa9af25281c9257e631784c12512f6a</dictionary>
+  <dictionary name="Longman Dictionary of Common Errors">68a45f15ed0eae4d5938c59117491190</dictionary>
+  <dictionary name="Longman Dictionary of Contemporary English">8fd4bdfbe74736e4d04e8b4c72455f8f</dictionary>
+  <dictionary name="Longman Language Activator">a739494fb34f6f8b3fc80cf198676f5c</dictionary>
+  <dictionary name="Longman DOCE5 Extras">a0c76e141f8c0e8bf5ef689ea744b425</dictionary>
+  <dictionary name="Macmillan English Dictionary 2nd Edition">3399a08faa03b57479b675aaa4134b22</dictionary>
+  <dictionary name="Merriam-Webster's Collegiate Dictionary, 2015">0e12b7225c830a7d6f317d396345d77d</dictionary>
+  <dictionary name="Merriam-Webster's Collegiate Thesaurus, 2015">ead72e733a65808c0d9efb8b8e00de8c</dictionary>
+  <dictionary name="Merriam-Webster's Vocabulary Builder">99e7555fd95ed67769d5b5af87263f28</dictionary>
+  <dictionary name="Merrian Webster Advanced Learners (2013)">98280e941ffef5bb273292821da4df4a</dictionary>
+  <dictionary name="完整美語發音字典">f9f0f0490e79f99ef3d30d93046c3671</dictionary>
+  <dictionary name="Vocabulary.com Dictionary">6c34e08f321b151c5f3f06ba4b97ba96</dictionary>
+  <dictionary name="剑桥高阶学习词典">b101065cb225523f2561d7c02e3aa372</dictionary>
+  <dictionary name="外研社《现代汉英词典·现代英汉词典》新版二合一">c534c7fc469a3bcbf665ac36cb56023f</dictionary>
+  <dictionary name="朗文当代双解词典">a5db1424d6b6bba8932659ee5a800fa6</dictionary>
+  <dictionary name="CC-CEDICT">9ca7f42419f3f8f09a5a0901c0477182</dictionary>
+  <dictionary name="牛津高阶英语学习词典第八版">1ae8514f9e515c2c4b87d28701ff2089</dictionary>
+  <dictionary name="MCDEX">1858ba86ba9ee6a1b46b43958c2cd914</dictionary>
+  <dictionary name="读懂你的化验单">eac0a1bc54bab92d373b434045bdb7b5</dictionary>
+  <dictionary name="三合一汉语大词典">befe477180a904332d8a9f85f480a686</dictionary>
+  <dictionary name="姓氏起源">2d7bc2a27c1c46a2714db5ab0a34139a</dictionary>
+  <dictionary name="Google Translate">0735bcda4620fe951e40261804557104</dictionary>
+  <mutedDictionaries/>
+ </dictionaryOrder>
+  <inactiveDictionaries id="0" name="">
+  <dictionary name="21世纪双语科技词典">85edb39dde02007df7310c9f13c262c1</dictionary>
+  <dictionary name="Langenscheidt Vokabeln Audio (De-De)">e37de891f937497d203ab5a96396c898</dictionary>
+  <dictionary name="金山词霸纺织汉英词典">9affbb2bcb6dd34b4f128fee9557bfac</dictionary>
+  <dictionary name="英漢紡織大詞典[69787]">6da66ae5991da32a21edcbc8e8f8af0a</dictionary>
+  <mutedDictionaries/>
+ </inactiveDictionaries>
+ <groups nextId="13">
+  <group icon="en.png" id="2" name="本地词典">
+   <dictionary name="COCA Frequency 60000">e88f0d6784123f9ff8cba981b5fdf6fb</dictionary>
+   <dictionary name="柯林斯高阶英汉双解学习词典">ebb31396b73b4a9914e39458bc5b171c</dictionary>
+   <dictionary name="简明英汉字典增强版 - CSS">02309dbf9aeb5adbf7cece8e896686f2</dictionary>
+   <dictionary name="完整美語發音字典">f9f0f0490e79f99ef3d30d93046c3671</dictionary>
+   <dictionary name="Longman Dictionary of Contemporary English">8fd4bdfbe74736e4d04e8b4c72455f8f</dictionary>
+   <dictionary name="Vocabulary.com Dictionary">6c34e08f321b151c5f3f06ba4b97ba96</dictionary>
+   <dictionary name="牛津高阶英语学习词典第八版">1ae8514f9e515c2c4b87d28701ff2089</dictionary>
+   <dictionary name="剑桥高阶学习词典">b101065cb225523f2561d7c02e3aa372</dictionary>
+   <dictionary name="Collins English Dictionary, 2015">405152e95f35192f3161648702a3df33</dictionary>
+   <dictionary name="Merriam-Webster's Collegiate Dictionary, 2015">0e12b7225c830a7d6f317d396345d77d</dictionary>
+   <dictionary name="Merrian Webster Advanced Learners (2013)">98280e941ffef5bb273292821da4df4a</dictionary>
+   <dictionary name="朗文当代双解词典">a5db1424d6b6bba8932659ee5a800fa6</dictionary>
+   <dictionary name="Longman Language Activator">a739494fb34f6f8b3fc80cf198676f5c</dictionary>
+   <dictionary name="Longman Dictionary of Common Errors">68a45f15ed0eae4d5938c59117491190</dictionary>
+   <dictionary name="Dictionary">baa9af25281c9257e631784c12512f6a</dictionary>
+   <dictionary name="Macmillan English Dictionary 2nd Edition">3399a08faa03b57479b675aaa4134b22</dictionary>
+   <dictionary name="外研社《现代汉英词典·现代英汉词典》新版二合一">c534c7fc469a3bcbf665ac36cb56023f</dictionary>
+   <dictionary name="新汉英大辞典">b9ba3e358b30df95563500f824cc7fa6</dictionary>
+   <dictionary name="英语 (US) 构词法">fcf3cd6f9a38cda4f09b27994ee135f9</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group icon="google_translate" id="1" name="Google" iconData="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">
+   <dictionary name="英语 (US) 构词法">fcf3cd6f9a38cda4f09b27994ee135f9</dictionary>
+   <dictionary name="Google Translate">0735bcda4620fe951e40261804557104</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group icon="cn.png" id="12" name="CN2EN">
+   <dictionary name="外研社《现代汉英词典·现代英汉词典》新版二合一">c534c7fc469a3bcbf665ac36cb56023f</dictionary>
+   <dictionary name="新汉英大辞典">b9ba3e358b30df95563500f824cc7fa6</dictionary>
+   <dictionary name="CC-CEDICT">9ca7f42419f3f8f09a5a0901c0477182</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="5" name="专业词典">
+   <dictionary name="金山词霸纺织英汉汉英词典">e53bf8ff4f383529ea870e89b127f127</dictionary>
+   <dictionary name="专业字典">2e8ef5b4d1bed727d77eb02473f2601e</dictionary>
+   <dictionary name="英语 (US) 构词法">fcf3cd6f9a38cda4f09b27994ee135f9</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="4" name="词语成语">
+   <dictionary name="新华字典">4fd0bad7a9fbd95394441e03adb9ce5c</dictionary>
+   <dictionary name="汉语成语词典">854f68ac114748210306e7d7b16d7ca3</dictionary>
+   <dictionary name="三合一汉语大词典">befe477180a904332d8a9f85f480a686</dictionary>
+   <dictionary name="姓氏起源">2d7bc2a27c1c46a2714db5ab0a34139a</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="8" name="Thesaurus">
+   <dictionary name="Longman DOCE5 Extras">a0c76e141f8c0e8bf5ef689ea744b425</dictionary>
+   <dictionary name="Collins Thesaurus of the English Language, 2015">b2fde590f19099257b981eb1e65f158e</dictionary>
+   <dictionary name="Merriam-Webster's Collegiate Thesaurus, 2015">ead72e733a65808c0d9efb8b8e00de8c</dictionary>
+   <dictionary name="Merriam-Webster's Vocabulary Builder">99e7555fd95ed67769d5b5af87263f28</dictionary>
+   <dictionary name="COCA2W">b287a4acc312b1abb121bddb25313dc4</dictionary>
+   <dictionary name="COCA Frequency 60000">e88f0d6784123f9ff8cba981b5fdf6fb</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="11" name="中医药">
+   <dictionary name="MCDEX">1858ba86ba9ee6a1b46b43958c2cd914</dictionary>
+   <dictionary name="读懂你的化验单">eac0a1bc54bab92d373b434045bdb7b5</dictionary>
+   <mutedDictionaries/>
+  </group>
+  <group id="3" name="网络词典">
+   <dictionary name="Bing">9d18f0fe38eebebba67a12c4a85af9e2</dictionary>
+   <mutedDictionaries/>
+  </group>
+ </groups>
+ <hunspell dictionariesPath="/home/zzhenry/Softwares/Goldendict/Dicts/morphology">
+  <enabled>en_US</enabled>
+ </hunspell>
+ <transliteration>
+  <enableRussianTransliteration>0</enableRussianTransliteration>
+  <enableGermanTransliteration>0</enableGermanTransliteration>
+  <enableGreekTransliteration>0</enableGreekTransliteration>
+  <enableBelarusianTransliteration>0</enableBelarusianTransliteration>
+  <chinese>
+   <enable>0</enable>
+   <enableSCToTWConversion>1</enableSCToTWConversion>
+   <enableSCToHKConversion>1</enableSCToHKConversion>
+   <enableTCToSCConversion>1</enableTCToSCConversion>
+  </chinese>
+  <romaji>
+   <enable>0</enable>
+   <enableHepburn>1</enableHepburn>
+   <enableNihonShiki>0</enableNihonShiki>
+   <enableKunreiShiki>0</enableKunreiShiki>
+   <enableHiragana>1</enableHiragana>
+   <enableKatakana>1</enableKatakana>
+  </romaji>
+ </transliteration>
+ <forvo>
+  <enable>1</enable>
+  <apiKey></apiKey>
+  <languageCodes></languageCodes>
+ </forvo>
+ <mediawikis>
+  <mediawiki enabled="0" url="https://en.wikipedia.org/w" icon="" id="ae6f89aac7151829681b85f035d54e48" name="English Wikipedia"/>
+  <mediawiki enabled="0" url="https://en.wiktionary.org/w" icon="" id="affcf9678e7bfe701c9b071f97eccba3" name="English Wiktionary"/>
+  <mediawiki enabled="0" url="https://zh.wikipedia.org/w" icon="" id="dc27a389527c8e45e69f0164473a932e" name="Chinese Wikipedia"/>
+  <mediawiki enabled="0" url="https://ru.wikipedia.org/w" icon="" id="8e0c1c2b6821dab8bdba8eb869ca7176" name="Russian Wikipedia" enabled="0"/>
+  <mediawiki enabled="0" url="https://ru.wiktionary.org/w" icon="" id="b09947600ae3902654f8ad4567ae8567" name="Russian Wiktionary" enabled="0"/>
+  <mediawiki enabled="0" url="http://de.wikipedia.org/w" icon="" id="a8a66331a1242ca2aeb0b4aed361c41d" name="German Wikipedia" enabled="0"/>
+  <mediawiki enabled="0" url="http://de.wiktionary.org/w" icon="" id="21c64bca5ec10ba17ff19f3066bc962a" name="German Wiktionary" enabled="0"/>
+  <mediawiki enabled="0" url="http://pt.wikipedia.org/w" icon="" id="96957cb2ad73a20c7a1d561fc83c253a" name="Portuguese Wikipedia" enabled="0"/>
+  <mediawiki enabled="0" url="http://pt.wiktionary.org/w" icon="" id="ed4c3929196afdd93cc08b9a903aad6a" name="Portuguese Wiktionary" enabled="0"/>
+  <mediawiki enabled="0" url="http://el.wikipedia.org/w" icon="" id="f3b4ec8531e52ddf5b10d21e4577a7a2" name="Greek Wikipedia" enabled="0"/>
+  <mediawiki enabled="0" url="http://el.wiktionary.org/w" icon="" id="5d45232075d06e002dea72fe3e137da1" name="Greek Wiktionary" enabled="0"/>
+ </mediawikis>
+ <websites>
+  <website url="http://www.google.com/dictionary?aq=f&amp;langpair=en|en&amp;q=%GDWORD%&amp;hl=en" name="Google En-En (Oxford)" inside_iframe="1" icon="" id="b88cb2898e634c6638df618528284c2d" enabled="0"/>
+  <website url="http://www.urbandictionary.com/define.php?term=%GDWORD%" name="Urban Dictionary" inside_iframe="1" icon="" id="f376365a0de651fd7505e7e5e683aa45" enabled="0"/>
+  <website url="http://multitran.ru/c/m.exe?CL=1&amp;l1=1&amp;s=%GD1251%" name="Multitran (En)" inside_iframe="1" icon="" id="324ca0306187df7511b26d3847f4b07c" enabled="0"/>
+  <website url="http://lingvopro.abbyyonline.com/en/Search/en-ru/%GDWORD%" name="Lingvo (En-Ru)" inside_iframe="1" icon="" id="924db471b105299c82892067c0f10787" enabled="0"/>
+  <website url="http://michaelis.uol.com.br/moderno/ingles/index.php?lingua=portugues-ingles&amp;palavra=%GDISO1%" name="Michaelis (Pt-En)" inside_iframe="1" icon="" id="087a6d65615fb047f4c80eef0a9465db" enabled="0"/>
+  <website url="http://dict.youdao.com/search?q=%GDWORD%&amp;ue=utf8" name="Youdao" inside_iframe="1" icon="" id="90a60d4ea1a5a4592b408f5d2848ace5" enabled="0"/>
+  <website url="http://translate.google.com/?tl=zh-CN&amp;sl=en&amp;q=%GDWORD%&amp;hl=en" name="Google" inside_iframe="1" icon="" id="5421809162e96e111c1c0f6d6c8ab79f" enabled="0"/>
+  <website url="http://www.collinslanguage.com/results.aspx?context=3&amp;reversed=False&amp;action=define&amp;homonym=-1&amp;text=%GDWORD%" name="柯林斯" inside_iframe="1" icon="" id="928a9f6d95257bda0cccb7e228a2d94c" enabled="0"/>
+  <website url="http://dict.cn/%GDWORD%" name="海词" inside_iframe="1" icon="" id="c555b7a7dec96951c786e640447c3245" enabled="0"/>
+  <website url="http://www.iciba.com/%GDWORD%/" name="金山词霸" inside_iframe="1" icon="" id="65477fec553533a2810070cc53a5d2a5" enabled="0"/>
+  <website url="http://www.dreye.com.cn/ews/%GDWORD%--01--.html" name="英业达" inside_iframe="1" icon="" id="d1f05556e9440d21758f1f5ef541709b" enabled="0"/>
+  <website url="http://www.zdic.net/sousuo/?q=%GDWORD%" name="汉典" inside_iframe="1" icon="" id="df5c856c71cabe7e60c8344650ecfd69" enabled="0"/>
+  <website url="http://www.google.com/dictionary?aq=f&amp;langpair=en|en&amp;q=%GDWORD%&amp;hl=en" name="Google2" inside_iframe="1" icon="" id="6e37b25adea0fa93a0c09f3f6e9b3572" enabled="0"/>
+  <website enabled="1" inside_iframe="1" url="http://dict.youdao.com/search?q=%GDWORD%&amp;ue=utf8" icon="" id="90a60d4ea1a5a4592b408f5d2848ace5" name="有道词典"/>
+  <website enabled="1" inside_iframe="1" url="https://cn.bing.com/dict/search?q=%GDWORD%" icon="" id="9d18f0fe38eebebba67a12c4a85af9e2" name="Bing"/>
+ </websites>
+ <dictservers/>
+ <programs>
+  <program commandLine="/usr/local/bin/youdao_get.py %GDWORD%" type="2" name="有道网页" icon="" id="3afb08c45974eba87600f1efe4d71329" enabled="1"/>
+  <program commandLine="/usr/local/bin/youdao_post.py %GDWORD%" type="1" name="有道全文" icon="" id="a240d52cfde3be0b5d36a2e50790f772" enabled="1"/>
+ </programs>
+ <voiceEngines/>
+ <mutedDictionaries>
+  <mutedDictionary>ae6f89aac7151829681b85f035d54e48</mutedDictionary>
+ </mutedDictionaries>
+ <popupMutedDictionaries>
+  <mutedDictionary>90df10de47a16a3d212731f6f26d7afb</mutedDictionary>
+ </popupMutedDictionaries>
+ <preferences>
+  <interfaceLanguage>zh_CN</interfaceLanguage>
+  <helpLanguage></helpLanguage>
+  <displayStyle>modern</displayStyle>
+  <newTabsOpenAfterCurrentOne>0</newTabsOpenAfterCurrentOne>
+  <newTabsOpenInBackground>1</newTabsOpenInBackground>
+  <hideSingleTab>0</hideSingleTab>
+  <mruTabOrder>0</mruTabOrder>
+  <hideMenubar>0</hideMenubar>
+  <enableTrayIcon>1</enableTrayIcon>
+  <startToTray>0</startToTray>
+  <closeToTray>1</closeToTray>
+  <autoStart>0</autoStart>
+  <doubleClickTranslates>1</doubleClickTranslates>
+  <selectWordBySingleClick>1</selectWordBySingleClick>
+  <escKeyHidesMainWindow>1</escKeyHidesMainWindow>
+  <zoomFactor>1</zoomFactor>
+  <helpZoomFactor>1</helpZoomFactor>
+  <wordsZoomLevel>0</wordsZoomLevel>
+  <enableMainWindowHotkey>1</enableMainWindowHotkey>
+  <mainWindowHotkey>Ctrl+F11, Ctrl+F11</mainWindowHotkey>
+  <enableClipboardHotkey>1</enableClipboardHotkey>
+  <clipboardHotkey>Ctrl+C, Ctrl+C</clipboardHotkey>
+  <enableScanPopup>1</enableScanPopup>
+  <startWithScanPopupOn>1</startWithScanPopupOn>
+  <enableScanPopupModifiers>1</enableScanPopupModifiers>
+  <scanPopupModifiers>3</scanPopupModifiers>
+  <scanPopupAltMode>1</scanPopupAltMode>
+  <scanPopupAltModeSecs>3</scanPopupAltModeSecs>
+  <ignoreOwnClipboardChanges>0</ignoreOwnClipboardChanges>
+  <scanToMainWindow>0</scanToMainWindow>
+  <ignoreDiacritics>0</ignoreDiacritics>
+  <showScanFlag>0</showScanFlag>
+  <scanPopupUseUIAutomation>1</scanPopupUseUIAutomation>
+  <scanPopupUseIAccessibleEx>1</scanPopupUseIAccessibleEx>
+  <scanPopupUseGDMessage>1</scanPopupUseGDMessage>
+  <scanPopupUnpinnedWindowFlags>0</scanPopupUnpinnedWindowFlags>
+  <scanPopupUnpinnedBypassWMHint>0</scanPopupUnpinnedBypassWMHint>
+  <pronounceOnLoadMain>0</pronounceOnLoadMain>
+  <pronounceOnLoadPopup>0</pronounceOnLoadPopup>
+  <useExternalPlayer>0</useExternalPlayer>
+  <useInternalPlayer>1</useInternalPlayer>
+  <audioPlaybackProgram>mplayer</audioPlaybackProgram>
+  <alwaysOnTop>0</alwaysOnTop>
+  <searchInDock>1</searchInDock>
+  <historyStoreInterval>0</historyStoreInterval>
+  <favoritesStoreInterval>0</favoritesStoreInterval>
+  <confirmFavoritesDeletion>1</confirmFavoritesDeletion>
+  <proxyserver useSystemProxy="0" enabled="0">
+   <type>0</type>
+   <host></host>
+   <port>3128</port>
+   <user></user>
+   <password></password>
+   <systemProxyUser></systemProxyUser>
+   <systemProxyPassword></systemProxyPassword>
+  </proxyserver>
+  <checkForNewReleases>1</checkForNewReleases>
+  <disallowContentFromOtherSites>0</disallowContentFromOtherSites>
+  <enableWebPlugins>0</enableWebPlugins>
+  <hideGoldenDictHeader>0</hideGoldenDictHeader>
+  <maxStringsInHistory>500</maxStringsInHistory>
+  <storeHistory>1</storeHistory>
+  <alwaysExpandOptionalParts>0</alwaysExpandOptionalParts>
+  <addonStyle></addonStyle>
+  <collapseBigArticles>0</collapseBigArticles>
+  <articleSizeLimit>2000</articleSizeLimit>
+  <maxDictionaryRefsInContextMenu>20</maxDictionaryRefsInContextMenu>
+  <trackClipboardChanges>0</trackClipboardChanges>
+  <synonymSearchEnabled>1</synonymSearchEnabled>
+  <fullTextSearch>
+   <searchMode>3</searchMode>
+   <matchCase>0</matchCase>
+   <maxArticlesPerDictionary>100</maxArticlesPerDictionary>
+   <maxDistanceBetweenWords>2</maxDistanceBetweenWords>
+   <useMaxArticlesPerDictionary>0</useMaxArticlesPerDictionary>
+   <useMaxDistanceBetweenWords>1</useMaxDistanceBetweenWords>
+   <dialogGeometry>AdnQywABAAAAAALoAAAA3AAABOUAAANbAAAC8QAAAQIAAATcAAADUgAAAAAAAA==</dialogGeometry>
+   <disabledTypes>AARD,BGL,DICTD,SDICT,STARDICT,XDXF,EPWING,GLS</disabledTypes>
+   <enabled>1</enabled>
+   <ignoreWordsOrder>0</ignoreWordsOrder>
+   <ignoreDiacritics>0</ignoreDiacritics>
+   <maxDictionarySize>0</maxDictionarySize>
+  </fullTextSearch>
+ </preferences>
+ <lastMainGroupId>2</lastMainGroupId>
+ <lastPopupGroupId>2</lastPopupGroupId>
+ <popupWindowState>AAAA/wAAAAH9AAAAAAAAAggAAAGTAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAQAAAAEAAAAaAGQAaQBjAHQAaQBvAG4AYQByAHkAQgBhAHIDAAAAAP////8AAAAAAAAAAA==</popupWindowState>
+ <popupWindowGeometry>AdnQywACAAAAAASlAAAB3QAABtEAAANvAAAEpQAAAd0AAAbRAAADbwAAAAAAAAAAB4A=</popupWindowGeometry>
+ <pinPopupWindow>0</pinPopupWindow>
+ <popupWindowAlwaysOnTop>0</popupWindowAlwaysOnTop>
+ <mainWindowState>AAAA/wAAAAH9AAAAAgAAAAAAAADMAAAB1/wCAAAAAfsAAAAUAHMAZQBhAHIAYwBoAFAAYQBuAGUBAAAAQwAAAdcAAACHAP///wAAAAEAAACRAAAB1/wCAAAAA/sAAAASAGQAaQBjAHQAcwBQAGEAbgBlAQAAAEMAAACfAAAAaQD////7AAAAFgBoAGkAcwB0AG8AcgB5AFAAYQBuAGUBAAAA4wAAAJ8AAABpAP////sAAAAaAGYAYQB2AG8AcgBpAHQAZQBzAFAAYQBuAGUBAAABgwAAAJcAAABpAP///wAAAfUAAAHXAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAUAG4AYQB2AFQAbwBvAGwAYgBhAHIBAAAAAP////8AAAAAAAAAAAAAABoAZABpAGMAdABpAG8AbgBhAHIAeQBCAGEAcgEAAAEZ/////wAAAAAAAAAA</mainWindowState>
+ <mainWindowGeometry>AdnQywACAAAAAABlAAAAAgAAA7gAAAI1AAAAZQAAABwAAAO4AAACNQAAAAAAAAAAB4A=</mainWindowGeometry>
+ <helpWindowGeometry></helpWindowGeometry>
+ <helpSplitterState></helpSplitterState>
+ <maximizedMainWindowGeometry>
+  <x>0</x>
+  <y>0</y>
+  <width>0</width>
+  <height>0</height>
+ </maximizedMainWindowGeometry>
+ <normalMainWindowGeometry>
+  <x>100</x>
+  <y>39</y>
+  <width>1180</width>
+  <height>921</height>
+ </normalMainWindowGeometry>
+ <dictInfoGeometry>AdnQywACAAAAAAL8AAAA0wAABVMAAAJ8AAAC/AAAAO0AAAVTAAACfAAAAAAAAAAAB4A=</dictInfoGeometry>
+ <inspectorGeometry></inspectorGeometry>
+ <timeForNewReleaseCheck>2018-03-24T11:28:50</timeForNewReleaseCheck>
+ <skippedRelease></skippedRelease>
+ <showingDictBarNames>0</showingDictBarNames>
+ <usingSmallIconsInToolbars>1</usingSmallIconsInToolbars>
+ <editDictionaryCommandLine></editDictionaryCommandLine>
+ <maxPictureWidth>0</maxPictureWidth>
+ <maxHeadwordSize>256</maxHeadwordSize>
+ <headwordsDialog>
+  <searchMode>0</searchMode>
+  <matchCase>0</matchCase>
+  <autoApply>0</autoApply>
+  <headwordsExportPath></headwordsExportPath>
+  <headwordsDialogGeometry>AdnQywACAAAAAAQoAAABcAAABfEAAAOvAAAEKAAAAYoAAAXxAAADrwAAAAAAAAAAB4A=</headwordsDialogGeometry>
+ </headwordsDialog>
+</config>

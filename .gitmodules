@@ -1,0 +1,30 @@
+[submodule ".oh-my-zsh/custom/plugins/alias-tips"]
+	path = .oh-my-zsh/custom/plugins/alias-tips
+	url = https://github.com/djui/alias-tips
+[submodule ".oh-my-zsh/custom/plugins/calc"]
+	path = .oh-my-zsh/custom/plugins/calc
+	url = https://github.com/arzzen/calc.plugin.zsh
+[submodule ".oh-my-zsh/custom/plugins/caniuse"]
+	path = .oh-my-zsh/custom/plugins/caniuse
+	url = https://github.com/walesmd/caniuse.plugin.zsh
+[submodule ".oh-my-zsh/custom/plugins/git-open"]
+	path = .oh-my-zsh/custom/plugins/git-open
+	url = https://github.com/paulirish/git-open.git
+[submodule ".oh-my-zsh/custom/plugins/tmux_bak"]
+	path = .oh-my-zsh/custom/plugins/tmux_bak
+	url = https://github.com/zpm-zsh/tmux
+[submodule ".oh-my-zsh/custom/plugins/wd"]
+	path = .oh-my-zsh/custom/plugins/wd
+	url = https://github.com/mfaerevaag/wd
+[submodule ".oh-my-zsh/custom/plugins/zsh-256color"]
+	path = .oh-my-zsh/custom/plugins/zsh-256color
+	url = https://github.com/chrissicool/zsh-256color
+[submodule ".oh-my-zsh/custom/plugins/zsh-autopair"]
+	path = .oh-my-zsh/custom/plugins/zsh-autopair
+	url = https://github.com/hlissner/zsh-autopair.git
+[submodule ".oh-my-zsh/custom/plugins/zsh-autosuggestions"]
+	path = .oh-my-zsh/custom/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".oh-my-zsh/custom/plugins/zsh-syntax-highlighting"]
+	path = .oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git

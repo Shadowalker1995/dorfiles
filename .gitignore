@@ -30,6 +30,7 @@ zsh/.zcompdump*
 */.git
 */.github
 */.gitignore
+*/*.log
 #!.gitignore
 */.gitattributes
 */.revision-hash

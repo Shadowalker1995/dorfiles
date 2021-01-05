@@ -29,19 +29,20 @@ bindsym $mod+Shift+Ctrl+q exec "i3-nagbar -t warning -m 'You pressed the exit sh
 ########################################################################
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Home"
-set $ws2 "2:Web"
-set $ws3 "3:Files"
-set $ws4 "4:Code"
-set $ws5 "5:Player"
-set $ws6 "6:Reading"
-set $ws7 7
-set $ws8 8
-set $ws9 9
-set $ws10 10
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9 "
+set $ws10 "10"
+#                    
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
+bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
@@ -96,16 +97,16 @@ workspace_auto_back_and_forth yes
 set $monitor1 eDP-1-1
 set $monitor2 DP-1
 set $monitor3 HDMI-0
-workspace $ws1 output $monitor2
-workspace $ws2 output $monitor3
-workspace $ws3 output $monitor1
-workspace $ws4 output $monitor2
-workspace $ws5 output $monitor3
-workspace $ws6 output $monitor1
+workspace $ws1 output $monitor2  # Home
+workspace $ws2 output $monitor3  # Web
+workspace $ws3 output $monitor1  # Files
+workspace $ws4 output $monitor2  # Codes
+workspace $ws5 output $monitor3  # Reading
+workspace $ws6 output $monitor2  # Medias
 workspace $ws7 output $monitor1
 workspace $ws8 output $monitor1
 workspace $ws9 output $monitor1
-workspace $ws10 output $monitor1
+workspace $ws10 output $monitor3
 
 # Move the current workspace to the next output
 # (effectively toggles when you only have two outputs)
@@ -124,18 +125,29 @@ bindsym $mod+x move workspace to output right
 # Start network manager
 exec_always --no-startup-id nm-applet &
 #exec_always --no-startup-id ~/.config/i3/polybar.sh &
-exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
-exec_always albert
+#exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
+#exec_always albert
 # Set wallpaper
 exec_always --no-startup-id feh --bg-scale /home/zzhenry/Pictures/壁纸/mac壁纸/001.jpg
 # Start goldendict
-exec --no-startup-id i3-msg 'workspace $ws6; exec goldendict &; kill;  workspace $ws1'
+exec --no-startup-id goldendict &
+for_window [instance="goldendict"] move scratchpad
 # Start Guake
 #exec --no-startup-id guake &
 # frps
-exec --no-startup-id frp
+#exec --no-startup-id frp
 # Start input method
 exec fcitx &
+# Shutter
+exec --no-startup-id shutter --min_at_startup &
+# WeChat
+exec --no-startup-id /opt/deepinwine/apps/Deepin-WeChat/run.sh -u %u
+# Slack
+exec --no-startup-id slack &
+for_window [instance="slack"] move scratchpad
+# ThunderBird
+exec --no-startup-id thunderbird &
+for_window [instance="Mail"] move scratchpad
 # Start kupfer
 #exec_always --no-startup-id kupfer --no-splash
 # Start copyq
@@ -158,11 +170,11 @@ exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off --output DP-1 -
 
 ## Screenshots ##
 # Application windows
-bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
+bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -d 0.1-o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
 # Area
-bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
+bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
 # Whole Window
-Bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
+Bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
 
 ## Clipboard ##
 bindsym Ctrl+Shift+v --release exec copyq menu
@@ -234,9 +246,8 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-# bindsym $mod+a focus parent
-bindsym $mod+a focus parent;exec notify-send 'focus parent'
-bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
+#bindsym $mod+a focus parent;exec notify-send 'focus parent'
+#bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
 
 # border changing
 bindsym $mod+b border toggle
@@ -309,7 +320,7 @@ client.placeholder      #2F343F #0C0C0C #FFFFFF #2F343F   #262626
 client.background       #2F343F
 
 # set default desktop layout (default is tiling)
-# workspace_layout tabbed <stacking|tabbed>
+workspace_layout tabbed
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 new_window pixel 1
@@ -353,16 +364,6 @@ mode "$mode_launcher" {
     bindsym $mod+o mode "default"
 }
 bindsym $mod+o mode "$mode_launcher"
-
-# criteria scratchpad launchers
-bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
-#bindsym F6 [instance="wechat.exe"] scratchpad show
-bindsym $mod+F3 [instance="telegram"] scratchpad show
-bindsym $mod+m [class="Rhythmbox"] scratchpad show
-bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
-bindsym $mod+p [instance="smplayer"] scratchpad show
-bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
-bindsym $mod+F4 [title="ranger"] scratchpad show
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -437,6 +438,20 @@ bindsym $mod+button3 sticky toggle
 ########################################################################
 # Window criteria directives (use i3-get-window-criteria)
 ########################################################################
+
+# criteria scratchpad launchers
+#bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
+bindsym $mod+grave [instance="wechat.exe"] scratchpad show
+bindsym $mod+s [instance="slack"] scratchpad show
+bindsym $mod+m [class="Rhythmbox"] scratchpad show
+bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
+bindsym $mod+p [instance="smplayer"] scratchpad show
+bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
+bindsym $mod+F2 [instance="Mail"] scratchpad show
+bindsym $mod+F3 [title="ranger"] scratchpad show
+bindsym $mod+F4 [instance="telegram"] scratchpad show
+bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
+
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
 
@@ -457,6 +472,8 @@ for_window [window_type="menu"] floating enable
 # specify windows to use flosating mode
 for_window [instance="wechat.exe"] floating enable border none
 for_window [instance="telegram"] floating enable border none
+for_window [instance="slack"] floating enable border none
+#for_window [instance="Mail"] floating enable border none
 for_window [class="scrcpy"] floating enable
 for_window [title="alsamixer"]      floating enable border pixel 1
 for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
@@ -476,6 +493,8 @@ for_window [class="Gnome-calendar"] floating enable border pixel 1
 for_window [class="Gnome-calculator"] floating enable border pixel 1
 for_window [class="Menu"]                           floating enable
 for_window [class="TeamViewer"]                     floating enable
+for_window [instance="zoom"]                     floating enable
+for_window [instance="gthumb"]                     floating enable
 for_window [class="feh"]                            floating enable
 for_window [class="File-roller"]                    floating enable
 for_window [class="(?i)shotwell"]                   floating enable
@@ -493,6 +512,7 @@ for_window [title="Guake_alacritty"]    floating toggle sticky enable resize set
 for_window [class="Rhythmbox"] floating enable border none
 for_window [class="netease-cloud-music"] floating enable border none
 for_window [class="smplayer"] floating enable border none
+for_window [instance="shutter"] floating enable border none
 
 
 #for_window [instance="telegram"] move scratchpad
@@ -504,19 +524,25 @@ for_window [class="smplayer"] floating enable border none
 #assign [class="Alacritty" title="Alacritty"]    → $ws2
 assign [class="Google-chrome"]                  → $ws2
 assign [class="Nautilus"]                       → $ws3
-assign [class="Wpsoffice"]                       → $ws3
 assign [class="Code"]                           → $ws4
-assign [class="Typora"]                         → $ws4
 assign [class="Sublime_text"]                   → $ws4
-#assign [class="Rhythmbox"]                      → $ws5
-#assign [class="netease-cloud-music"]            → $ws5
-#assign [class="smplayer"]                       → $ws5
-assign [class="mpv"]                            → $ws5
+assign [instance="jetbrains-pycharm-ce"]                   → $ws4
+assign [class="MATLAB R2015b"]                   → $ws4
+assign [class="Typora"]                         → $ws5
+assign [class="Wpsoffice"]                       → $ws5
+assign [instance="okular"]                       → $ws5
+assign [class="mpv"]                            → $ws6
 assign [class="Grub-customizer"]                → $ws6
 assign [class="Lightdm-gtk-greeter-settings"]   → $ws6
 assign [class="scrcpy"]                         → $ws6
-assign [class="calibre"]                        → $ws6
-assign [class="Transmission-gtk"]               → $ws7
+assign [instance="mendeleydesktop"]                       → $ws7
+assign [instance="calibre-gui"]                        → $ws7
+assign [class="Transmission-gtk"]               → $ws8
+assign [instance="qbittorrent"]               → $ws8
+assign [instance="virt-manager" title="win10 - QEMU/KVM"]               → $ws10
+#assign [class="Rhythmbox"]                      → $ws5
+#assign [class="netease-cloud-music"]            → $ws5
+#assign [class="smplayer"]                       → $ws5
 # assign [class="Wine"]                           → $ws6
 # assign [instance="wechat.exe"]                     → $ws6
 # assign [class="TelegramDesktop"]                → $ws6
@@ -595,14 +621,15 @@ bindsym $mod+Shift+r mode "resize"
 # set $Locker i3lock && sleep 1
 # set $Locker gnome-screensaver-command -l
 set $Locker  sh ~/.config/i3/i3lock.sh
-# Ctrl+Alt+L: Lock the screen
+# Ctrl+Win+L: Lock the screen
 bindsym Ctrl+$mod+l exec $Locker
-set $mode_system :Lock (l) | :Logout (e) |:Reboot (r) | :Shutdown (s)
+set $mode_system :Lock (l) | :Logout (e) |Suspend (s) |:Reboot (r) | :Shutdown (u)
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
+    bindsym u exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"

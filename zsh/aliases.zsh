@@ -18,11 +18,12 @@ alias c="clear"
 #alias cp="cp -i"
 alias df='df -h'
 #alias cat='bat'
+alias unzip='unzip -O cp936'
 alias aliyun='sshpass -p 95218zz!!0130 ssh root@149.129.119.6'
 alias vultr="sshpass -p 'oG=8bxq9ornsD?pr' ssh root@108.61.205.162"
 alias pi="sshpass -p 'zgl19950218' ssh -p 7006 zzhenry@106.54.186.223"
 alias pilocal="sshpass -p 'zgl19950218' ssh zzhenry@192.168.1.254 -t tmux a"
-alias tencent="ssh root@106.54.186.223"
+alias tencent="ssh ubuntu@106.54.186.223"
 alias sshxulab="ssh -p 20022 v_zhu_zhan@xulab-gpu0.pc.cs.cmu.edu"
 alias frp="nohup ~/Softwares/system/frp/frpc -c ~/Softwares/system/frp/frpc_tencent.ini > ~/Softwares/system/frp/nohup.out 2>&1 &"
 alias frpout="cat ~/Softwares/system/frp/nohup.out"

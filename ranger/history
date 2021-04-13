@@ -13,5 +13,7 @@ ren
 vim
 !vim
 delete
-rename 
 bulkrename
+rename 
+open_with 
+bulkrename 

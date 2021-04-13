@@ -307,8 +307,8 @@ noremap ' ;
 noremap " ,
 
 " INSERT MODE
-noremap n i
-noremap N I
+"noremap n i
+"noremap N I
 
 " map s to NONE
 map s <nop>
@@ -322,7 +322,7 @@ vnoremap <Leader>y "+y
 nmap <Leader>p "+p
 
 " 数字自增和自减
-"nn <C-g> <C-a>
+nn <C-g> <C-a>
 nn <C-d> <C-x>
 
 " INSERT模式下的直接撤销
@@ -370,32 +370,32 @@ inoremap <C-z> <C-O>:update<CR>
 "        i
 " < j        l >
 "        k
-noremap <silent> j h
-noremap <silent> k j
-noremap <silent> i k
-noremap <silent> l l
-noremap <silent> gi gk
-noremap <silent> gk gj
+"noremap <silent> j h
+"noremap <silent> k j
+"noremap <silent> i k
+"noremap <silent> l l
+"noremap <silent> gi gk
+"noremap <silent> gk gj
 
-noremap <silent> zk zj
-noremap <silent> zi zk
+"noremap <silent> zk zj
+"noremap <silent> zi zk
 
-noremap <silent> I 5k
-noremap <silent> K 5j
+noremap <silent> K 5k
+noremap <silent> J 5j
 noremap W 5W
 noremap B 5B
 
 " J: go to the start of the line
-noremap <silent> J 0
+noremap <silent> H 0
 " L: go to the end of the line
 noremap <silent> L $
 
 " set h (same as n, cursor left) to 'end of word'
-noremap h e
+"noremap h e
 
 " Ctrl + I or K will move up/down the view port without moving the cursor
-"noremap <C-I> 5<C-y>
-"noremap <C-k> 5<C-e>
+noremap <C-k> 5<C-y>
+noremap <C-j> 5<C-e>
 
 " Insert Mode Cursor Movement
 inoremap <C-e> <ESC>A
@@ -416,31 +416,31 @@ cnoremap <M-l> <S-Right>
 " ===
 " s+jkli split
 map sl :set splitright<CR>:vsplit<CR>
-map sj :set nosplitright<CR>:vsplit<CR>
-map si :set nosplitbelow<CR>:split<CR>
-map sk :set splitbelow<CR>:split<CR>
+map sh :set nosplitright<CR>:vsplit<CR>
+map sk :set nosplitbelow<CR>:split<CR>
+map sj :set splitbelow<CR>:split<CR>
 
 " reshape the split size
-map <Leader>si :res +5<CR>
-map <Leader>sk :res -5<CR>
-map <Leader>sj :vertical resize-5<CR>
+map <Leader>sk :res +5<CR>
+map <Leader>sj :res -5<CR>
+map <Leader>sh :vertical resize-5<CR>
 map <Leader>sl :vertical resize+5<CR>
 
 " switch between windows
-noremap <LEADER>k <c-w>j
-noremap <LEADER>i <c-w>k
+noremap <LEADER>j <c-w>j
+noremap <LEADER>k <c-w>k
 noremap <LEADER>l <c-w>l
-noremap <LEADER>j <c-w>h
+noremap <LEADER>h <c-w>h
 
-noremap <C-w>k <c-w>j
-noremap <C-w>i <c-w>k
-noremap <C-w>l <c-w>l
-noremap <C-w>j <c-w>h
+"noremap <C-w>k <c-w>j
+"noremap <C-w>i <c-w>k
+"noremap <C-w>l <c-w>l
+"noremap <C-w>j <c-w>h
 
-noremap <C-w><C-k> <c-w>j
-noremap <C-w><C-i> <c-w>k
+noremap <C-w><C-j> <c-w>j
+noremap <C-w><C-k> <c-w>k
 noremap <C-w><C-l> <c-w>l
-noremap <C-w><C-j> <c-w>h
+noremap <C-w><C-h> <c-w>h
 
 "noremap <A-Down> <c-w>j
 "noremap <A-Up> <c-w>k
@@ -467,14 +467,14 @@ noremap srv <C-w>b<C-w>H
 noremap <silent> tn :tabe<CR>
 " switch to previous tab
 nnoremap <silent> <C-[> :-tabnext<CR>
-nnoremap <silent> tj :-tabnext<CR>
+nnoremap <silent> th :-tabnext<CR>
 " switch to next tab
 noremap <silent> <C-]> :+tabnext<CR>
 noremap <silent> tl :+tabnext<CR>
 " close current tab
 noremap <silent> td :tabclose<CR>
 " Move the tabs with tmn and tmi
-noremap <silent> tmj :-tabmove<CR>
+noremap <silent> tmh :-tabmove<CR>
 noremap <silent> tml :+tabmove<CR>
 
 " ===
@@ -483,7 +483,7 @@ noremap <silent> tml :+tabmove<CR>
 " switch to next buffer
 nnoremap <silent> <C-l> :bn<CR>
 " switch to previous buffer
-nnoremap <silent> <C-j> :bp<CR>
+nnoremap <silent> <C-h> :bp<CR>
 " Move forwards through recently accessed buffers
 nnoremap <silent> <C-Right> :BF<CR>
 " Move backwards through recently accessed buffers
@@ -1020,6 +1020,11 @@ Plug 'dyng/ctrlsf.vim'
      " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
      nnoremap <Leader>sp :CtrlSF<CR>
      let g:ctrlsf_ackprg='ag'
+Plug 'SirVer/ultisnips'
+     let g:UltiSnipsExpandTrigger="<C-k>"
+     let g:UltiSnipsJumpForwardTrigger="<Down>"
+    let g:UltiSnipsJumpBackwardTrigger="<Up>"
+"Plug 'honza/vim-snippets'
 
 
 " ===
@@ -1069,7 +1074,7 @@ let g:grubvbox_contrast_light = 'soft'
 " ===
 " === Configure coc
 " ===
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-tsserver', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
+let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
 
 " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
@@ -1093,8 +1098,6 @@ inoremap <silent><expr> <S-TAB>
 " Use <cr> to confirm completion, `<C-y>` means break undo chain at current
 if exists('*complete_info')
     inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
-    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 " Use <c-space> to cancel completion.
@@ -1121,8 +1124,8 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
-" Use H to show documentation in preview window
-nnoremap <silent> H :call <SID>show_documentation()<CR>
+" Use F to show documentation in preview window
+nnoremap <silent> F :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
      execute 'h '.expand('<cword>')

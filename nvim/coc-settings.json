@@ -194,7 +194,22 @@
 	"diagnostic-languageserver.formatFiletypes": {
 		"elixir": "mix_format",
 		"eelixir": "mix_format",
-		"sh": "shfmt"
+		"sh": "shfmt",
+		"python": ["black", "isort", "docformatter"]
+	},
+	"diagnostic-languageserver.formatters": {
+		"black": {
+			"command": "black",
+			"args": ["-q", "-"]
+		},
+		"isort": {
+			"command": "isort",
+			"args": ["-q", "-"]
+		},
+		"docformatter": {
+			"command": "docformatter",
+			"args": ["-"]
+		}
 	},
 	"languageserver": {
 		"lua": {
@@ -239,15 +254,28 @@
 	"translator.toLang": "zh",
 	"translator.engines": ["google", "youdao"],
 	"python.autoComplete.addBrackets": true,
-	"python.jediEnabled": true,
+	"python.jediEnabled": false,
 	"python.formatting.provider": "yapf",
 	"python.formatting.yapfArgs": [
 		"--style",
 		"{SPACES_AROUND_POWER_OPERATOR: True, SPACES_BEFORE_COMMENT: 1, column_limit: 100}"
 	],
 	"python.linting.enabled": true,
-	"python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411"],
+	"python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411, C0114, C0330"],
 	"python.analysis.disabled": ["undefined-variable", "unresolved-import"],
 	"pyright.disableCompletion": true,
-	"pyright.disableLanguageServices": true
+	"pyright.disableLanguageServices": true,
+	"jedi.enable": true,
+	"jedi.startupMessage": false,
+	"jedi.markupKindPreferred": "plaintext",
+	"jedi.trace.server": "off",
+	"jedi.jediSettings.autoImportModules": [],
+	"jedi.completion.resolveEagerly": false,
+	"jedi.diagnostics.enable": true,
+	"jedi.diagnostics.didOpen": true,
+	"jedi.diagnostics.didChange": true,
+	"jedi.diagnostics.didSave": true,
+	"jedi.workspace.extraPaths": [],
+	"jedi.workspace.symbols.maxSymbols": 20,
+	"jedi.workspace.symbols.ignoreFolders": [".nox", ".tox", ".venv", "__pycache__", "venv"]
 }

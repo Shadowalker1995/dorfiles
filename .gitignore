@@ -37,3 +37,6 @@ zsh/.zcompdump*
 */.gitmodules
 */.travis.yml
 */cache
+
+.picgo/config_bak.json
+nvim/autoload/plug.vim.old

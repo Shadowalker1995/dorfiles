@@ -131,7 +131,6 @@ exec_always --no-startup-id nm-applet &
 exec_always --no-startup-id feh --bg-scale /home/zzhenry/Pictures/壁纸/mac壁纸/001.jpg
 # Start goldendict
 exec --no-startup-id goldendict &
-for_window [instance="goldendict"] move scratchpad
 # Start Guake
 #exec --no-startup-id guake &
 # frps
@@ -449,7 +448,7 @@ bindsym $mod+p [instance="smplayer"] scratchpad show
 bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
 bindsym $mod+F2 [instance="Mail"] scratchpad show
 bindsym $mod+F3 [title="ranger"] scratchpad show
-bindsym $mod+F4 [instance="telegram"] scratchpad show
+bindsym $mod+F5 [instance="telegram"] scratchpad show
 bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
 
 # Switch to workspace with urgent window automatically
@@ -472,15 +471,19 @@ for_window [window_type="menu"] floating enable
 # specify windows to use flosating mode
 for_window [instance="wechat.exe"] floating enable border none
 for_window [instance="telegram"] floating enable border none
-for_window [instance="slack"] floating enable border none
-#for_window [instance="Mail"] floating enable border none
+for_window [instance="slack"] floating toggle sticky enable resize set 1800 1000
+for_window [instance="Mail"] floating toggle sticky enable resize set 1800 1000
+for_window [title="Guake_alacritty"]    floating toggle sticky enable resize set 1800 1000
+for_window [class="Rhythmbox"] floating toggle sticky enable resize set 1800 1000
+for_window [class="netease-cloud-music"] floating toggle sticky enable resize set 1800 1000
+for_window [class="smplayer"] floating toggle sticky enable resize set 1800 1000
 for_window [class="scrcpy"] floating enable
 for_window [title="alsamixer"]      floating enable border pixel 1
 for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
 for_window [class="Lxappearance"]   floating enable sticky enable border normal
 for_window [class="Gnome-tweaks"]   floating enable sticky enable border normal
 for_window [class="Gnome-control-center"]   floating enable sticky enable border normal
-for_window [class="GoldenDict"]   floating enable sticky enable border normal
+for_window [class="GoldenDict"]   floating toggle sticky enable resize set 1800 1000
 # for_window [class="Nautilus"]   floating enable sticky enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="albert"] floating enable sticky enable
@@ -508,10 +511,6 @@ for_window [instance="camdesk"] floating enable sticky enable
 for_window [title="CopyQ"] floating enable
 for_window [class="(?i)blueman"] floating enable sticky enable
 for_window [title="ranger"]      floating enable border pixel 1
-for_window [title="Guake_alacritty"]    floating toggle sticky enable resize set 800 1000, move position 50 10
-for_window [class="Rhythmbox"] floating enable border none
-for_window [class="netease-cloud-music"] floating enable border none
-for_window [class="smplayer"] floating enable border none
 for_window [instance="shutter"] floating enable border none
 
 
@@ -539,7 +538,8 @@ assign [instance="mendeleydesktop"]                       → $ws7
 assign [instance="calibre-gui"]                        → $ws7
 assign [class="Transmission-gtk"]               → $ws8
 assign [instance="qbittorrent"]               → $ws8
-assign [instance="virt-manager" title="win10 - QEMU/KVM"]               → $ws10
+assign [instance="virt-manager"]               → $ws10
+assign [instance="virt-viewer"]               → $ws10
 #assign [class="Rhythmbox"]                      → $ws5
 #assign [class="netease-cloud-music"]            → $ws5
 #assign [class="smplayer"]                       → $ws5
@@ -581,6 +581,7 @@ bar {
     separator_symbol "⁞"
     # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
     tray_output primary
+    tray_padding 0
     #strip_workspace_numbers yes
 
     colors {

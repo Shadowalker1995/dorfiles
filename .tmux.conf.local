@@ -24,8 +24,8 @@ set -s focus-events on
 set-hook -g pane-focus-in "run -b 'bash ~/.tmux/fzf_panes.tmux update_mru_pane_ids'"
 bind -n M-w run -b 'bash ~/.tmux/fzf_panes.tmux new_window'
 
-bind-key -n 'M-`' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate / | fzf -m | paste -sd\\  -)\"'"
-bind-key -n 'M-h' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate ~/ | fzf -m | paste -sd\\  -)\"'"
+#bind-key -n 'M-`' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate / | fzf -m | paste -sd\\  -)\"'"
+#bind-key -n 'M-h' run "tmux split-window -p 40 'tmux send-keys -t #{pane_id} \"$(locate ~/ | fzf -m | paste -sd\\  -)\"'"
 
 # choose-tree with all expanded
 bind W choose-tree -Z
@@ -202,9 +202,11 @@ tmux_conf_theme_right_separator_sub='\uE0B3'  #   PowerlineSymbols.otf font, see
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' ❐ #S|#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,}'
 #tmux_conf_theme_status_left="#[fg=brightblue]#(curl icanhazip.com) #(ifconfig wlp6s0 | grep 'inet ' | awk '{print \"wlp6s0 \" $2}') #(ifconfig en1 | grep 'inet ' | awk '{print \"en1 \" $2}') #(ifconfig en3 | grep 'inet ' | awk '{print \"en3 \" $2}') #(ifconfig tun0 | grep 'inet ' | awk '{print \"vpn \" $2}')"
+
+# search emoji from https://emojipedia.org/
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} %R, %d %b, #(curl -s wttr.in/\?format\="1&m&period=60") | #{username}#{root} | #{hostname} '
 #tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized}  %a %d %b %R #(curl -s wttr.in/\?format\="1&m&period=60")#{ram_fg_color} 💿 #{ram_percentage}#{cpu_fg_color}🇨 #{cpu_percentage} #{gram_fg_color}📀 #{gram_percentage}#{gpu_fg_color}🇬  #{gpu_percentage} | #{username}#{root} | #{hostname} '
-tmux_conf_theme_status_right='#{prefix} #{pairing} #{synchronized} %a %d %b %R #(curl -s wttr.in/\?format\="1&m&period=60") #{gram_fg_color}📀 #{gram_percentage}#{gpu_fg_color}🇬  #{gpu_percentage} | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix} #{pairing} #{synchronized} %a %d %b %R #(curl -s wttr.in/\?format\="1&m&period=60") #{gram_fg_color}📀 #{gram_percentage}#{gpu_fg_color} 💿 #{gpu_percentage} | #{username}#{root} | #{hostname} '
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white

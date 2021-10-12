@@ -161,7 +161,7 @@ exec --no-startup-id xkbset nullify lock
 
 # Set additional display
 #exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off && xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto && xrandr --output eDP-1-1 --primary
-exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off --output DP-1 --off && xrandr --output DP-1 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --auto --right-of DP-1 --auto && xrandr --output DP-1 --primary
+exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off --output DP-1 --off && xrandr --output DP-1 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --auto --right-of DP-1 --auto && xrandr --output eDP-1-1 --primary
 #exec_always xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto
 #exec_always xrandr --output eDP-1-1 --primary
 #exec_always xrandr --output eDP-1-1 --auto --left-of HDMI-0 --auto
@@ -441,12 +441,13 @@ bindsym $mod+button3 sticky toggle
 # criteria scratchpad launchers
 #bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
 bindsym $mod+grave [instance="wechat.exe"] scratchpad show
+bindsym $mod+t [instance="tim.exe"] scratchpad show
 bindsym $mod+s [instance="slack"] scratchpad show
 bindsym $mod+m [class="Rhythmbox"] scratchpad show
 bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
 bindsym $mod+p [instance="smplayer"] scratchpad show
 bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
-bindsym $mod+F2 [instance="Mail"] scratchpad show
+bindsym $mod+F2 [class="Thunderbird"] scratchpad show
 bindsym $mod+F3 [title="ranger"] scratchpad show
 bindsym $mod+F5 [instance="telegram"] scratchpad show
 bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
@@ -469,21 +470,22 @@ for_window [window_type="dialog"] floating enable
 for_window [window_type="menu"] floating enable
 
 # specify windows to use flosating mode
-for_window [instance="wechat.exe"] floating enable border none
-for_window [instance="telegram"] floating enable border none
-for_window [instance="slack"] floating toggle sticky enable resize set 1800 1000
-for_window [instance="Mail"] floating toggle sticky enable resize set 1800 1000
-for_window [title="Guake_alacritty"]    floating toggle sticky enable resize set 1800 1000
-for_window [class="Rhythmbox"] floating toggle sticky enable resize set 1800 1000
-for_window [class="netease-cloud-music"] floating toggle sticky enable resize set 1800 1000
-for_window [class="smplayer"] floating toggle sticky enable resize set 1800 1000
+for_window [instance="wechat.exe"] floating enable sticky enbale border none
+for_window [instance="tim.exe"] floating enable sticky enbale border none
+for_window [instance="telegram"] floating enable sticky enable border none
+for_window [instance="slack"] floating enable sticky enable resize set 1800 1000
+for_window [class="Thunderbird"] floating enable sticky enable resize set 1800 1000
+for_window [title="Guake_alacritty"]    floating enable sticky enable resize set 1800 1000
+for_window [class="Rhythmbox"] floating enable sticky toggle resize set 1800 1000 border none
+for_window [class="netease-cloud-music"] floating enable sticky enable resize set 1800 1000
+for_window [class="smplayer"] floating enable sticky enable resize set 1800 1000
 for_window [class="scrcpy"] floating enable
 for_window [title="alsamixer"]      floating enable border pixel 1
 for_window [class="Lightdm-gtk-greeter-settings"]   floating enable
 for_window [class="Lxappearance"]   floating enable sticky enable border normal
 for_window [class="Gnome-tweaks"]   floating enable sticky enable border normal
 for_window [class="Gnome-control-center"]   floating enable sticky enable border normal
-for_window [class="GoldenDict"]   floating toggle sticky enable resize set 1800 1000
+for_window [class="GoldenDict"]   floating enable sticky enable resize set 1800 1000
 # for_window [class="Nautilus"]   floating enable sticky enable border normal
 for_window [class="Nitrogen"] floating enable sticky enable border normal
 for_window [class="albert"] floating enable sticky enable

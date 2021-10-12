@@ -5,15 +5,17 @@ extract
 extract 
 search wiki
 find env
-
 find 
 open_with q
 search 
 ren
 vim
 !vim
-delete
 bulkrename
-rename 
 open_with 
+b
+rename 
+
+search 019A3EAJ_00093
+delete
 bulkrename 

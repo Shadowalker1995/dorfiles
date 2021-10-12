@@ -17,6 +17,7 @@ alias s='neofetch'
 alias c="clear"
 #alias cp="cp -i"
 alias df='df -h'
+alias du='ncdu'
 #alias cat='bat'
 alias unzip='unzip -O cp936'
 alias aliyun='sshpass -p 95218zz!!0130 ssh root@149.129.119.6'
@@ -24,11 +25,15 @@ alias vultr="sshpass -p 'oG=8bxq9ornsD?pr' ssh root@108.61.205.162"
 alias pi="sshpass -p 'zgl19950218' ssh -p 7006 zzhenry@106.54.186.223"
 alias pilocal="sshpass -p 'zgl19950218' ssh zzhenry@192.168.1.223"
 alias tencent="ssh ubuntu@106.54.186.223"
+alias ssh_oracle="ssh ubuntu@158.101.153.138"
 #alias sshxulab="ssh -p 20022 v_zhu_zhan@xulab-gpu0.pc.cs.cmu.edu"
-alias sshgpu0="ssh -p 20022 v_zhu_zhan@xulab-gpu0.pc.cc.cmu.edu"
-alias sshgpu1="ssh -p 20022 v_zhu_zhan@xulab-gpu1.pc.cc.cmu.edu"
-alias ssh171="ssh -p 8443 v_zhu_zhan@124.16.75.172"
+alias sshgpu0="ssh -p 20022 v_zhu_zhan@xulab-gpu0.pc.cc.cmu.edu -L 127.0.0.1:1234:127.0.0.1:8888"
+alias sshgpu1="ssh -p 20022 v_zhu_zhan@xulab-gpu1.pc.cc.cmu.edu -L 127.0.0.1:1234:127.0.0.1:8888"
+alias ssh171="ssh -p 8443 v_zhu_zhan@124.16.75.172 -L 127.0.0.1:1234:127.0.0.1:8888"
+alias ssh5007="ssh -p 6002 zzhenry@121.36.222.86"
+#alias ssh5007="ssh -p 7001 zzhenry@72.95.243.161"
 alias frp="nohup ~/Softwares/system/frp/frpc -c ~/Softwares/system/frp/frpc_tencent.ini > ~/Softwares/system/frp/nohup.out 2>&1 &"
+alias frps="nohup ~/Softwares/system/frp/frps -c ~/Softwares/system/frp/frps_full.ini &"
 alias frpout="cat ~/Softwares/system/frp/nohup.out"
 alias chfs8081="chfs --file=$HOME/Softwares/installed/chfs/config_local6V_8081.ini"
 alias chfs8082="chfs --file=$HOME/Softwares/installed/chfs/config_Medias_8082.ini"

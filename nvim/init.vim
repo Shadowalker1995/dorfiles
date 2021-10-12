@@ -1025,6 +1025,8 @@ Plug 'SirVer/ultisnips'
      let g:UltiSnipsJumpForwardTrigger="<Down>"
     let g:UltiSnipsJumpBackwardTrigger="<Up>"
 "Plug 'honza/vim-snippets'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 
 " ===

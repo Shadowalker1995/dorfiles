@@ -66,7 +66,7 @@ ZSH_THEME="solus"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git extract z wd web-search rand-quote themes gitignore cp zsh_reload safe-paste colored-man-pages python history-substring-search zsh-syntax-highlighting last-working-dir zsh-256color alias-tips zsh-autopair git-open zsh-autosuggestions zsh-navigation-tools tmux calc
+  git extract z wd web-search rand-quote themes gitignore cp zsh_reload safe-paste colored-man-pages python history-substring-search zsh-syntax-highlighting last-working-dir zsh-256color alias-tips zsh-autopair git-open zsh-autosuggestions zsh-navigation-tools calc
 )
 
 #ZSH_TMUX_AUTOSTART=false
@@ -96,6 +96,8 @@ export DEFAULT_USER="zzhenry"
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/miniconda3/lib
 # export LD_LIBRARY_PATH=$HOME/anaconda3/pkgis/hdf5-1.10.1-h9caa474_1/lib:$LD_LIBRARY_PATH
 
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('$HOME/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -110,6 +112,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export HOST=$(hostname)
 
 
 # adde QT path
@@ -143,6 +147,7 @@ export TERM="tmux-256color"
 
 export WD_CONFIG=$HOME/.config/.warprc
 export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.cache
 #export LOCALBIN=$XDG_CONFIG_HOME/bin
 #export PATH=$PATH:$LOCALBIN
 #export GOPATH=$HOME/go
@@ -165,3 +170,12 @@ export LD_LIBRARY_PATH=$BSOFT/lib:$LD_LIBRARY_PATH
 export GOPATH=$HOME/Dev/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# proxy
+export http_proxy="socks5://127.0.0.1:1080"
+export https_proxy="socks5://127.0.0.1:1080"
+
+# Theano
+export THEANO_FLAGS=blas.ldflags="-L/usr/lib/x86_64-linux-gnu/ -lblas"
+
+export _Z_SRC="$HOME/.oh-my-zsh/plugins/z/z.sh"

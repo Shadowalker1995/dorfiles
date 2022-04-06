@@ -1,21 +1,50 @@
-search pic
-cd ~
-cd ~/.config
+shell -w clear
+shell -w which pythoh
+shell -w which python
 extract
-extract 
-search wiki
-find env
-find 
-open_with q
-search 
-ren
-vim
-!vim
-bulkrename
-open_with 
-b
-rename 
-
-search 019A3EAJ_00093
+shell -w source ~/.config/zsh/.zshrc
+shell -w which zshconfig
+shell -w which du
+shell -w which fzf
+which fzf
+fzf
+shell  %s
+shell fzf
+shell -w fzf
+shell -w ncdu
+shell -w 
+shell ncdu
+shell -w echo $LD_LIBRARY_PATH
+sa
+eval for f in self.fm.copy_buffer: self.fm.notify(f.path)
+save_copy_buffer 
+show_copy_bufer 
+clear
+self.fm.notify(f.path)
+self.fm.notify("123")
+eval self.fm.notify("123")
+show_commands 
+shell -w which bat
+mkcd tmp
+mkc
+mkdir
+mkdir tmp
+cd tmp
 delete
-bulkrename 
+shell trash-empty 
+shell 
+shell -p trash-empty 
+shell -p trash-empty 
+shell -s trash-empty 
+trash-empty 
+open_with f 
+find 
+filter 
+find abaqus
+filter abaqus
+filter
+search_inc abaqus
+search_inc 
+q
+
+trash

@@ -5,8 +5,7 @@
  */
 
 /* Global settings and color variables */
-*
- {
+* {
    maincolor:        #8CE000;
    highlight:        bold #8CE000;
    urgentcolor:      #C40000;
@@ -22,11 +21,11 @@
    background-color: @blackdarkest;
 }
 
-configuration {
-    modi: "window,run,ssh,drun";
-    show-icons:true;
-    drun-icon-theme: "MacOSX";
-}
+/*configuration {*/
+    /*modi: "window,run,ssh,drun";*/
+    /*show-icons:true;*/
+    /*drun-icon-theme: "MacOSX";*/
+/*}*/
 
 window {
    background-color: @blackdarkest;

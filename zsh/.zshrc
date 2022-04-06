@@ -14,7 +14,7 @@ bindkey '^N' history-substring-search-down
 # dynpaper -f $HOME/Pictures/Mojave/mojave_dynamic_{}.jpeg -e gnome &
 
 # add completion for alacritty
-fpath+=${ZDOTDIR:-~}/.config/.zsh_functions
+fpath+=$HOME/.config/.zsh_functions
 
 # thefuck init
 eval $(thefuck --alias)
@@ -49,5 +49,11 @@ if ! ps -p $PPID | grep -q java; then
     fi
 fi
 
+# zranger
+autoload -U zranger
+bindkey -s '\ez' "\eq zranger\n"
+
 #quote | cowsay
-fortune -e chinese | cowsay
+#fortune -e chinese | cowsay
+
+s

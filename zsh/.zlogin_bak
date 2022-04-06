@@ -1,0 +1,48 @@
+## added by Miniconda3 Vinstaller
+##export PATH="$HOME/miniconda3/bin:$PATH"
+##export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/miniconda3/lib
+## export LD_LIBRARY_PATH=$HOME/anaconda3/pkgis/hdf5-1.10.1-h9caa474_1/lib:$LD_LIBRARY_PATH
+
+#export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+## adde QT path
+#export PATH="/opt/Qt5.14.2/5.14.2/gcc_64/bin:$PATH"
+## cuda
+#export CUDA_HOME=/usr/local/cuda
+#export PATH=$CUDA_HOME/bin:$PATH
+#export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+## boost
+#export LD_LIBRARY_PATH=$HOME/Dev/Github/boost/stage/lib:$LD_LIBRARY_PATH
+## python
+##export PYTHONPATH=$HOME/miniconda3/lib/python3.7/site-packages
+#export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+## export ANDROID_HOME=/usr/lib/android-sdk
+#export ANDROID_HOME=$HOME/Android/SDK
+#export PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+#export WD_CONFIG=$HOME/.config/.warprc
+#export XDG_CONFIG_HOME=$HOME/.config
+##export LOCALBIN=$XDG_CONFIG_HOME/bin
+##export PATH=$PATH:$LOCALBIN
+##export GOPATH=$HOME/go
+##export PATH=$PATH:$HOME/.gem/ruby/2.6.0
+#export PATH="$HOME/bin:$PATH"
+##export PATH=$PATH:$HOME/go/bin
+#export PATH=$PATH:$HOME/.cargo/bin
+##export PATH=$PATH:/usr/local/opt/node@12/bin
+
+## Environmental variables for Bsoft on Linux (x86_64)
+#BSOFT=$HOME/Dev/AITom/bsoft
+#BPARAM=$BSOFT/parameters/
+#export PATH=$BSOFT/bin:$PATH
+#export LD_LIBRARY_PATH=$BSOFT/lib:$LD_LIBRARY_PATH
+
+#export GOPATH=$HOME/Dev/go
+#export GOROOT=/usr/local/go
+#export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+## proxy
+#export http_proxy="socks5://127.0.0.1:1080"
+#export https_proxy="socks5://127.0.0.1:1080"
+
+## Theano
+#export THEANO_FLAGS=blas.ldflags="-L/usr/lib/x86_64-linux-gnu/ -lblas"

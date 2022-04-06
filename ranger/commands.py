@@ -15,6 +15,7 @@ from ranger.api.commands import *
 
 # You can import any python module as needed.
 import os
+import signal
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
@@ -63,58 +64,76 @@ class my_edit(Command):
         # content of the current directory.
         return self._tab_directory_content()
 
-class extract(Command):
-    """:extract <paths>
-    Extract archives
+def zranger_chdir_handler(signal, frame):
+    tmpfile = "/tmp/zranger-cwd-{}".format(os.getuid())
+    with open(tmpfile, "r") as f:
+        Command.fm.cd(f.readline().strip())
+        os.unlink(tmpfile)
+signal.signal(signal.SIGUSR1, zranger_chdir_handler)
+
+class tmux_detach(Command):
+    """
+    :tmux_detach
+
+    Detach from this tmux session (if inside tmux).
     """
     def execute(self):
-        import os
-        fail=[]
-        for i in self.fm.thistab.get_selection():
-            ExtractProg='7z x'
-            if i.path.endswith('.zip'):
-                # zip encoding issue
-                ExtractProg='unzip.py'
-            elif i.path.endswith('.tar.gz'):
-                ExtractProg='tar xvf'
-            elif i.path.endswith('.tar.xz'):
-                ExtractProg='tar xJvf'
-            elif i.path.endswith('.tar.bz2'):
-                ExtractProg='tar xjvf'
-            if os.system('{0} "{1}"'.format(ExtractProg, i.path)):
-                fail.append(i.path)
-        if len(fail) > 0:
-            self.fm.notify("Fail to extract: {0}".format(' '.join(fail)), duration=10, bad=True)
-        self.fm.redraw_window()
-
-from ranger.core.loader import CommandLoader
-
-class compress(Command):
-    def execute(self):
-        """ Compress marked files to current directory """
-        cwd = self.fm.thisdir
-        marked_files = cwd.get_selection()
-
-        if not marked_files:
+        if not os.environ.get('TMUX'):
             return
+        os.system("tmux detach")
 
-        def refresh(_):
-            cwd = self.fm.get_directory(original_path)
-            cwd.load_content()
+# class extract(Command):
+    # """:extract <paths>
+    # Extract archives
+    # """
+    # def execute(self):
+        # import os
+        # fail=[]
+        # for i in self.fm.thistab.get_selection():
+            # ExtractProg='7z x'
+            # if i.path.endswith('.zip'):
+                # # zip encoding issue
+                # ExtractProg='unzip.py'
+            # elif i.path.endswith('.tar.gz'):
+                # ExtractProg='tar xvf'
+            # elif i.path.endswith('.tar.xz'):
+                # ExtractProg='tar xJvf'
+            # elif i.path.endswith('.tar.bz2'):
+                # ExtractProg='tar xjvf'
+            # if os.system('{0} "{1}"'.format(ExtractProg, i.path)):
+                # fail.append(i.path)
+        # if len(fail) > 0:
+            # self.fm.notify("Fail to extract: {0}".format(' '.join(fail)), duration=10, bad=True)
+        # self.fm.redraw_window()
 
-        original_path = cwd.path
-        parts = self.line.split()
-        au_flags = parts[1:]
+# from ranger.core.loader import CommandLoader
 
-        descr = "compressing files in: " + os.path.basename(parts[1])
-        obj = CommandLoader(args=['apack'] + au_flags + \
-                [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+# class compress(Command):
+    # def execute(self):
+        # """ Compress marked files to current directory """
+        # cwd = self.fm.thisdir
+        # marked_files = cwd.get_selection()
 
-        obj.signal_bind('after', refresh)
-        self.fm.loader.add(obj)
+        # if not marked_files:
+            # return
 
-    def tab(self):
-        """ Complete with current folder name """
+        # def refresh(_):
+            # cwd = self.fm.get_directory(original_path)
+            # cwd.load_content()
 
-        extension = ['.zip', '.tar.gz', '.rar', '.7z']
-        return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]
+        # original_path = cwd.path
+        # parts = self.line.split()
+        # au_flags = parts[1:]
+
+        # descr = "compressing files in: " + os.path.basename(parts[1])
+        # obj = CommandLoader(args=['apack'] + au_flags + \
+                # [os.path.relpath(f.path, cwd.path) for f in marked_files], descr=descr)
+
+        # obj.signal_bind('after', refresh)
+        # self.fm.loader.add(obj)
+
+    # def tab(self):
+        # """ Complete with current folder name """
+
+        # extension = ['.zip', '.tar.gz', '.rar', '.7z']
+        # return ['compress ' + os.path.basename(self.fm.thisdir.path) + ext for ext in extension]

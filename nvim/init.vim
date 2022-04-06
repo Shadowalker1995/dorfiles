@@ -265,16 +265,13 @@ augroup END
 let $TERM = "tmux-256color"
 let g:neoterm_autoscroll = 1
 autocmd TermOpen term://* startinsert
-tnoremap <ESC> <C-\><C-n>
+"tnoremap <ESC> <C-\><C-n>
 tnoremap <A-[> <ESC>
-tnoremap <A-k> <C-\><C-n><C-w>i
-tnoremap <A-i> <C-\><C-n><C-w>k
-tnoremap <A-l> <C-\><C-n><C-w>l
-tnoremap <A-j> <C-\><C-n><C-w>h
-tnoremap <A-Down> <C-\><C-n><C-w>i
-tnoremap <A-Up> <C-\><C-n><C-w>k
-tnoremap <A-Right> <C-\><C-n><C-w>l
-tnoremap <A-Left> <C-\><C-n><C-w>h
+tnoremap <C-w><C-w> <c-\><c-n><c-w>w
+tnoremap <C-w><C-h> <c-\><c-n><c-w>h
+tnoremap <C-w><C-j> <c-\><c-n><c-w>j
+tnoremap <C-w><C-k> <c-\><c-n><c-w>k
+tnoremap <C-w><C-l> <c-\><c-n><c-w>l
 
 let g:terminal_color_0  = '#000000'
 let g:terminal_color_1  = '#FF5555'
@@ -427,20 +424,15 @@ map <Leader>sh :vertical resize-5<CR>
 map <Leader>sl :vertical resize+5<CR>
 
 " switch between windows
-noremap <LEADER>j <c-w>j
-noremap <LEADER>k <c-w>k
-noremap <LEADER>l <c-w>l
-noremap <LEADER>h <c-w>h
-
-"noremap <C-w>k <c-w>j
-"noremap <C-w>i <c-w>k
-"noremap <C-w>l <c-w>l
-"noremap <C-w>j <c-w>h
-
+"noremap <LEADER>j <c-w>j
+"noremap <LEADER>k <c-w>k
+"noremap <LEADER>l <c-w>l
+"noremap <LEADER>h <c-w>h
+" Normal mode
+noremap <C-w><C-h> <c-w>h
 noremap <C-w><C-j> <c-w>j
 noremap <C-w><C-k> <c-w>k
 noremap <C-w><C-l> <c-w>l
-noremap <C-w><C-h> <c-w>h
 
 "noremap <A-Down> <c-w>j
 "noremap <A-Up> <c-w>k
@@ -484,15 +476,18 @@ noremap <silent> tml :+tabmove<CR>
 nnoremap <silent> <C-l> :bn<CR>
 " switch to previous buffer
 nnoremap <silent> <C-h> :bp<CR>
-" Move forwards through recently accessed buffers
+"Move forwards through recently accessed buffers
 nnoremap <silent> <C-Right> :BF<CR>
 " Move backwards through recently accessed buffers
 nnoremap <silent> <C-Left> :BB<CR>
-nnoremap <silent> <C-A> :BA<CR>
+nnoremap <silent> <C-\> :BA<CR>
 " switch to first buffer
 nnoremap <silent> [b :bfirst<CR>
 " switch to last buffer
 nnoremap <silent> ]b :blast<CR>
+
+inoremap <C-H> <C-\><C-O>b
+inoremap <C-L> <C-\><C-O>w
 
 " ===
 " === Other Useful Stuff
@@ -514,7 +509,7 @@ nmap <C-s> zz
 noremap <Leader><Leader> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
 " Opening a terminal window
-noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res +10<CR>:term<CR>
+noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res -3<CR>:term<CR>
 
 " Open a new instance of st with the cwd
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'alacritty'<CR><C-\><C-N>:q<CR>
@@ -557,13 +552,13 @@ func! CompileRunGcc()
         set splitbelow
         exec "!g++ -std=c++11 % -Wall -o %<"
         :sp
-        :res +15
+        :res -3
         :term time ./%<
     elseif &filetype == 'java'
         set splitbelow
         exec "!javac %"
         :sp
-        :res +15
+        :res -3
         :term time java %<
         "exec "!time java %"
     elseif &filetype == 'sh'
@@ -572,7 +567,7 @@ func! CompileRunGcc()
         ":CocCommand python.execInTerminal
         set splitbelow
         :sp
-        :res +15
+        :res -3
         :term python %
     elseif &filetype == 'html'
         exec "!google-chrome-stable % &"
@@ -598,7 +593,7 @@ func! CompileRunGcc()
 endfunc
 map <F5> :call CompileRunGcc()<CR>
 
-nmap <space>r :CocCommand python.execInTerminal<CR>
+"nmap <space>r :CocCommand python.execInTerminal<CR>
 
 " Debug
 func! Rungdb()
@@ -664,14 +659,14 @@ Plug 'hkupty/iron.nvim'
     "let g:sendtorepl_invoke_key = "<Space>w"            "传送代码快捷键，默认为<leader>w
     "let g:repl_position = 3                                    "0表示出现在下方，1表示出现在上方，2在左边，3在右边
     "let g:repl_stayatrepl_when_open = 1           "打开REPL时是回到原文件（1）还是停留在REPL窗口中（0）
-"Plug 'hkupty/iron.nvim'
 Plug 'jpalardy/vim-slime'
-    "let g:slime_target = "neovim"
     let g:slime_target = "tmux"
     let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
     let g:slime_python_ipython = 1
-    "let g:slime_paste_file = "~/.slime_paste"
-    let g:slime_python_ipython = 1
+    let g:slime_no_mappings = 1
+    xmap <C-e><C-e> <Plug>SlimeRegionSend
+    nmap <C-e><C-e> <Plug>SlimeParagraphSend
+    nmap <C-e>v   <Plug>SlimeConfig
 
 " ===
 " === Auto Complete
@@ -815,6 +810,21 @@ Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
      let g:ctrlp_max_depth = 10
      let g:ctrlp_lazy_update = 0
      let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
+Plug 'kevinhwang91/rnvimr'
+    " Make Ranger replace Netrw and be the file explorer
+    let g:rnvimr_ex_enable = 1
+    " Make Ranger to be hidden after picking a file
+    let g:rnvimr_enable_picker = 1
+    " Hide the files included in gitignore
+    let g:rnvimr_hide_gitignore = 1
+    " Make Neovim wipe the buffers corresponding to the files deleted by Ranger
+    let g:rnvimr_enable_bw = 1
+    " Add a shadow window, value is equal to 100 will disable shadow
+    "let g:rnvimr_shadow_winblend = 70
+    nnoremap <space>r :RnvimrToggle<CR>
+    "let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+    " Link CursorLine into RnvimrNormal highlight in the Floating window
+    highlight link RnvimrNormal CursorLine
 
 
 " ===
@@ -923,22 +933,22 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
      map <LEADER>tm :TableModeToggle<CR>
 Plug 'vimwiki/vimwiki'
-     let g:vimwiki_list = [{
-       \ 'automatic_nested_syntaxes':1,
-       \ 'path_html': '~/wiki_html',
-       \ 'path': '~/wiki',
-       \ 'template_path': '~/.vim/vimwiki/template/',
-       \ 'syntax': 'markdown',
-       \ 'ext':'.md',
-       \ 'template_default':'markdown',
-       \ 'custom_wiki2html': '~/.vim/vimwiki/wiki2html.sh',
-       \ 'template_ext':'.html'
-     \}]
+    let g:vimwiki_list = [{
+        \ 'automatic_nested_syntaxes':1,
+        \ 'path_html': '~/wiki_html',
+        \ 'path': '~/wiki',
+        \ 'template_path': '~/.vim/vimwiki/template/',
+        \ 'syntax': 'markdown',
+        \ 'ext':'.md',
+        \ 'template_default':'markdown',
+        \ 'custom_wiki2html': '~/.vim/vimwiki/wiki2html.sh',
+        \ 'template_ext':'.html'
+    \}]
 
-     let g:taskwiki_sort_orders={"C": "pri-"}
-     let g:taskwiki_syntax = 'markdown'
-     let g:taskwiki_markdown_syntax='markdown'
-     let g:taskwiki_markup_syntax='markdown'
+    let g:taskwiki_sort_orders={"C": "pri-"}
+    let g:taskwiki_syntax = 'markdown'
+    let g:taskwiki_markdown_syntax='markdown'
+    let g:taskwiki_markup_syntax='markdown'
     let g:vimwiki_global_ext = 0
 
 
@@ -1007,15 +1017,15 @@ Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhite
      let g:better_whitespace_enabled=0
 Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
 Plug 'godlygeek/tabular' " type :Tabularize /= to align the =
-Plug 'gcmt/wildfire.vim' "in Visual mode, type n' to select all text in '', or type n) n] n} np
-     " This selects the previous closest text object.
-     vmap <SPACE><CR> <Plug>(wildfire-water)
-     let g:wildfire_objects = ["n'", 'n"', "n)", "n]", "n}", "np", "nt"]
-     " 取消高亮
-     noremap <LEADER><CR> :nohl<CR>
-     vnoremap <LEADER><CR> :nohl<CR>
+"Plug 'gcmt/wildfire.vim' "in Visual mode, type n' to select all text in '', or type n) n] n} np
+     "" This selects the previous closest text object.
+     "vmap <SPACE><CR> <Plug>(wildfire-water)
+     "let g:wildfire_objects = ["n'", 'n"', "n)", "n]", "n}", "np", "nt"]
+     "" 取消高亮
+"noremap <LEADER><CR> :nohl<CR>
+"vnoremap <LEADER><CR> :nohl<CR>
 Plug 'scrooloose/nerdcommenter' " in ;cc to comment a line
-Plug 'lilydjwg/fcitx.vim'
+"Plug 'lilydjwg/fcitx.vim'
 Plug 'dyng/ctrlsf.vim'
      " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
      nnoremap <Leader>sp :CtrlSF<CR>
@@ -1035,6 +1045,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 call plug#end()
 
+
+noremap <LEADER><CR> :nohl<CR>
+vnoremap <LEADER><CR> :nohl<CR>
 
 luafile $HOME/.config/nvim/plugins.lua
 " ===
@@ -1076,7 +1089,7 @@ let g:grubvbox_contrast_light = 'soft'
 " ===
 " === Configure coc
 " ===
-let g:coc_global_extensions = ['coc-python', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
+let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
 
 " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
@@ -1252,27 +1265,27 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " s+jkli:   分屏
 " ;+jkli:   调整分屏大小
 " SPACE-jkli: 在分屏窗口之间跳转
-" sw:        遍历分屏窗口
-" sv:        换为水平分屏 即分屏线为竖直的
-" sh:        换为垂直分屏 即分屏线为水平的
+" sw:       遍历分屏窗口
+" sv:       换为水平分屏 即分屏线为竖直的
+" sh:       换为垂直分屏 即分屏线为水平的
 " ===tab
-" tn:        新建一个tab
-" CTRL-Left:  上一个tab
-" CTRL-Right: 下一个tab
-" td:        关闭当前tab
+" tn:       新建一个tab
+" th:       上一个tab
+" tl:       下一个tab
+" td:       关闭当前tab
 " ===高亮
-" -:          跳到上一个搜索结果
-" =:          跳到下一个搜索结果
+" -:        跳到上一个搜索结果
+" =:        跳到下一个搜索结果
 " ;+Enter:  取消搜索结果高亮
 " ===主题
-" ;c1-8:     选择不同的主题 1: snazzy
-"                              2: ayu-mirage
-"                              3: ayu-light
-"                              4: ayu-dark
-"                              5: molokai
-"                              6: gruvbox-dark
-"                              7: gruvbox-light
-"                              8: snazzy-transparent
+" ;c1-8:    选择不同的主题 1: snazzy
+"                          2: ayu-mirage
+"                          3: ayu-light
+"                          4: ayu-dark
+"                          5: molokai
+"                          6: gruvbox-dark
+"                          7: gruvbox-light
+"                          8: snazzy-transparent
 
 " q;:        打开命令历史记录窗口
 " ;/          快速开始输入系统命令

@@ -9,6 +9,7 @@
 ########################################################################
 # set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $mod-ios mod5
 set $Alt Mod1
 
 
@@ -43,7 +44,9 @@ set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
+bindsym $mod-ios+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
+bindsym $mod-ios+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
@@ -126,19 +129,21 @@ exec_always --no-startup-id nm-applet &
 #exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
 #exec_always albert
 # Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/zzhenry/Pictures/壁纸/mac壁纸/001.jpg
+exec_always --no-startup-id feh --bg-scale /home/zzhenry/Pictures/壁纸/mac壁纸/001-conky.png
 # Start goldendict
 exec --no-startup-id goldendict &
 # frpc
-exec --no-startup-id frpc_oracle
+exec --no-startup-id /home/zzhenry/Softwares/system/frp/frpc -c /home/zzhenry/Softwares/system/frp/frpc_oracle.ini > /home/zzhenry/Softwares/system/frp/frpc_oracle.out 2>&1 &
 # Start input method
 exec --no-startup-id fcitx
 # Shutter
-exec --no-startup-id shutter --min_at_startup &
+exec --no-startup-id flameshot &
+# Shutter
+exec --no-startup-id x11vnc &
 # WeChat
 exec --no-startup-id /opt/deepinwine/apps/Deepin-WeChat/run.sh -u %u
 # Slack
-exec --no-startup-id slack &
+# exec --no-startup-id slack &
 for_window [instance="slack"] move scratchpad
 # ThunderBird
 exec --no-startup-id thunderbird &
@@ -156,24 +161,23 @@ exec --no-startup-id xkbset nullify lock
 #exec i3-msg workspace $ws2; i3-msg exec google-chrome-stable %U;
 
 # Set additional display
-#exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off && xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --primary
-exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off --output DP-1 --off && xrandr --output DP-1 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --auto --right-of DP-1 --auto && xrandr --output eDP-1-1 --primary
-#exec_always xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto
-exec_always xrandr --output eDP-1-1 --primary
-#exec_always xrandr --output eDP-1-1 --auto --left-of HDMI-0 --auto
+exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off && xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --primary
 
 ## Screenshots ##
 # Application windows
-bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -d 0.1-o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
+bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
 # Area
-bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
+bindsym Ctrl+$mod+s --release exec --no-startup-id flameshot gui -d 100 -p ~/Pictures/Screenshots/
 # Whole Window
-Bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
+Bindsym Ctrl+Print --release exec --no-startup-id flameshot full -d 100 -c -p ~/Pictures/Screenshots/
+
+# bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
+# Bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
 
 ## Clipboard ##
 # bindsym Ctrl+Shift+v --release exec copyq menu
 
-#Bindsym Ctrl+` nop
+# Bindsym Ctrl+` nop
 # Set for deepin-wechat
 exec --no-startup-id nohup /usr/libexec/gsd-xsettings > /dev/null 2>&1 &
 
@@ -241,7 +245,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent;exec notify-send 'focus parent'
-#bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
+bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
 
 # border changing
 bindsym $mod+b border toggle
@@ -429,173 +433,6 @@ bindsym $mod+button3 sticky toggle
 
 
 ########################################################################
-# Window criteria directives (use i3-get-window-criteria)
-########################################################################
-# criteria scratchpad launchers
-#bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
-bindsym $mod+grave [instance="wechat.exe"] scratchpad show
-# bindsym $mod+t [instance="tim.exe"] scratchpad show
-bindsym $mod+s [instance="slack"] scratchpad show
-bindsym $mod+m [class="Rhythmbox"] scratchpad show
-bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
-bindsym $mod+p [instance="smplayer"] scratchpad show
-bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
-bindsym $mod+F2 [class="Thunderbird"] scratchpad show
-bindsym $mod+F3 [title="ranger"] scratchpad show
-bindsym $mod+F5 [instance="telegram"] scratchpad show
-bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
-
-# Switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
-
-# floating tweaks
-# window_type
-# Compare the window type (_NET_WM_WINDOW_TYPE).
-# Possible values are
-# normal, dialog, utility, toolbar, splash, menu,
-# dropdown_menu, popup_menu, tooltip and notification.
-for_window [window_role="pop-up"]       floating enable
-for_window [window_role="bubble"]       floating enable
-for_window [window_role="task_dialog"]  floating enable
-for_window [window_role="Preferences"]  floating enable
-for_window [window_role="sound"]        floating enable
-for_window [window_role="bluetooth"]    floating enable
-
-for_window [window_type="dialog"]       floating enable
-for_window [window_type="menu"]         floating enable
-
-# specify windows to use flosating mode
-for_window [instance="wechat.exe"]      floating enable sticky enbale border none
-for_window [instance="tim.exe"]         floating enable sticky enbale border none
-for_window [instance="telegram"]        floating enable sticky enable border none
-for_window [instance="slack"]           floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="Thunderbird"]        floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [title="Guake_alacritty"]    floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [title="ranger"]             floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="GoldenDict"]         floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="Rhythmbox"]          floating enable sticky enbale border none
-for_window [class="netease-cloud-music"] floating enable sticky enable
-for_window [class="smplayer"]           floating enable sticky enable
-for_window [class="scrcpy"]             floating enable
-for_window [class="MATLAB R2015b"]      floating enable border normal
-for_window [class="gnuplot_qt"]         floating enable border normal
-for_window [class="Matplotlib"]         floating enable border normal
-for_window [title="alsamixer"]          floating enable border pixel 1
-for_window [class="Lightdm-gtk-greeter-settings"] floating enable
-for_window [class="Lxappearance"]       floating enable sticky enable border normal
-for_window [class="Gnome-tweaks"]       floating enable sticky enable border normal
-for_window [class="Gnome-control-center"] floating enable sticky enable border normal
-#for_window [class="Nautilus"]          floating enable sticky enable border normal
-for_window [class="Nitrogen"]           floating enable sticky enable border normal
-for_window [class="albert"]             floating enable sticky enable
-for_window [class="Gnome-alsamixer"]    floating enable sticky enable
-for_window [class="Gnome-font-viewer"]  floating enable sticky enable
-for_window [class="KeePassXC"]          floating enable
-for_window [class="ClipGrab"]           floating enable
-for_window [class="Galculator"]         floating enable border pixel 1
-for_window [class="Gnome-calendar"]     floating enable border pixel 1
-for_window [class="Gnome-calculator"]   floating enable border pixel 1
-for_window [class="Menu"]               floating enable
-for_window [class="TeamViewer"]         floating enable
-for_window [instance="zoom"]            floating enable
-for_window [instance="gthumb"]          floating enable
-for_window [class="feh"]                floating enable
-for_window [class="File-roller"]        floating enable
-for_window [class="(?i)shotwell"]       floating enable
-for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable sticky enable
-for_window [class="(?i)VirtualBox"]     floating enable sticky enable
-for_window [instance="vlc"]             floating enable
-for_window [instance="smplayer"]        floating enable
-for_window [instance="arandr"]          floating enable sticky enable
-for_window [instance="camdesk"]         floating enable sticky enable
-for_window [title="CopyQ"]              floating enable
-for_window [class="(?i)blueman"]        floating enable sticky enable
-for_window [instance="shutter"]         floating enable border none
-
-
-#for_window [instance="telegram"] move scratchpad
-# for_window [instance="wechat.exe"] move scratchpad
-#for_window [title="Guake_alacritty"] move scratchpad
-
-### assign program to workspace ###
-#assign [class="Alacritty"]                     → $ws1
-assign [class="Google-chrome"]                  → $ws2
-assign [class="Nautilus"]                       → $ws3
-assign [class="Code"]                           → $ws4
-assign [class="Sublime_text"]                   → $ws4
-assign [instance="jetbrains-pycharm-ce"]        → $ws4
-#assign [class="MATLAB R2015b"]                 → $ws4
-assign [class="Typora"]                         → $ws5
-assign [class="Wpsoffice"]                      → $ws5
-assign [instance="okular"]                      → $ws5
-assign [class="mpv"]                            → $ws6
-assign [class="Grub-customizer"]                → $ws6
-assign [class="Lightdm-gtk-greeter-settings"]   → $ws6
-assign [class="scrcpy"]                         → $ws6
-assign [instance="mendeleydesktop"]             → $ws7
-assign [instance="calibre-gui"]                 → $ws7
-assign [class="Transmission-gtk"]               → $ws8
-assign [instance="qbittorrent"]                 → $ws8
-assign [instance="virt-manager"]                → $ws10
-assign [instance="virt-viewer"]                 → $ws10
-#assign [class="Rhythmbox"]                     → $ws5
-#assign [class="netease-cloud-music"]           → $ws5
-#assign [class="smplayer"]                      → $ws5
-# assign [class="Wine"]                         → $ws6
-# assign [instance="wechat.exe"]                → $ws6
-# assign [class="TelegramDesktop"]              → $ws6
-
-
-########################################################################
-# Bar
-########################################################################
-# i3bar
-#bar {
-    #status_command ~/cmake-apps/bumblebee-status/bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t iceberg-powerline
-#}
-bar {
-    #id bar-1
-    i3bar_command i3bar
-    #tray_output none
-    #status_command ~/.config/bumblebee-status/bumblebee-status -m nic disk:root \
-        #cpu memory battery date time pasink pasource dnf \
-        #-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-        #-t solarized-powerline
-        #
-    status_command py3status -c ~/.config/i3status/py3status.conf -i ~/.config/py3status/py3status/modules/
-
-    #status_command exec ~/.config/i3/i3script.sh
-    #status_command i3status -c ~/.config/i3status/i3status.conf
-    #status_command py3status -c ~/.config/i3status/py3status.conf
-    #status_command i3status -c ~/.config/i3status/i3status.conf | ~/.config/i3status/wrapper.py
-    #status_command ~/.config/i3status/i3status+.py
-    #status_command exec ~/.config/i3status/any_position_wrapper.sh
-    #status_command exec ~/.config/i3status/net-speed.sh
-    #status_command i3blocks -c $HOME/.config/i3block/i3blocks.conf
-    position top
-    #mode hide
-    #workspace_buttons yes
-    font pango:Ubuntu, Font Awesome 5 Free Regular 14
-    separator_symbol "⁞"
-    # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-    tray_output primary
-    tray_padding 0
-    #strip_workspace_numbers yes
-
-    colors {
-        background  #2F343F
-        statusline  #DDDDDD
-        separator   #666666
-        # class             border  backgr. text
-        focused_workspace   #5294E2 #5294E2 #FFFFFF
-        active_workspace    #2F343F #2F343F #FFFFFF
-        inactive_workspace  #2F343F #2F343F #86888C
-        urgent_workspace    #D64E4E #D64E4E #FFFFFF
-    }
-}
-
-
-########################################################################
 # Modes
 ########################################################################
 ### resize ###
@@ -683,3 +520,175 @@ mode "pass-through" {
 }
 
 bindsym $mod+t mode "pass-through"
+
+
+########################################################################
+# Window criteria directives (use i3-get-window-criteria)
+########################################################################
+# criteria scratchpad launchers
+#bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
+bindsym $mod+grave [instance="wechat.exe"] scratchpad show
+bindsym $mod+s [class="scrcpy"] scratchpad show
+# bindsym $mod+t [instance="tim.exe"] scratchpad show
+bindsym $mod+a [instance="slack"] scratchpad show
+bindsym $mod+m [class="Rhythmbox"] scratchpad show
+bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
+bindsym $mod+p [instance="smplayer"] scratchpad show
+bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
+bindsym $mod+F2 [class="Thunderbird"] scratchpad show
+bindsym $mod+F3 [title="ranger"] scratchpad show
+bindsym $mod+F5 [instance="telegram"] scratchpad show
+bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
+
+# Switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
+
+# floating tweaks
+# window_type
+# Compare the window type (_NET_WM_WINDOW_TYPE).
+# Possible values are
+# normal, dialog, utility, toolbar, splash, menu,
+# dropdown_menu, popup_menu, tooltip and notification.
+for_window [window_role="pop-up"]       floating enable
+for_window [window_role="bubble"]       floating enable
+for_window [window_role="task_dialog"]  floating enable
+for_window [window_role="Preferences"]  floating enable
+for_window [window_role="sound"]        floating enable
+for_window [window_role="bluetooth"]    floating enable
+
+for_window [window_type="dialog"]       floating enable
+for_window [window_type="menu"]         floating enable
+
+# specify windows to use flosating mode
+for_window [instance="wechat.exe"]      floating enable sticky enbale
+for_window [class="scrcpy"]             floating enable sticky enable border none
+for_window [instance="tim.exe"]         floating enable sticky enbale
+for_window [instance="telegram"]        floating enable sticky enable border none
+for_window [instance="slack"]           floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
+for_window [class="Thunderbird"]        floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
+for_window [title="Guake_alacritty"]    floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
+for_window [title="ranger"]             floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
+for_window [class="GoldenDict"]         floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
+for_window [class="Rhythmbox"]          floating enable sticky enbale border none
+for_window [class="netease-cloud-music"] floating enable sticky enable
+for_window [class="smplayer"]           floating enable sticky enable
+for_window [class="MATLAB R2015b"]      floating enable border normal
+for_window [class="gnuplot_qt"]         floating enable border normal
+for_window [class="Matplotlib"]         floating enable border normal
+for_window [class="Display-im6.q16"]    floating enable border normal
+for_window [title="alsamixer"]          floating enable border pixel 1
+for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+for_window [class="Lxappearance"]       floating enable sticky enable border normal
+for_window [class="Gnome-tweaks"]       floating enable sticky enable border pixel 1
+for_window [class="(?i)Conky"]              floating enable sticky enable border none
+for_window [class="Gnome-control-center"] floating enable border pixel 1
+#for_window [class="Nautilus"]          floating enable sticky enable border normal
+for_window [class="Nitrogen"]           floating enable sticky enable border normal
+for_window [class="albert"]             floating enable sticky enable
+for_window [class="Gnome-alsamixer"]    floating enable sticky enable
+for_window [class="Gnome-font-viewer"]  floating enable sticky enable
+for_window [class="KeePassXC"]          floating enable
+for_window [class="ClipGrab"]           floating enable
+for_window [class="Galculator"]         floating enable border pixel 1
+for_window [class="Gnome-calendar"]     floating enable border pixel 1
+for_window [class="Gnome-calculator"]   floating enable border pixel 1
+for_window [class="Menu"]               floating enable
+for_window [class="TeamViewer"]         floating enable
+for_window [instance="zoom"]            floating enable
+for_window [instance="gthumb"]          floating enable
+for_window [class="feh"]                floating enable
+for_window [class="File-roller"]        floating enable
+for_window [class="(?i)shotwell"]       floating enable
+for_window [class="(?i)VirtualBox" title="(?i)Manager"] floating enable sticky enable
+for_window [class="(?i)VirtualBox"]     floating enable sticky enable
+for_window [instance="vlc"]             floating enable
+for_window [instance="smplayer"]        floating enable
+for_window [instance="arandr"]          floating enable sticky enable
+for_window [instance="camdesk"]         floating enable sticky enable
+for_window [title="CopyQ"]              floating enable
+for_window [class="(?i)blueman"]        floating enable sticky enable
+# for_window [instance="shutter"]         floating enable border none
+for_window [instance="flameshot"]       floating enable border none
+
+
+#for_window [instance="telegram"] move scratchpad
+# for_window [instance="wechat.exe"] move scratchpad
+#for_window [title="Guake_alacritty"] move scratchpad
+
+### assign program to workspace ###
+#assign [class="Alacritty"]                     → $ws1
+assign [class="Google-chrome"]                  → $ws2
+assign [class="Nautilus"]                       → $ws3
+assign [class="Code"]                           → $ws4
+assign [class="Sublime_text"]                   → $ws4
+assign [instance="jetbrains-pycharm-ce"]        → $ws4
+#assign [class="MATLAB R2015b"]                 → $ws4
+assign [class="Typora"]                         → $ws5
+assign [class="Wpsoffice"]                      → $ws5
+assign [instance="okular"]                      → $ws5
+assign [class="mpv"]                            → $ws6
+assign [class="Grub-customizer"]                → $ws6
+assign [class="Lightdm-gtk-greeter-settings"]   → $ws6
+# assign [class="scrcpy"]                         → $ws6
+assign [instance="mendeleydesktop"]             → $ws7
+assign [instance="calibre-gui"]                 → $ws7
+assign [class="Transmission-gtk"]               → $ws8
+assign [instance="qbittorrent"]                 → $ws8
+assign [instance="virt-manager"]                → $ws10
+assign [instance="virt-viewer"]                 → $ws10
+#assign [class="Rhythmbox"]                     → $ws5
+#assign [class="netease-cloud-music"]           → $ws5
+#assign [class="smplayer"]                      → $ws5
+# assign [class="Wine"]                         → $ws6
+# assign [instance="wechat.exe"]                → $ws6
+# assign [class="TelegramDesktop"]              → $ws6
+
+
+########################################################################
+# Bar
+########################################################################
+# i3bar
+#bar {
+    #status_command ~/cmake-apps/bumblebee-status/bumblebee-status -m cpu memory battery time pasink pasource -p time.format="%H:%M" -t iceberg-powerline
+#}
+bar {
+    #id bar-1
+    i3bar_command i3bar
+    #tray_output none
+    #status_command ~/.config/bumblebee-status/bumblebee-status -m nic disk:root \
+        #cpu memory battery date time pasink pasource dnf \
+        #-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+        #-t solarized-powerline
+        #
+    status_command py3status -c ~/.config/i3status/py3status.conf -i ~/.config/py3status/py3status/modules/
+
+    #status_command exec ~/.config/i3/i3script.sh
+    #status_command i3status -c ~/.config/i3status/i3status.conf
+    #status_command py3status -c ~/.config/i3status/py3status.conf
+    #status_command i3status -c ~/.config/i3status/i3status.conf | ~/.config/i3status/wrapper.py
+    #status_command ~/.config/i3status/i3status+.py
+    #status_command exec ~/.config/i3status/any_position_wrapper.sh
+    #status_command exec ~/.config/i3status/net-speed.sh
+    #status_command i3blocks -c $HOME/.config/i3block/i3blocks.conf
+    position top
+    #mode hide
+    #workspace_buttons yes
+    font pango:Ubuntu, Font Awesome 5 Free Regular 14
+    separator_symbol "⁞"
+    # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    tray_output primary
+    tray_padding 0
+    #strip_workspace_numbers yes
+
+    colors {
+        background  #2F343F
+        statusline  #DDDDDD
+        separator   #666666
+        # class             border  backgr. text
+        focused_workspace   #5294E2 #5294E2 #FFFFFF
+        active_workspace    #2F343F #2F343F #FFFFFF
+        inactive_workspace  #2F343F #2F343F #86888C
+        urgent_workspace    #D64E4E #D64E4E #FFFFFF
+    }
+}
+

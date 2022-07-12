@@ -36,7 +36,7 @@ alias echopath='echo -e ${PATH//:/\\n}'
 alias echolib='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 # do not delete / or prompt if deleting more than 3 files at a time #
 #alias rm='rm -I --preserve-root'
-alias rm='trash'
+#alias rm='trash'
 # confirmation #
 alias mv='mv -i'
 alias cp='cp -i'
@@ -82,3 +82,4 @@ alias proxypool='ProxyPool.py'
 #alias win10='virsh --connect qemu:///system start win10-new'
 #alias win10='virsh start win10-new && virt-viewer win10-new'
 alias aliDrive="$HOME/Softwares/installed/AliDrive/AliDrive"
+alias x11vnc="x11vnc -usepw -noxdamage -forever -auth ~/.Xauthority -display :1"

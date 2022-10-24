@@ -322,7 +322,7 @@ handle_mime() {
         image/*)
             ## Preview as text conversion
             # img2txt --gamma=0.6 --width="${PV_WIDTH}" -- "${FILE_PATH}" && exit 4
-            exiftool "${FILE_PATH}" && exit 5
+            exiftool -f -filename -filesize -datetimeoriginal -modifydate -imagesize -aperture -shutterspeed -iso -focallength -model -lensid -shuttercount -subject -hierarchicalsubject -comment -rating -label -GPSposition -GPSaltitude "${FILE_PATH}" | sed 's/: -//;s/     ://;s/GP S/GPS /;s/Above Sea Level/asl/;' && exit 5
             exit 1;;
 
         ## Video and audio

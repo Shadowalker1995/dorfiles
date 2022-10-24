@@ -118,6 +118,13 @@ export HOST=$(hostname)
 
 # adde QT path
 export PATH="/opt/Qt5.14.2/5.14.2/gcc_64/bin:$PATH"
+export LD_LIBRARY_PATH=/opt/Qt5.14.2/5.14.2/gcc_64/lib:$LD_LIBRARY_PATH
+
+#export PATH="/opt/Qt/5.15.2/gcc_64/bin:$PATH"
+#export LD_LIBRARY_PATH=/opt/Qt/5.15.2/gcc_64/lib:$LD_LIBRARY_PATH
+
+#export PATH="/opt/Qt/6.2.4/gcc_64/bin:$PATH"
+#export LD_LIBRARY_PATH=/opt/Qt/6.2.4/gcc_64/lib:$LD_LIBRARY_PATH
 
 # cuda
 export CUDA_HOME=/usr/local/cuda
@@ -172,10 +179,13 @@ export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # proxy
-export http_proxy="http://127.0.0.1:2080"
-export https_proxy="https://127.0.0.1:2080"
+#export http_proxy="http://127.0.0.1:2080"
+#export https_proxy="https://127.0.0.1:2080"
 
 # Theano
 export THEANO_FLAGS=blas.ldflags="-L/usr/lib/x86_64-linux-gnu/ -lblas"
 
 export _Z_SRC="$HOME/.oh-my-zsh/plugins/z/z.sh"
+
+# aliyunpan
+export ALIYUNPAN_CONFIG_DIR=/home/zzhenry/Softwares/installed/aliyunpan/config

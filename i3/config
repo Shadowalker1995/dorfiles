@@ -9,7 +9,6 @@
 ########################################################################
 # set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
-set $mod-ios mod5
 set $Alt Mod1
 
 
@@ -44,9 +43,7 @@ set $ws10 "10"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
-bindsym $mod-ios+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
-bindsym $mod-ios+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
@@ -81,20 +78,19 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # Move to Home/End/Next/Previous workspace
-#bindsym $mod+Home           workspace $ws1
-#bindsym $mod+Shift+Home     move container to workspace $ws1
-#bindsym $mod+End            workspace $ws6
-#bindsym $mod+Shift+End      move container to workspace $ws6
-#bindsym $mod+Control+Left      workspace prev
+#bindsym $mod+Home                  workspace $ws1
+#bindsym $mod+Shift+Home            move container to workspace $ws1
+#bindsym $mod+End                   workspace $ws6
+#bindsym $mod+Shift+End             move container to workspace $ws6
+#bindsym $mod+Control+Left          workspace prev
 #bindsym $mod+Shift+Control+Left    move container to workspace prev
-#bindsym $mod+Control+Right           workspace next
-#bindsym $mod+Shift+Control+Right     move container to workspace next
-#bindsym $mod+Control+j      workspace prev
-#bindsym $mod+Shift+Control+j    move container to workspace prev
-#bindsym $mod+Control+l           workspace next
-#bindsym $mod+Shift+Control+l     move container to workspace next
+#bindsym $mod+Control+Right         workspace next
+#bindsym $mod+Shift+Control+Right   move container to workspace next
+#bindsym $mod+Control+j             workspace prev
+#bindsym $mod+Shift+Control+j       move container to workspace prev
+#bindsym $mod+Control+l             workspace next
+#bindsym $mod+Shift+Control+l       move container to workspace next
 bindsym $mod+Tab            workspace back_and_forth
-# bindsym $Alt+Tab            workspace back_and_forth
 workspace_auto_back_and_forth yes
 
 set $monitor1 eDP-1-1
@@ -115,74 +111,11 @@ workspace $ws10 output $monitor3
 # (effectively toggles when you only have two outputs)
 bindsym $mod+x move workspace to output right
 # Put this window on the presentation output.
-# bindsym $mod+x move container to output HDMI-0
+#bindsym ctrl+$mod+Left move container to output $monitor1; focus output $monitor1
+bindsym ctrl+$mod+Left move container to output left; focus output left
 # Put this window on the primary output.
-# bindsym $mod+x move container to output primary
-
-
-########################################################################
-# Execs
-########################################################################
-# Start network manager
-exec_always --no-startup-id nm-applet &
-#exec_always --no-startup-id ~/.config/i3/polybar.sh &
-#exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
-#exec_always albert
-# Set wallpaper
-exec_always --no-startup-id feh --bg-scale /home/zzhenry/Pictures/壁纸/mac壁纸/001-conky.png
-# Start goldendict
-exec --no-startup-id goldendict &
-# frpc
-exec --no-startup-id /home/zzhenry/Softwares/system/frp/frpc -c /home/zzhenry/Softwares/system/frp/frpc_oracle.ini > /home/zzhenry/Softwares/system/frp/frpc_oracle.out 2>&1 &
-# Start input method
-exec --no-startup-id fcitx
-# Shutter
-exec --no-startup-id flameshot &
-# Shutter
-exec --no-startup-id x11vnc &
-# WeChat
-exec --no-startup-id /opt/deepinwine/apps/Deepin-WeChat/run.sh -u %u
-# Slack
-# exec --no-startup-id slack &
-for_window [instance="slack"] move scratchpad
-# ThunderBird
-exec --no-startup-id thunderbird &
-for_window [instance="Mail"] move scratchpad
-# Start kupfer
-#exec_always --no-startup-id kupfer --no-splash
-# Start copyq
-# exec --no-startup-id copyq &
-# Set Numlock to on at login time
-exec --no-startup-id numlockx on
-# 永久关闭Caps_Lock的大写锁定功能
-exec --no-startup-id xkbset nullify lock
-# open alacritty with tmux in workspace 1 and chrome in workspace 2 when starting
-#exec i3-msg workspace $ws1; i3-msg exec alacritty;
-#exec i3-msg workspace $ws2; i3-msg exec google-chrome-stable %U;
-
-# Set additional display
-exec_always xrandr --output eDP-1-1 --auto --output HDMI-0 --off && xrandr --output HDMI-0 --auto --right-of eDP-1-1 --auto && xrandr --output HDMI-0 --primary
-
-## Screenshots ##
-# Application windows
-bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
-# Area
-bindsym Ctrl+$mod+s --release exec --no-startup-id flameshot gui -d 100 -p ~/Pictures/Screenshots/
-# Whole Window
-Bindsym Ctrl+Print --release exec --no-startup-id flameshot full -d 100 -c -p ~/Pictures/Screenshots/
-
-# bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
-# Bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
-
-## Clipboard ##
-# bindsym Ctrl+Shift+v --release exec copyq menu
-
-# Bindsym Ctrl+` nop
-# Set for deepin-wechat
-exec --no-startup-id nohup /usr/libexec/gsd-xsettings > /dev/null 2>&1 &
-
-# How to send multi commands
-# i3-msg 'exec "echo foo > /tmp/bar; echo bar > /tmp/baz"'
+#bindsym ctrl+$mod+Right move container to output $monitor3; focus output $monitor3
+bindsym ctrl+$mod+Right move container to output right; focus output right
 
 
 ########################################################################
@@ -197,16 +130,16 @@ floating_modifier $mod
 focus_on_window_activation focus
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h      focus tiling; focus left
+bindsym $mod+j      focus tiling; focus down
+bindsym $mod+k      focus tiling; focus up
+bindsym $mod+l      focus tiling; focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left   focus tiling; focus left
+bindsym $mod+Down   focus tiling; focus down
+bindsym $mod+Up     focus tiling; focus up
+bindsym $mod+Right  focus tiling; focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -214,20 +147,19 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-# alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
 # split in horizontal orientation
-bindsym $mod+g split h;exec notify-send 'tile horizontally' -t 500
+bindsym $mod+backslash split h;exec notify-send 'tile horizontally' -t 500
 # split in vertical orientation
-bindsym $mod+v split v;exec notify-send 'tile vertically' -t 500
+bindsym $mod+minus split v;exec notify-send 'tile vertically' -t 500
 # split in horizontal orientation with open alacritty
 bindsym $mod+apostrophe     split horizontal ; exec alacritty
 # split in vertical orientation with open alacritty
 bindsym $mod+slash          split vertical ; exec alacritty
+
+# read 1 character and mark the current window with this character
+bindsym $mod+semicolon exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+# read 1 character and go to the window with the character
+bindsym $mod+g exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -245,16 +177,15 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 #bindsym $mod+a focus parent;exec notify-send 'focus parent'
-bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
+#bindsym $mod+Shift+a focus child;exec notify-send 'focus child'
+bindsym $mod+Shift+a focus tiling;exec notify-send 'focus tiling'
 
 # border changing
 bindsym $mod+b border toggle
 
 # scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+minus [floating] move scratchpad
 bindsym $mod+Shift+plus scratchpad show
-# Show the sup-mail scratchpad window, if any.
-#bindsym $mod+plus [title="^Sup ::"] scratchpad show
 
 # kill focused window
 bindsym $mod+q kill
@@ -264,6 +195,146 @@ bindsym $mod+Ctrl+Shift+n exec i3-input -F 'rename workspace to "%s"' -P 'New na
 
 # put YouTube into fullscreen and execute this for media mode
 bindsym $mod+y fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
+
+
+########################################################################
+# For the convenience of iPad users
+########################################################################
+# switch to workspace
+bindsym Ctrl+$Alt+1 workspace $ws1
+bindsym Ctrl+$Alt+2 workspace $ws2
+bindsym Ctrl+$Alt+3 workspace $ws3
+bindsym Ctrl+$Alt+4 workspace $ws4
+bindsym Ctrl+$Alt+5 workspace $ws5
+bindsym Ctrl+$Alt+6 workspace $ws6
+bindsym Ctrl+$Alt+7 workspace $ws7
+bindsym Ctrl+$Alt+8 workspace $ws8
+bindsym Ctrl+$Alt+9 workspace $ws9
+bindsym Ctrl+$Alt+0 workspace $ws0
+
+# Move to workspace with focused container
+bindsym Ctrl+$Alt+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym Ctrl+$Alt+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym Ctrl+$Alt+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym Ctrl+$Alt+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym Ctrl+$Alt+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym Ctrl+$Alt+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym Ctrl+$Alt+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym Ctrl+$Alt+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym Ctrl+$Alt+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym Ctrl+$Alt+Shift+0 move container to workspace $ws10; workspace $ws10
+
+# change focus
+bindsym Ctrl+$Alt+Left   focus tiling; focus left
+bindsym Ctrl+$Alt+Down   focus tiling; focus down
+bindsym Ctrl+$Alt+Up     focus tiling; focus up
+bindsym Ctrl+$Alt+Right  focus tiling; focus right
+
+# move focused window
+bindsym Ctrl+$Alt+Shift+h move left
+bindsym Ctrl+$Alt+Shift+j move down
+bindsym Ctrl+$Alt+Shift+k move up
+bindsym Ctrl+$Alt+Shift+l move right
+
+# alternatively, you can use the cursor keys:
+bindsym Ctrl+$Alt+Shift+Left move left
+bindsym Ctrl+$Alt+Shift+Down move down
+bindsym Ctrl+$Alt+Shift+Up move up
+bindsym Ctrl+$Alt+Shift+Right move right
+
+bindsym Ctrl+$Alt+r exec --no-startup-id alacritty -e "$HOME/Dev/Scripts/tmux/init_main.sh"
+bindsym Ctrl+$Alt+Return exec alacritty
+bindsym Ctrl+$Alt+e exec nautilus --new-window
+bindsym Ctrl+$Alt+c exec google-chrome-stable %U
+bindsym Ctrl+$Alt+Shift+m exec rhythmbox %U
+bindsym Ctrl+$Alt+Shift+n exec netease-cloud-music %U
+bindsym Ctrl+$Alt+Shift+p exec smplayer
+bindsym Ctrl+$Alt+Shift+F1 exec --no-startup-id alacritty -t "Float_alacritty" -e "$HOME/Dev/Scripts/tmux/init_float.sh"
+bindsym Ctrl+$Alt+Shift+F3 exec alacritty -t "ranger" -e "$HOME/Dev/Scripts/tmux/init_ranger.sh"
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Ctrl+$Alt+Shift+s layout stacking
+bindsym Ctrl+$Alt+Shift+w layout tabbed
+bindsym Ctrl+$Alt+Shift+e layout toggle split
+
+# toggle tiling / floating
+bindsym Ctrl+$Alt+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Ctrl+$Alt+space focus mode_toggle
+
+# kill focused window
+bindsym Ctrl+$Alt+q kill
+
+# Move the current workspace to the next output
+bindsym Ctrl+$Alt+x move workspace to output right
+
+# reload the configuration file
+bindsym Ctrl+$Alt+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym Ctrl+$Alt+Shift+q restart
+
+bindsym Ctrl+$Alt+w [instance="wechat.exe"] scratchpad show
+
+########################################################################
+# Execs
+########################################################################
+# Start network manager
+exec_always --no-startup-id nm-applet &
+#exec_always --no-startup-id ~/.config/i3/polybar.sh &
+#exec_always --no-startup-id compton --config ~/.config/compton/compton.conf
+# Set wallpaper
+exec_always --no-startup-id feh --bg-scale -randomize $HOME/Pictures/壁纸/mac壁纸/*
+# Start goldendict
+exec --no-startup-id goldendict &
+# frpc
+exec --no-startup-id $HOME/Softwares/system/frp/frpc -c $HOME/Softwares/system/frp/frpc_oracle.ini > $HOME/Softwares/system/frp/frpc_oracle.out 2>&1 &
+# Start input method
+exec --no-startup-id export PATH="/opt/Qt/5.15.2/gcc_64/bin:$PATH && export LD_LIBRARY_PATH=/opt/Qt/5.15.2/gcc_64/lib:$LD_LIBRARY_PATH && fcitx &
+# flameshot
+exec --no-startup-id flameshot &
+# WeChat
+exec --no-startup-id /opt/deepinwine/apps/Deepin-WeChat/run.sh -u %u
+# init_float
+exec --no-startup-id $HOME/Dev/Scripts/tmux/init_float.sh &
+# Slack
+# exec --no-startup-id slack &
+# ThunderBird
+exec --no-startup-id thunderbird &
+# Start copyq
+# exec --no-startup-id copyq &
+# Set Numlock to on at login time
+exec --no-startup-id numlockx on &
+# 永久关闭Caps_Lock的大写锁定功能
+exec --no-startup-id xkbset nullify lock &
+# open alacritty with tmux in workspace 1 and chrome in workspace 2 when starting
+#exec i3-msg workspace $ws1; i3-msg exec alacritty;
+#exec i3-msg workspace $ws2; i3-msg exec google-chrome-stable %U;
+
+# Set additional display
+#exec_always xrandr --output HDMI-0 --off --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal
+
+## Screenshots ##
+# Application windows
+bindsym Ctrl+$mod+w --release exec --no-startup-id shutter -w -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Application Windows Screenshot' 'Saved to ~/Pictures/Screenshots' -t 500
+# Area
+bindsym Ctrl+$mod+s --release exec --no-startup-id flameshot gui -d 100 -p ~/Pictures/Screenshots/
+# Whole Window
+Bindsym Ctrl+Print --release exec --no-startup-id flameshot full -d 100 -c -p ~/Pictures/Screenshots/
+#bindsym Ctrl+$mod+s --release exec --no-startup-id shutter -s -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Area Screenshot' '~/Pictures/Screenshots' -t 500
+#bindsym Ctrl+Print --release exec --no-startup-id shutter -f -n -d 0.1 -o ~/Pictures/Screenshots/img-$(date +%Y-%m-%d)-$(ls ~/Pictures/Screenshots/img* | wc -l).png && notify-send 'Whole Window Screenshot' '~/Pictures/Screenshots' -t 500
+
+# Clipboard
+#bindsym Ctrl+Shift+v --release exec copyq menu
+
+#Bindsym Ctrl+` nop
+
+# Set for deepin-wechat
+exec --no-startup-id nohup /usr/libexec/gsd-xsettings > /dev/null 2>&1 &
+
+# How to send multi commands
+# i3-msg 'exec "echo foo > /tmp/bar; echo bar > /tmp/baz"'
 
 
 ########################################################################
@@ -331,30 +402,27 @@ hide_edge_borders none
 # Launchers bindings
 ########################################################################
 # Remaining Keys
-# bindsym $mod+s exec --no-startup-id
 # bindsym $mod+z exec --no-startup-id
 
-bindsym $mod+r exec alacritty -e tmux a -t main || tmux new -s main
+bindsym $mod+r exec --no-startup-id alacritty -e "$HOME/Dev/Scripts/tmux/init_main.sh"
 bindsym $mod+Return exec alacritty
 bindsym $mod+e exec nautilus --new-window
 bindsym $mod+c exec google-chrome-stable %U
 bindsym $mod+Shift+m exec rhythmbox %U
 bindsym $mod+Shift+n exec netease-cloud-music %U
 bindsym $mod+Shift+p exec smplayer
-bindsym $mod+Shift+F1 exec alacritty -t "Guake_alacritty" -e zsh --login -c "tmux attach -t float || tmux new -s float"
-#bindsym $mod+Shift+F3 exec alacritty -t "ranger" -e tmux attach -t ranger || tmux new -s ranger ranger
-bindsym $mod+Shift+F3 exec alacritty -t "ranger" -e zsh -c "tmux attach -t ranger || tmux new -s ranger ranger"
+bindsym $mod+Shift+F1 exec --no-startup-id alacritty -t "Float_alacritty" -e "$HOME/Dev/Scripts/tmux/init_float.sh"
+bindsym $mod+Shift+F3 exec alacritty -t "ranger" -e "$HOME/Dev/Scripts/tmux/init_ranger.sh"
 
-set $mode_launcher (W)echat, (P)yCharm, (T)elegram, GoldenDict(g),(C)alculator,(S)ubl,(V)Scode, (G)nome-Setting
+set $mode_launcher (W)echat, (P)yCharm, (T)elegram, (M)atlab, (C)alculator, (S)ubl, (V)Scode, (G)nome-Setting
 mode "$mode_launcher" {
+    bindsym w exec /opt/apps/com.weixin.myself/files/run.sh -f %f, mode "default"
+    bindsym p exec $HOME/Softwares/installed/Pycharm/pycharm-community/bin/pycharm.sh %f, mode "default"
     bindsym t exec /opt/telegram/Telegram -- %u, mode "default"
-    bindsym w exec /opt/deepinwine/apps/Deepin-WeChat/run.sh -u %u, mode "default"
-    bindsym p exec /home/zzhenry/Softwares/installed/Pycharm/pycharm-community/bin/pycharm.sh %f, mode "default"
     bindsym m exec matlab -desktop, mode "default"
+    bindsym c exec galculator, mode "default"
     bindsym s exec subl, mode "default"
     bindsym v exec code, mode "default"
-    bindsym c exec galculator, mode "default"
-
     bindsym g exec --no-startup-id "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center", mode "default"
     bindsym Escape mode "default"
     bindsym Return mode "default"
@@ -367,7 +435,7 @@ bindsym $mod+o mode "$mode_launcher"
 # installed.
 # bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 # Rofi Launcher
-bindsym $Alt+Tab exec --no-startup-id rofi -font "Font Awesome 5 Free 18" -show window -theme andrea.rasi -show-icons
+bindsym $Alt+backslash exec --no-startup-id rofi -font "Font Awesome 5 Free 18" -show window -theme andrea.rasi -show-icons
 bindsym $mod+d exec --no-startup-id rofi -show drun -theme andrea.rasi -show-icons
 # start dmenu (a program launcher)
 bindsym $mod+Shift+d exec dmenu_run
@@ -380,18 +448,19 @@ bindsym $mod+Shift+d exec dmenu_run
 bindsym Ctrl+F1 exec ~/.config/i3/toggletouchpad.sh && notify-send 'TouchPad'
 
 ### Media player controls ###
-#bindcode 119 exec playerctl play && notify-send 'Player Play'
-bindsym Pause exec playerctl play-pause && notify-send 'Player Pause'
-bindsym Ctrl+$Alt+Right exec playerctl next && notify-send 'Next Track'
-bindsym Ctrl+$Alt+Left exec playerctl previous && notify-send 'Last Track'
+#bindcode 119 exec playerctl -p rhythmbox Play && notify-send 'Player Play'
+bindsym Pause exec playerctl -p rhythmbox play-pause && notify-send 'Player Pause'
+bindsym $mod+$Alt+Right exec playerctl -p rhythmbox next && notify-send 'Next Track'
+bindsym $mod+$Alt+Left exec playerctl -p rhythmbox previous && notify-send 'Last Track'
 
 ### Pulse Audio controls ###
 set $Volume-Up ~/.config/i3/Volume-Control.sh +
 set $Volume-Down ~/.config/i3/Volume-Control.sh -
+set $Volume-Mute ~/.config/i3/Volume-Mute.sh
 # set $TEMP
 bindsym XF86AudioRaiseVolume exec --no-startup-id $Volume-Up
 bindsym XF86AudioLowerVolume exec --no-startup-id $Volume-Down
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle && notify-send 'Volumn Mute' -t 500
+bindsym XF86AudioMute exec --no-startup-id $Volume-Mute
 
 ### Primary screen brightness controls ###
 bindsym XF86MonBrightnessUp exec "~/.config/i3/bright-eDP.sh + | xargs -0 notify-send"
@@ -526,7 +595,7 @@ bindsym $mod+t mode "pass-through"
 # Window criteria directives (use i3-get-window-criteria)
 ########################################################################
 # criteria scratchpad launchers
-#bindsym $mod+Caps_Lock [instance="wechat.exe"] scratchpad show
+# bindsym $mod+plus [title="^Sup ::"] scratchpad show   # Show the sup-mail scratchpad window, if any.
 bindsym $mod+grave [instance="wechat.exe"] scratchpad show
 bindsym $mod+s [class="scrcpy"] scratchpad show
 # bindsym $mod+t [instance="tim.exe"] scratchpad show
@@ -534,11 +603,12 @@ bindsym $mod+a [instance="slack"] scratchpad show
 bindsym $mod+m [class="Rhythmbox"] scratchpad show
 bindsym $mod+n [instance="netease-cloud-music"] scratchpad show
 bindsym $mod+p [instance="smplayer"] scratchpad show
-bindsym $mod+F1 [title="Guake_alacritty"] scratchpad show
-bindsym $mod+F2 [class="Thunderbird"] scratchpad show
-bindsym $mod+F3 [title="ranger"] scratchpad show
+bindsym $mod+F1 [title="Float_alacritty"] scratchpad show
+bindsym $mod+F2 [class="(?i)Thunderbird"] scratchpad show
+bindsym $mod+F3 [instance="Alacritty" title="ranger"] scratchpad show
+bindsym $mod+F4 [class="GoldenDict" title="GoldenDict"] scratchpad show
 bindsym $mod+F5 [instance="telegram"] scratchpad show
-bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
+# bindsym $mod+z [instance="zoom" title="Zoom Meeting"] scratchpad show
 
 # Switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -560,18 +630,22 @@ for_window [window_type="dialog"]       floating enable
 for_window [window_type="menu"]         floating enable
 
 # specify windows to use flosating mode
-for_window [instance="wechat.exe"]      floating enable sticky enbale
-for_window [class="scrcpy"]             floating enable sticky enable border none
-for_window [instance="tim.exe"]         floating enable sticky enbale
-for_window [instance="telegram"]        floating enable sticky enable border none
-for_window [instance="slack"]           floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="Thunderbird"]        floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [title="Guake_alacritty"]    floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [title="ranger"]             floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="GoldenDict"]         floating enable sticky enable border none resize set 95 ppt 95 ppt, move position 2 ppt 2 ppt
-for_window [class="Rhythmbox"]          floating enable sticky enbale border none
+for_window [instance="wechat.exe"]      floating enable sticky enable
+# for_window [instance="wechat.exe"] bindsym Escape nop
+# bindsym Escape [instance="wechat.exe"] nop
+for_window [instance="wemeetapp"]       floating enable sticky enable
+for_window [class="scrcpy"]             floating enable sticky enable
+for_window [instance="tim.exe"]         floating enable sticky enable
+for_window [instance="telegram"]        floating enable sticky enable
+for_window [instance="slack"]           floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move down 2 ppt, move right 2 ppt
+for_window [class="(?i)Thunderbird"]        floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move down 2 ppt, move right 2 ppt
+for_window [title="Float_alacritty"]    floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move right 2 ppt
+for_window [instance="Alacritty" title="ranger"] floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move right 2 ppt
+for_window [class="GoldenDict" title="GoldenDict"] floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move down 2 ppt, move right 2 ppt
+for_window [class="Rhythmbox"]          floating enable sticky enable
+for_window [class="Alacritty" title="ncmpcpp"] floating enable sticky enable resize set 95 ppt 95 ppt, move position mouse, move down 2 ppt, move right 2 ppt
 for_window [class="netease-cloud-music"] floating enable sticky enable
-for_window [class="smplayer"]           floating enable sticky enable
+for_window [class="smplayer"]           floating enable sticky enable resize set 100 ppt 100 ppt, move position mouse
 for_window [class="MATLAB R2015b"]      floating enable border normal
 for_window [class="gnuplot_qt"]         floating enable border normal
 for_window [class="Matplotlib"]         floating enable border normal
@@ -579,12 +653,10 @@ for_window [class="Display-im6.q16"]    floating enable border normal
 for_window [title="alsamixer"]          floating enable border pixel 1
 for_window [class="Lightdm-gtk-greeter-settings"] floating enable
 for_window [class="Lxappearance"]       floating enable sticky enable border normal
-for_window [class="Gnome-tweaks"]       floating enable sticky enable border pixel 1
+for_window [class="Gnome-tweaks"]       floating enable sticky enable
 for_window [class="(?i)Conky"]              floating enable sticky enable border none
 for_window [class="Gnome-control-center"] floating enable border pixel 1
-#for_window [class="Nautilus"]          floating enable sticky enable border normal
 for_window [class="Nitrogen"]           floating enable sticky enable border normal
-for_window [class="albert"]             floating enable sticky enable
 for_window [class="Gnome-alsamixer"]    floating enable sticky enable
 for_window [class="Gnome-font-viewer"]  floating enable sticky enable
 for_window [class="KeePassXC"]          floating enable
@@ -611,11 +683,16 @@ for_window [class="(?i)blueman"]        floating enable sticky enable
 for_window [instance="flameshot"]       floating enable border none
 
 
+### setting programs move to scratchpad initially ###
 #for_window [instance="telegram"] move scratchpad
-# for_window [instance="wechat.exe"] move scratchpad
-#for_window [title="Guake_alacritty"] move scratchpad
+#for_window [instance="wechat.exe" title="微信"] move scratchpad
+for_window [title="Float_alacritty"] move scratchpad
+for_window [instance="Alacritty" title="ranger"] move scratchpad
+for_window [instance="goldendict" title="GoldenDict"] move scratchpad
+for_window [instance="slack"] move scratchpad
+for_window [instance="Mail"] move scratchpad
 
-### assign program to workspace ###
+### assign programs to workspace ###
 #assign [class="Alacritty"]                     → $ws1
 assign [class="Google-chrome"]                  → $ws2
 assign [class="Nautilus"]                       → $ws3
@@ -629,7 +706,7 @@ assign [instance="okular"]                      → $ws5
 assign [class="mpv"]                            → $ws6
 assign [class="Grub-customizer"]                → $ws6
 assign [class="Lightdm-gtk-greeter-settings"]   → $ws6
-# assign [class="scrcpy"]                         → $ws6
+#assign [class="scrcpy"]                         → $ws6
 assign [instance="mendeleydesktop"]             → $ws7
 assign [instance="calibre-gui"]                 → $ws7
 assign [class="Transmission-gtk"]               → $ws8
@@ -654,13 +731,13 @@ assign [instance="virt-viewer"]                 → $ws10
 bar {
     #id bar-1
     i3bar_command i3bar
-    #tray_output none
     #status_command ~/.config/bumblebee-status/bumblebee-status -m nic disk:root \
         #cpu memory battery date time pasink pasource dnf \
         #-p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
         #-t solarized-powerline
         #
-    status_command py3status -c ~/.config/i3status/py3status.conf -i ~/.config/py3status/py3status/modules/
+    #status_command py3status -c ~/.config/i3status/py3status.conf -i ~/.config/py3status/py3status/modules/
+    status_command py3status -c ~/.config/i3status/py3status.conf
 
     #status_command exec ~/.config/i3/i3script.sh
     #status_command i3status -c ~/.config/i3status/i3status.conf
@@ -676,6 +753,7 @@ bar {
     font pango:Ubuntu, Font Awesome 5 Free Regular 14
     separator_symbol "⁞"
     # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    # tray_output none
     tray_output primary
     tray_padding 0
     #strip_workspace_numbers yes

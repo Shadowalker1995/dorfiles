@@ -11,17 +11,469 @@
 " Plug 'kassio/neoterm'
 
 " Maintainer:       Shadowalker
-" Last Change:      2020 Jun 12
+" Last Change:      2022 Jul 31
 
 
 " ===
-" === Auto load for first time uses
+" === Auto load for first time uses vim-plug
 " ===
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+"if empty(glob('~/.vim/autoload/plug.vim'))
+    "silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+     "\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    "autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
+
+" ┌────────────────┐
+" │ Plugin Install │
+" └────────────────┘
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin('~/.vim/bundle')
+"call plug#begin('~/.vim/bundle')
+Plugin 'qpkorr/vim-bufkill'
+" ===
+" === REPL
+" ===
+Plugin 'hkupty/iron.nvim'
+    let g:iron_map_defaults = 0
+    nmap <localleader>s    <Plug>(iron-send-motion)
+    vmap <localleader>s    <Plug>(iron-visual-send)
+    nmap <localleader>r    <Plug>(iron-repeat-cmd)
+    nmap <localleader>l    <Plug>(iron-send-line)
+    nmap <localleader><CR> <Plug>(iron-cr)
+    nmap <localleader>i    <plug>(iron-interrupt)
+    nmap <localleader>q    <Plug>(iron-exit)
+    nmap <localleader>c    <Plug>(iron-clear)
+"Plugin 'sillybun/vim-repl'
+    "let g:repl_ipython_version = '7.13'
+    "let g:repl_program = {
+                   "\   'python': ['ipython'],
+                   "\   'default': ['zsh'],
+                   "\   'r': ['R'],
+                   "\   'lua': ['lua'],
+                   "\   'vim': ['vim -e'],
+                   "\   }
+    "let g:repl_predefine_python = {
+                   "\   'numpy': 'import numpy as np',
+                   "\   'matplotlib': 'from matplotlib import pyplot as plt'
+                   "\   }
+    "let g:repl_cursor_down = 1
+    "let g:repl_python_automerge = 1
+    "let g:repl_ipython_version = '7'
+    "nnoremap <Space>r :REPLToggle<Cr>
+    "autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
+    "autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
+    "autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
+    "let g:repl_position = 3
+
+    "let g:repl_width = 80                                 "窗口宽度
+    ""let g:repl_height = None                                "窗口高度
+    "let g:sendtorepl_invoke_key = "<Space>w"            "传送代码快捷键，默认为<leader>w
+    "let g:repl_position = 3                                    "0表示出现在下方，1表示出现在上方，2在左边，3在右边
+    "let g:repl_stayatrepl_when_open = 1           "打开REPL时是回到原文件（1）还是停留在REPL窗口中（0）
+Plugin 'jpalardy/vim-slime'
+    let g:slime_target = "tmux"
+    let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
+    let g:slime_python_ipython = 1
+    let g:slime_no_mappings = 1
+    xmap <C-e><C-e> <Plug>SlimeRegionSend
+    nmap <C-e><C-e> <Plug>SlimeParagraphSend
+    nmap <C-e>v   <Plug>SlimeConfig
+
+
+" ===
+" === Beautify
+" ===
+Plugin 'connorholyday/vim-snazzy'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
+Plugin 'vim-airline/vim-airline'
+    "let g:airline_disable_statusline = 1
+
+    let g:airline#extensions#coc#enabled = 1
+    let g:airline_powerline_fonts = 1
+    "let g:airline_theme="luna"
+    " 开启tabline
+    let g:airline#extensions#tabline#enabled = 1
+    let g:airline#extensions#tabline#left_alt_sep = '|'
+    let g:airline#extensions#tabline#buffer_nr_show = 1
+    " unicode symbols
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
+    let g:airline_left_sep = '»'
+    let g:airline_right_sep = '«'
+    let g:airline#extensions#tabline#fnamemod = ':t'
+
+    let g:airline#extensions#whitespace#enabled = 1
+    let g:airline#extensions#whitespace#symbol = '!'
+    let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+    function! CocMinimalStatus() abort
+        return get(b:, 'coc_current_function', '')
+    endfunction
+
+    function! AirlineInit()
+        let g:airline_section_a = airline#section#create(['mode'])
+        let g:airline_section_b = airline#section#create_left(['hunks', 'branch', '%-0.20{getcwd()}'])
+        let g:airline_section_c = airline#section#create(['%f'])
+        let g:airline_section_x = airline#section#create(['%{CocMinimalStatus()}   ','filetype'])
+        let g:airline_section_y = airline#section#create(['ffenc'])
+        "let g:airline_section_y = airline#section#create(['%{strftime("%m/%d - %H:%M")} ', 'ffenc'])
+    endfunction
+    autocmd User AirlineAfterInit call AirlineInit()
+    "let g:airline_section_b = '%{strftime("%m/%d/%y - %H:%M")}'
+    "let g:airline_section_c = '%t'
+Plugin 'vim-airline/vim-airline-themes'
+"Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'ayu-theme/ayu-vim'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
+
+
+" ===
+" === Other Visual Enhancement
+" ===
+Plugin 'kien/rainbow_parentheses.vim'
+    let g:rbpt_colorpairs = [
+        \ ['brown',        'RoyalBlue3'],
+        \ ['Darkblue',     'SeaGreen3'],
+        \ ['darkgray',     'DarkOrchid3'],
+        \ ['darkgreen',   'firebrick3'],
+        \ ['darkcyan',     'RoyalBlue3'],
+        \ ['darkred',      'SeaGreen3'],
+        \ ['darkmagenta', 'DarkOrchid3'],
+        \ ['brown',        'firebrick3'],
+        \ ['gray',          'RoyalBlue3'],
+        \ ['darkmagenta', 'DarkOrchid3'],
+        \ ['Darkblue',     'firebrick3'],
+        \ ['darkgreen',   'RoyalBlue3'],
+        \ ['darkcyan',     'SeaGreen3'],
+        \ ['darkred',      'DarkOrchid3'],
+        \ ['red',           'firebrick3'],
+        \ ]
+    let g:rbpt_max = 16
+    let g:rbpt_loadcmd_toggle = 0
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+Plugin 'Yggdroot/indentLine' " display the indention levels with thin vertical lines
+Plugin 'itchyny/vim-cursorword' " Underlines the word under the cursor
+Plugin 'jszakmeister/vim-togglecursor' " change the cursor when entering Vim's insert mode
+Plugin 'tmhedberg/SimpylFold'
+    " Preview docstring in fold text
+    let g:SimpylFold_docstring_preview = 1
+Plugin 'davidhalter/jedi-vim'
+    let g:jedi#auto_initialization = 0
+    let g:jedi#auto_vim_configuration = 0
+    let g:jedi#show_call_signatures = "1"
+    let g:jedi#environment_path = "/home/zzhenry/miniconda3/bin/python"
+    let g:jedi#completions_enabled = 0
+
+" ===
+" === File Navigation
+" ===
+Plugin 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
+    nmap <Leader>fl :NERDTreeToggle<CR>
+    " 设置 NERDTree 子窗口宽度
+    let NERDTreeWinSize=22
+    " 设置 NERDTree 子窗口位置
+    let NERDTreeWinPos="right"
+    " 显示隐藏文件
+    let NERDTreeShowHidden=1
+    " NERDTree 子窗口中不显示冗余帮助信息
+    let NERDTreeMinimalUI=1
+    " 删除文件时自动删除文件对应 buffer
+    let NERDTreeAutoDeleteBuffer=1
+    let NERDTreeMapOpenExpl = ""
+    let NERDTreeMapUpdir = ""
+    let NERDTreeMapUpdirKeepOpen = "u"
+    let NERDTreeMapOpenSplit = "s"
+    let NERDTreeOpenVSplit = "v"
+    let NERDTreeMapActivateNode = "l"
+    let NERDTreeMapPreview = ""
+    let NERDTreeMapCloseDir = "j"
+    let NERDTreeMapChangeRoot = "o"
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+    let g:NERDTreeGitStatusIndicatorMapCustom = {
+        \ "Modified"  : "✹",
+        \ "Staged"     : "✚",
+        \ "Untracked" : "✭",
+        \ "Renamed"   : "➜",
+        \ "Unmerged"  : "═",
+        \ "Deleted"   : "✖",
+        \ "Dirty"      : "✗",
+        \ "Clean"      : "✔︎",
+        \ "Unknown"   : "?"
+        \ }
+Plugin 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
+    map <C-p> :CtrlP<CR>
+    let g:ctrlp_clear_cache_on_exit = 0
+    let g:ctrlp_prompt_mappings = {
+      \ 'PrtSelectMove("j")':   ['<c-k>', '<down>'],
+      \ 'PrtSelectMove("k")':   ['<c-i>', '<up>'],
+      \ }
+    " let g:ctrlp_max_height = 30
+    set wildignore+=*.pyc
+    set wildignore+=*_build/*
+    set wildignore+=*/coverage/*
+    let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+    let g:ctrlp_max_depth = 10
+    let g:ctrlp_lazy_update = 0
+    let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
+Plugin 'kevinhwang91/rnvimr'
+    " Make Ranger replace Netrw and be the file explorer
+    let g:rnvimr_ex_enable = 1
+    " Make Ranger to be hidden after picking a file
+    let g:rnvimr_enable_picker = 1
+    " Hide the files included in gitignore
+    let g:rnvimr_hide_gitignore = 1
+    " Make Neovim wipe the buffers corresponding to the files deleted by Ranger
+    let g:rnvimr_enable_bw = 1
+    " Add a shadow window, value is equal to 100 will disable shadow
+    "let g:rnvimr_shadow_winblend = 70
+    nnoremap <space>r :RnvimrToggle<CR>
+    "let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
+    " Link CursorLine into RnvimrNormal highlight in the Floating window
+    highlight link RnvimrNormal CursorLine
+
+
+" ===
+" === Undo Tree
+" ===
+Plugin 'mbbill/undotree'
+    let g:undotree_DiffAutoOpen = 0
+    nmap U :UndotreeToggle<CR>
+
+
+" ===
+" === Tagbar
+" ===
+Plugin 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
+    " 设置 tagbar 子窗口的位置出现在主编辑区的左边
+    let tagbar_left=1
+    " 设置显示／隐藏标签列表子窗口的快捷键
+    map <silent> T :TagbarOpenAutoClose<CR>
+    " 设置标签子窗口的宽度
+    let tagbar_width=32
+    " tagbar 子窗口中不显示冗余帮助信息
+    let g:tagbar_compact=1
+    " 设置 ctags 对哪些代码标识符生成标签
+    let g:tagbar_type_cpp = {
+        \ 'ctagstype' : 'c++',
+        \ 'kinds'     : [
+            \ 'c:classes:0:1',
+            \ 'd:macros:0:1',
+            \ 'e:enumerators:0:0',
+            \ 'f:functions:0:1',
+            \ 'g:enumeration:0:1',
+            \ 'l:local:0:1',
+            \ 'm:members:0:1',
+            \ 'n:namespaces:0:1',
+            \ 'p:functions_prototypes:0:1',
+            \ 's:structs:0:1',
+            \ 't:typedefs:0:1',
+            \ 'u:unions:0:1',
+            \ 'v:global:0:1',
+            \ 'x:external:0:1'
+        \ ],
+        \ 'sro'       : '::',
+        \ 'kind2scope': {
+            \ 'g' : 'enum',
+            \ 'n' : 'namespace',
+            \ 'c' : 'class',
+            \ 's' : 'struct',
+            \ 'u' : 'union'
+        \ },
+        \ 'scope2kind': {
+            \ 'enum'      : 'g',
+            \ 'namespace' : 'n',
+            \ 'class'     : 'c',
+            \ 'struct'    : 's',
+            \ 'union'     : 'u'
+        \ }
+    \ }
+
+
+" ===
+" === Git
+" ===
+Plugin 'rhysd/conflict-marker.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
+Plugin 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
+
+
+" ===
+" === HTML, CSS, JavaScript, PHP, JSON, etc.
+" ===
+"Plugin 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
+"Plugin 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
+"Plugin 'mattn/emmet-vim'
+
+
+" ===
+" === Markdown
+" ===
+"Plugin 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plugin 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
+    let g:mkdp_auto_start = 0
+    let g:mkdp_auto_close = 1
+    let g:mkdp_refresh_slow = 0
+    let g:mkdp_command_for_global = 0
+    let g:mkdp_open_to_the_world = 0
+    let g:mkdp_open_ip = ''
+    let g:mkdp_browser = 'google-chrome-stable'
+    let g:mkdp_echo_preview_url = 1
+    let g:mkdp_browserfunc = ''
+    let g:mkdp_preview_options = {
+        \ 'mkit': {},
+        \ 'katex': {},
+        \ 'uml': {},
+        \ 'maid': {},
+        \ 'disable_sync_scroll': 0,
+        \ 'sync_scroll_type': 'middle',
+        \ 'hide_yaml_meta': 1,
+        \ 'sequence_diagrams': {},
+        \ 'flowchart_diagrams': {}
+        \ }
+    let g:mkdp_markdown_css = ''
+    let g:mkdp_highlight_css = ''
+    let g:mkdp_port = ''
+    let g:mkdp_page_title = '「${name}」'
+Plugin 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+    map <LEADER>tm :TableModeToggle<CR>
+Plugin 'vimwiki/vimwiki'
+    let g:vimwiki_list = [{
+        \ 'automatic_nested_syntaxes':1,
+        \ 'path_html': '~/wiki_html',
+        \ 'path': '~/wiki',
+        \ 'template_path': '~/.vim/vimwiki/template/',
+        \ 'syntax': 'markdown',
+        \ 'ext':'.md',
+        \ 'template_default':'markdown',
+        \ 'custom_wiki2html': '~/.vim/vimwiki/wiki2html.sh',
+        \ 'template_ext':'.html'
+        \}]
+
+    let g:taskwiki_sort_orders={"C": "pri-"}
+    let g:taskwiki_syntax = 'markdown'
+    let g:taskwiki_markdown_syntax='markdown'
+    let g:taskwiki_markup_syntax='markdown'
+    let g:vimwiki_global_ext = 0
+
+
+" ===
+" === For General Writing
+" ===
+Plugin 'reedes/vim-wordy' " Uncover usage problems in your writing
+Plugin 'ron89/thesaurus_query.vim' " Multi-language Thesaurus Query and Replacement plugin for Vim/NeoVim
+    let g:tq_language=['en', 'cn']
+    let g:tq_enabled_backends=["cilin_txt",
+        \"yarn_synsets",
+        \"openoffice_en",
+        \"mthesaur_txt",
+        \"datamuse_com",
+        \"thesaurus_com",]
+    let g:tq_map_keys=0
+    let g:tq_online_backends_timeout = 0.4
+    nnoremap <Leader>tq :ThesaurusQueryReplaceCurrentWord<CR>
+    vnoremap <Leader>tq y:ThesaurusQueryReplace <C-r>"<CR>
+
+
+" ===
+" === Bookmarks
+" ===
+Plugin 'kshenoy/vim-signature'
+    " 代码收藏
+    let g:SignatureMap = {
+        \ 'Leader'             :  "m",
+        \ 'PlaceNextMark'      :  "m,",
+        \ 'ToggleMarkAtLine'   :  "m.",
+        \ 'DeleteMark'         :  "dm",
+        \ 'PurgeMarks'         :  "dm/",
+        \ 'PurgeMarkers'       :  "dm?",
+        \ 'GotoNextLineAlpha'  :  "m<Leader>",
+        \ 'GotoPrevLineAlpha'  :  "",
+        \ 'GotoNextSpotAlpha'  :  "m<Leader>",
+        \ 'GotoPrevSpotAlpha'  :  "",
+        \ 'GotoNextLineByPos'  :  "",
+        \ 'GotoPrevLineByPos'  :  "",
+        \ 'GotoNextSpotByPos'  :  "mn",
+        \ 'GotoPrevSpotByPos'  :  "mp",
+        \ 'GotoNextMarker'     :  "`n",
+        \ 'GotoPrevMarker'     :  "`p",
+        \ 'GotoNextMarkerAny'  :  "m]",
+        \ 'GotoPrevMarkerAny'  :  "m[",
+        \ 'ListBufferMarks'    :  "m/",
+        \ 'ListBufferMarkers'  :  "m?"
+        \ }
+
+" ===
+" === Other Useful Utilities
+" ===
+"Plugin 'terryma/vim-multiple-cursors'
+    "let g:multi_cursor_use_default_mapping=0
+    "let g:multi_cursor_start_word_key       = '<C-n>'
+    "let g:multi_cursor_select_all_word_key = '<A-n>'
+    "let g:multi_cursor_start_key             = 'g<C-n>'
+    "let g:multi_cursor_select_all_key       = 'g<A-n>'
+    "let g:multi_cursor_next_key               = '<C-n>'
+    "let g:multi_cursor_prev_key               = '<C-p>'
+    "let g:multi_cursor_skip_key               = '<C-x>'
+    "let g:multi_cursor_quit_key               = '<Esc>'
+Plugin 'junegunn/goyo.vim' " distraction free writing mode
+    map <LEADER>gy :Goyo<CR>
+Plugin 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } "displays trailing whitespace (after :EnableWhitespace, vim slows down)
+    let g:better_whitespace_enabled=0
+Plugin 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plugin 'godlygeek/tabular' " type :Tabularize /= to align the =
+"Plugin 'gcmt/wildfire.vim' "in Visual mode, type n' to select all text in '', or type n) n] n} np
+    "" This selects the previous closest text object.
+    "vmap <SPACE><CR> <Plug>(wildfire-water)
+    "let g:wildfire_objects = ["n'", 'n"', "n)", "n]", "n}", "np", "nt"]
+Plugin 'scrooloose/nerdcommenter' " in ;cc to comment a line
+"Plugin 'lilydjwg/fcitx.vim'
+Plugin 'dyng/ctrlsf.vim'
+    " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
+    nnoremap <Leader>sp :CtrlSF<CR>
+    let g:ctrlsf_ackprg='ag'
+Plugin 'SirVer/ultisnips'
+    let g:UltiSnipsExpandTrigger="<C-k>"
+    let g:UltiSnipsJumpForwardTrigger="<Down>"
+    let g:UltiSnipsJumpBackwardTrigger="<Up>"
+"Plugin 'honza/vim-snippets'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'mileszs/ack.vim'
+
+
+" ===
+" === Auto Complete
+" ===
+"Plugin 'Valloric/YouCompleteMe'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'neovim/nvim-lspconfig'
+Plugin 'hrsh7th/cmp-nvim-lsp'
+Plugin 'hrsh7th/cmp-buffer'
+Plugin 'hrsh7th/cmp-path'
+Plugin 'hrsh7th/cmp-cmdline'
+Plugin 'hrsh7th/nvim-cmp'
+Plugin 'quangnguyen30192/cmp-nvim-ultisnips'
+
+
+" ===
+" === Dependencies
+" ===
+Plugin 'MarcWeber/vim-addon-mw-utils'
+"call plug#end()
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+
 
 " ===
 " === Create a _machine_specific.vim file to adjust machine specific stuff, like python interpreter location
@@ -177,14 +629,14 @@ set pastetoggle=<F2>
 "set clipboard=unnamedplus
 
 " 设置终端的光标在不同模式下用不同的样式
-if !has('nvim')
-    let &t_SI.="\e[5 q" "SI = INSERT mode
-    let &t_SR.="\e[4 q" "SR = REPLACE mode
-    let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-endif
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-  \,sm:block-blinkwait175-blinkoff150-blinkon175
+"if !has('nvim')
+    "let &t_SI.="\e[5 q" "SI = INSERT mode
+    "let &t_SR.="\e[4 q" "SR = REPLACE mode
+    "let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+"endif
+"set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
+  "\,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
+  "\,sm:block-blinkwait175-blinkoff150-blinkon175
 
 " vim执行的外部命令会在当前目录下执行
 set autochdir
@@ -204,6 +656,8 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 " Auto change directory to current dir
 autocmd BufEnter * silent! lcd %:p:h
+
+set fencs=utf-8,GB18030,ucs-bom,default,latin1
 
 " ===
 " === Indent
@@ -362,20 +816,11 @@ inoremap <C-z> <C-O>:update<CR>
 " ===
 " === Cursor Movement
 " ===
-" new cursor movement
-"        ^
-"        i
-" < j        l >
-"        k
-"noremap <silent> j h
-"noremap <silent> k j
-"noremap <silent> i k
-"noremap <silent> l l
-"noremap <silent> gi gk
-"noremap <silent> gk gj
-
-"noremap <silent> zk zj
-"noremap <silent> zi zk
+" Don't use arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 noremap <silent> K 5k
 noremap <silent> J 5j
@@ -396,7 +841,7 @@ noremap <C-j> 5<C-e>
 
 " Insert Mode Cursor Movement
 inoremap <C-e> <ESC>A
-imap <C-a> <ESC>N
+inoremap <C-a> <ESC>I
 
 " Command Mode Cursor Movement
 cnoremap <C-a> <Home>
@@ -486,14 +931,23 @@ nnoremap <silent> [b :bfirst<CR>
 " switch to last buffer
 nnoremap <silent> ]b :blast<CR>
 
-inoremap <C-H> <C-\><C-O>b
-inoremap <C-L> <C-\><C-O>w
+" move back a word
+inoremap <C-h> <C-\><C-O>b
+" move formward a word
+inoremap <C-l> <C-\><C-O>w
+" delete a char
+inoremap <C-d> <C-\><C-O>x
+" move back a char
+inoremap <C-j> <C-\><C-O>h
+" move forward a char
+inoremap <C-k> <C-\><C-O>l
 
 " ===
 " === Other Useful Stuff
 " ===
 " find and replace
-noremap \s :%s//g<left><left>
+nnoremap \s :%s//g<left><left>
+vnoremap \s :s//g<left><left>
 
 " Press ` to change case (instead of ~)
 map ` ~
@@ -614,438 +1068,6 @@ map <F8> :call Rungdb()<CR>
 "endfunc
 
 
-" ┌────────────────┐
-" │ Plugin Install │
-" └────────────────┘
-call plug#begin('~/.vim/bundle')
-Plug 'qpkorr/vim-bufkill'
-" ===
-" === REPL
-" ===
-Plug 'hkupty/iron.nvim'
-    let g:iron_map_defaults = 0
-    nmap <localleader>s    <Plug>(iron-send-motion)
-    vmap <localleader>s    <Plug>(iron-visual-send)
-    nmap <localleader>r    <Plug>(iron-repeat-cmd)
-    nmap <localleader>l    <Plug>(iron-send-line)
-    nmap <localleader><CR> <Plug>(iron-cr)
-    nmap <localleader>i    <plug>(iron-interrupt)
-    nmap <localleader>q    <Plug>(iron-exit)
-    nmap <localleader>c    <Plug>(iron-clear)
-"Plug 'sillybun/vim-repl'
-    "let g:repl_ipython_version = '7.13'
-    "let g:repl_program = {
-                   "\   'python': ['ipython'],
-                   "\   'default': ['zsh'],
-                   "\   'r': ['R'],
-                   "\   'lua': ['lua'],
-                   "\   'vim': ['vim -e'],
-                   "\   }
-    "let g:repl_predefine_python = {
-                   "\   'numpy': 'import numpy as np',
-                   "\   'matplotlib': 'from matplotlib import pyplot as plt'
-                   "\   }
-    "let g:repl_cursor_down = 1
-    "let g:repl_python_automerge = 1
-    "let g:repl_ipython_version = '7'
-    "nnoremap <Space>r :REPLToggle<Cr>
-    "autocmd Filetype python nnoremap <F12> <Esc>:REPLDebugStopAtCurrentLine<Cr>
-    "autocmd Filetype python nnoremap <F10> <Esc>:REPLPDBN<Cr>
-    "autocmd Filetype python nnoremap <F11> <Esc>:REPLPDBS<Cr>
-    "let g:repl_position = 3
-
-    "let g:repl_width = 80                                 "窗口宽度
-    ""let g:repl_height = None                                "窗口高度
-    "let g:sendtorepl_invoke_key = "<Space>w"            "传送代码快捷键，默认为<leader>w
-    "let g:repl_position = 3                                    "0表示出现在下方，1表示出现在上方，2在左边，3在右边
-    "let g:repl_stayatrepl_when_open = 1           "打开REPL时是回到原文件（1）还是停留在REPL窗口中（0）
-Plug 'jpalardy/vim-slime'
-    let g:slime_target = "tmux"
-    let g:slime_default_config = {"socket_name": "default", "target_pane": "{right-of}"}
-    let g:slime_python_ipython = 1
-    let g:slime_no_mappings = 1
-    xmap <C-e><C-e> <Plug>SlimeRegionSend
-    nmap <C-e><C-e> <Plug>SlimeParagraphSend
-    nmap <C-e>v   <Plug>SlimeConfig
-
-" ===
-" === Auto Complete
-" ===
-"Plug 'Valloric/YouCompleteMe'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" ===
-" === Beautify
-" ===
-Plug 'connorholyday/vim-snazzy'
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
-Plug 'vim-airline/vim-airline'
-    "let g:airline_disable_statusline = 1
-
-    let g:airline#extensions#coc#enabled = 1
-    let g:airline_powerline_fonts = 1
-    "let g:airline_theme="luna"
-    " 开启tabline
-    let g:airline#extensions#tabline#enabled = 1
-    let g:airline#extensions#tabline#left_alt_sep = '|'
-    let g:airline#extensions#tabline#buffer_nr_show = 1
-    " unicode symbols
-    if !exists('g:airline_symbols')
-        let g:airline_symbols = {}
-    endif
-    let g:airline_left_sep = '»'
-    let g:airline_right_sep = '«'
-    let g:airline#extensions#tabline#fnamemod = ':t'
-
-    let g:airline#extensions#whitespace#enabled = 1
-    let g:airline#extensions#whitespace#symbol = '!'
-    let g:airline#extensions#whitespace#mixed_indent_algo = 1
-
-    function! CocMinimalStatus() abort
-        return get(b:, 'coc_current_function', '')
-    endfunction
-
-    function! AirlineInit()
-        let g:airline_section_a = airline#section#create(['mode'])
-        let g:airline_section_b = airline#section#create_left(['hunks', 'branch', '%-0.20{getcwd()}'])
-        let g:airline_section_c = airline#section#create(['%f'])
-        let g:airline_section_x = airline#section#create(['%{CocMinimalStatus()}   ','filetype'])
-        let g:airline_section_y = airline#section#create(['ffenc'])
-        "let g:airline_section_y = airline#section#create(['%{strftime("%m/%d - %H:%M")} ', 'ffenc'])
-    endfunction
-    autocmd User AirlineAfterInit call AirlineInit()
-    "let g:airline_section_b = '%{strftime("%m/%d/%y - %H:%M")}'
-    "let g:airline_section_c = '%t'
-Plug 'vim-airline/vim-airline-themes'
-"Plug 'NLKNguyen/papercolor-theme'
-Plug 'ayu-theme/ayu-vim'
-"Plug 'octol/vim-cpp-enhanced-highlight'
-
-
-" ===
-" === Other Visual Enhancement
-" ===
-Plug 'kien/rainbow_parentheses.vim'
-     let g:rbpt_colorpairs = [
-                               \ ['brown',        'RoyalBlue3'],
-                               \ ['Darkblue',     'SeaGreen3'],
-                               \ ['darkgray',     'DarkOrchid3'],
-                               \ ['darkgreen',   'firebrick3'],
-                               \ ['darkcyan',     'RoyalBlue3'],
-                               \ ['darkred',      'SeaGreen3'],
-                               \ ['darkmagenta', 'DarkOrchid3'],
-                               \ ['brown',        'firebrick3'],
-                               \ ['gray',          'RoyalBlue3'],
-                               \ ['darkmagenta', 'DarkOrchid3'],
-                               \ ['Darkblue',     'firebrick3'],
-                               \ ['darkgreen',   'RoyalBlue3'],
-                               \ ['darkcyan',     'SeaGreen3'],
-                               \ ['darkred',      'DarkOrchid3'],
-                               \ ['red',           'firebrick3'],
-                               \ ]
-     let g:rbpt_max = 16
-     let g:rbpt_loadcmd_toggle = 0
-     au VimEnter * RainbowParenthesesToggle
-     au Syntax * RainbowParenthesesLoadRound
-     au Syntax * RainbowParenthesesLoadSquare
-     au Syntax * RainbowParenthesesLoadBraces
-Plug 'Yggdroot/indentLine' " display the indention levels with thin vertical lines
-Plug 'itchyny/vim-cursorword' " Underlines the word under the cursor
-Plug 'tmhedberg/SimpylFold'
-     " Preview docstring in fold text
-     let g:SimpylFold_docstring_preview = 1
-
-
-" ===
-" === File Navigation
-" ===
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-     " 使用 NERDTree 插件查看工程文件。设置快捷键，速记：file list
-     nmap <Leader>fl :NERDTreeToggle<CR>
-     " 设置 NERDTree 子窗口宽度
-     let NERDTreeWinSize=22
-     " 设置 NERDTree 子窗口位置
-     let NERDTreeWinPos="right"
-     " 显示隐藏文件
-     let NERDTreeShowHidden=1
-     " NERDTree 子窗口中不显示冗余帮助信息
-     let NERDTreeMinimalUI=1
-     " 删除文件时自动删除文件对应 buffer
-     let NERDTreeAutoDeleteBuffer=1
-     let NERDTreeMapOpenExpl = ""
-     let NERDTreeMapUpdir = ""
-     let NERDTreeMapUpdirKeepOpen = "u"
-     let NERDTreeMapOpenSplit = "s"
-     let NERDTreeOpenVSplit = "v"
-     let NERDTreeMapActivateNode = "l"
-     let NERDTreeMapPreview = ""
-     let NERDTreeMapCloseDir = "j"
-     let NERDTreeMapChangeRoot = "o"
-     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-Plug 'Xuyuanp/nerdtree-git-plugin'
-     let g:NERDTreeIndicatorMapCustom = {
-          \ "Modified"  : "✹",
-          \ "Staged"     : "✚",
-          \ "Untracked" : "✭",
-          \ "Renamed"   : "➜",
-          \ "Unmerged"  : "═",
-          \ "Deleted"   : "✖",
-          \ "Dirty"      : "✗",
-          \ "Clean"      : "✔︎",
-          \ "Unknown"   : "?"
-          \ }
-Plug 'ctrlpvim/ctrlp.vim', { 'on': 'CtrlP' }
-     map <C-p> :CtrlP<CR>
-     let g:ctrlp_clear_cache_on_exit = 0
-     let g:ctrlp_prompt_mappings = {
-       \ 'PrtSelectMove("j")':   ['<c-k>', '<down>'],
-       \ 'PrtSelectMove("k")':   ['<c-i>', '<up>'],
-       \ }
-     " let g:ctrlp_max_height = 30
-     set wildignore+=*.pyc
-     set wildignore+=*_build/*
-     set wildignore+=*/coverage/*
-     let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-     let g:ctrlp_max_depth = 10
-     let g:ctrlp_lazy_update = 0
-     let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*' " MacOSX/Linux
-Plug 'kevinhwang91/rnvimr'
-    " Make Ranger replace Netrw and be the file explorer
-    let g:rnvimr_ex_enable = 1
-    " Make Ranger to be hidden after picking a file
-    let g:rnvimr_enable_picker = 1
-    " Hide the files included in gitignore
-    let g:rnvimr_hide_gitignore = 1
-    " Make Neovim wipe the buffers corresponding to the files deleted by Ranger
-    let g:rnvimr_enable_bw = 1
-    " Add a shadow window, value is equal to 100 will disable shadow
-    "let g:rnvimr_shadow_winblend = 70
-    nnoremap <space>r :RnvimrToggle<CR>
-    "let g:rnvimr_presets = [{'width': 1.0, 'height': 1.0}]
-    " Link CursorLine into RnvimrNormal highlight in the Floating window
-    highlight link RnvimrNormal CursorLine
-
-
-" ===
-" === Undo Tree
-" ===
-Plug 'mbbill/undotree'
-     let g:undotree_DiffAutoOpen = 0
-     nmap U :UndotreeToggle<CR>
-
-
-" ===
-" === Tagbar
-" ===
-Plug 'majutsushi/tagbar', { 'on': 'TagbarOpenAutoClose' }
-     " 设置 tagbar 子窗口的位置出现在主编辑区的左边
-     let tagbar_left=1
-     " 设置显示／隐藏标签列表子窗口的快捷键
-     map <silent> T :TagbarOpenAutoClose<CR>
-     " 设置标签子窗口的宽度
-     let tagbar_width=32
-     " tagbar 子窗口中不显示冗余帮助信息
-     let g:tagbar_compact=1
-     " 设置 ctags 对哪些代码标识符生成标签
-     let g:tagbar_type_cpp = {
-           \ 'ctagstype' : 'c++',
-           \ 'kinds'      : [
-                \ 'c:classes:0:1',
-                \ 'd:macros:0:1',
-                \ 'e:enumerators:0:0',
-                \ 'f:functions:0:1',
-                \ 'g:enumeration:0:1',
-                \ 'l:local:0:1',
-                \ 'm:members:0:1',
-                \ 'n:namespaces:0:1',
-                \ 'p:functions_prototypes:0:1',
-                \ 's:structs:0:1',
-                \ 't:typedefs:0:1',
-                \ 'u:unions:0:1',
-                \ 'v:global:0:1',
-                \ 'x:external:0:1'
-           \ ],
-           \ 'sro'          : '::',
-           \ 'kind2scope' : {
-                \ 'g' : 'enum',
-                \ 'n' : 'namespace',
-                \ 'c' : 'class',
-                \ 's' : 'struct',
-                \ 'u' : 'union'
-           \ },
-           \ 'scope2kind' : {
-                \ 'enum'       : 'g',
-                \ 'namespace' : 'n',
-                \ 'class'      : 'c',
-                \ 'struct'     : 's',
-                \ 'union'      : 'u'
-           \ }
-     \ }
-
-
-" ===
-" === Git
-" ===
-Plug 'rhysd/conflict-marker.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'mhinz/vim-signify'
-Plug 'gisphm/vim-gitignore', { 'for': ['gitignore', 'vim-plug'] }
-
-
-" ===
-" === HTML, CSS, JavaScript, PHP, JSON, etc.
-" ===
-"Plug 'spf13/PIV', { 'for' :['php', 'vim-plug'] }
-"Plug 'gko/vim-coloresque', { 'for': ['vim-plug', 'php', 'html', 'javascript', 'css', 'less'] }
-"Plug 'mattn/emmet-vim'
-
-
-" ===
-" === Markdown
-" ===
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install_sync() } }
-     let g:mkdp_auto_start = 0
-     let g:mkdp_auto_close = 1
-     let g:mkdp_refresh_slow = 0
-     let g:mkdp_command_for_global = 0
-     let g:mkdp_open_to_the_world = 0
-     let g:mkdp_open_ip = ''
-     let g:mkdp_browser = 'google-chrome-stable'
-     let g:mkdp_echo_preview_url = 1
-     let g:mkdp_browserfunc = ''
-     let g:mkdp_preview_options = {
-          \ 'mkit': {},
-          \ 'katex': {},
-          \ 'uml': {},
-          \ 'maid': {},
-          \ 'disable_sync_scroll': 0,
-          \ 'sync_scroll_type': 'middle',
-          \ 'hide_yaml_meta': 1,
-          \ 'sequence_diagrams': {},
-          \ 'flowchart_diagrams': {}
-          \ }
-     let g:mkdp_markdown_css = ''
-     let g:mkdp_highlight_css = ''
-     let g:mkdp_port = ''
-     let g:mkdp_page_title = '「${name}」'
-Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
-     map <LEADER>tm :TableModeToggle<CR>
-Plug 'vimwiki/vimwiki'
-    let g:vimwiki_list = [{
-        \ 'automatic_nested_syntaxes':1,
-        \ 'path_html': '~/wiki_html',
-        \ 'path': '~/wiki',
-        \ 'template_path': '~/.vim/vimwiki/template/',
-        \ 'syntax': 'markdown',
-        \ 'ext':'.md',
-        \ 'template_default':'markdown',
-        \ 'custom_wiki2html': '~/.vim/vimwiki/wiki2html.sh',
-        \ 'template_ext':'.html'
-    \}]
-
-    let g:taskwiki_sort_orders={"C": "pri-"}
-    let g:taskwiki_syntax = 'markdown'
-    let g:taskwiki_markdown_syntax='markdown'
-    let g:taskwiki_markup_syntax='markdown'
-    let g:vimwiki_global_ext = 0
-
-
-" ===
-" === For General Writing
-" ===
-Plug 'reedes/vim-wordy' " Uncover usage problems in your writing
-Plug 'ron89/thesaurus_query.vim' " Multi-language Thesaurus Query and Replacement plugin for Vim/NeoVim
-     let g:tq_language=['en', 'cn']
-     let g:tq_enabled_backends=["cilin_txt",
-                    \"yarn_synsets",
-                    \"openoffice_en",
-                    \"mthesaur_txt",
-                    \"datamuse_com",
-                    \"thesaurus_com",]
-     let g:tq_map_keys=0
-     let g:tq_online_backends_timeout = 0.4
-     nnoremap <Leader>tq :ThesaurusQueryReplaceCurrentWord<CR>
-     vnoremap <Leader>tq y:ThesaurusQueryReplace <C-r>"<CR>
-
-
-" ===
-" === Bookmarks
-" ===
-Plug 'kshenoy/vim-signature'
-     " 代码收藏
-     let g:SignatureMap = {
-               \ 'Leader'                :  "m",
-               \ 'PlaceNextMark'       :  "m,",
-               \ 'ToggleMarkAtLine'   :  "m.",
-               \ 'DeleteMark'           :  "dm",
-               \ 'PurgeMarks'           :  "dm/",
-               \ 'PurgeMarkers'        :  "dm?",
-               \ 'GotoNextLineAlpha'  :  "m<Leader>",
-               \ 'GotoPrevLineAlpha'  :  "",
-               \ 'GotoNextSpotAlpha'  :  "m<Leader>",
-               \ 'GotoPrevSpotAlpha'  :  "",
-               \ 'GotoNextLineByPos'  :  "",
-               \ 'GotoPrevLineByPos'  :  "",
-               \ 'GotoNextSpotByPos'  :  "mn",
-               \ 'GotoPrevSpotByPos'  :  "mp",
-               \ 'GotoNextMarker'      :  "`n",
-               \ 'GotoPrevMarker'      :  "`p",
-               \ 'GotoNextMarkerAny'  :  "m]",
-               \ 'GotoPrevMarkerAny'  :  "m[",
-               \ 'ListBufferMarks'     :  "m/",
-               \ 'ListBufferMarkers'  :  "m?"
-               \ }
-
-" ===
-" === Other Useful Utilities
-" ===
-"Plug 'terryma/vim-multiple-cursors'
-     "let g:multi_cursor_use_default_mapping=0
-     "let g:multi_cursor_start_word_key       = '<C-n>'
-     "let g:multi_cursor_select_all_word_key = '<A-n>'
-     "let g:multi_cursor_start_key             = 'g<C-n>'
-     "let g:multi_cursor_select_all_key       = 'g<A-n>'
-     "let g:multi_cursor_next_key               = '<C-n>'
-     "let g:multi_cursor_prev_key               = '<C-p>'
-     "let g:multi_cursor_skip_key               = '<C-x>'
-     "let g:multi_cursor_quit_key               = '<Esc>'
-Plug 'junegunn/goyo.vim' " distraction free writing mode
-     map <LEADER>gy :Goyo<CR>
-Plug 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } "displays trailing whitespace (after :EnableWhitespace, vim slows down)
-     let g:better_whitespace_enabled=0
-Plug 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
-Plug 'godlygeek/tabular' " type :Tabularize /= to align the =
-"Plug 'gcmt/wildfire.vim' "in Visual mode, type n' to select all text in '', or type n) n] n} np
-     "" This selects the previous closest text object.
-     "vmap <SPACE><CR> <Plug>(wildfire-water)
-     "let g:wildfire_objects = ["n'", 'n"', "n)", "n]", "n}", "np", "nt"]
-     "" 取消高亮
-"noremap <LEADER><CR> :nohl<CR>
-"vnoremap <LEADER><CR> :nohl<CR>
-Plug 'scrooloose/nerdcommenter' " in ;cc to comment a line
-"Plug 'lilydjwg/fcitx.vim'
-Plug 'dyng/ctrlsf.vim'
-     " 使用 ctrlsf.vim 插件在工程内全局查找光标所在关键字，设置快捷键。快捷键速记法：search in project
-     nnoremap <Leader>sp :CtrlSF<CR>
-     let g:ctrlsf_ackprg='ag'
-Plug 'SirVer/ultisnips'
-     let g:UltiSnipsExpandTrigger="<C-k>"
-     let g:UltiSnipsJumpForwardTrigger="<Down>"
-    let g:UltiSnipsJumpBackwardTrigger="<Up>"
-"Plug 'honza/vim-snippets'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
-
-" ===
-" === Dependencies
-" ===
-Plug 'MarcWeber/vim-addon-mw-utils'
-call plug#end()
-
-
 noremap <LEADER><CR> :nohl<CR>
 vnoremap <LEADER><CR> :nohl<CR>
 
@@ -1089,7 +1111,8 @@ let g:grubvbox_contrast_light = 'soft'
 " ===
 " === Configure coc
 " ===
-let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-translator', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
+"let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
+let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
 
 " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
@@ -1158,8 +1181,10 @@ nmap <space>ed :CocCommand explorer --preset .vim<CR>
 nmap <space>ef :CocCommand explorer --preset floating<CR>
 
 " coc-translator
-nmap <leader>t <Plug>(coc-translator-p)
-vmap <leader>t <Plug>(coc-translator-pv)
+nmap <Leader>t <Plug>(coc-translator-p)
+vmap <Leader>t <Plug>(coc-translator-pv)
+" nmap <leader>t <Plug>(coc-translator-e)
+" vmap <leader>t <Plug>(coc-translator-ev)
 
 " Remap for do codeAction of selected region
 function! s:cocActionsOpenFromSelected(type) abort

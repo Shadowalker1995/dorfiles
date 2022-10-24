@@ -53,7 +53,8 @@
 	"diagnostic.refreshAfterSave": false,
 	"diagnostic.checkCurrentLine": true,
 	"diagnostic.virtualTextPrefix": " ❯❯❯ ",
-	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextCurrentLineOnly": true,
+	"diagnostic.virtualText": false,
 	"codeLens.enable": false,
 	"list.previewHighlightGroup": "Statement",
 	"list.nextKeymap": "<C-e>",
@@ -254,8 +255,8 @@
 			}
 		}
 	},
-	"translator.toLang": "zh",
-	"translator.engines": ["google", "youdao"],
+	"translator.toLang": "zh_CN",
+	"translator.proxy": "socks://127.0.0.1:1080",
 	"python.autoComplete.addBrackets": true,
 	"python.jediEnabled": false,
 	"python.formatting.provider": "yapf",
@@ -267,7 +268,16 @@
 	"python.linting.enabled": false,
 	"python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411, C0114, C0330"],
 	"python.analysis.disabled": ["undefined-variable", "unresolved-import"],
+	"python.pythonPath": "/home/zzhenry/miniconda3/bin/python",
 	"pyright.disableCompletion": false,
+	"pyright.disableDiagnostics": false,
+	"pyright.inlayHints.functionReturnTypes": false,
+	"pyright.inlayHints.variableTypes": false,
+	"python.analysis.diagnosticSeverityOverrides": {
+		"reportUnboundVariable": "warning",
+		"reportOptionalMemberAccess": "warning",
+		"reportPrivateImportUsage": "warning"
+	},
 	"jedi.enable": false,
 	"jedi.startupMessage": false,
 	"jedi.markupKindPreferred": "plaintext",

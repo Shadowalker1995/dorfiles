@@ -82,6 +82,43 @@ class tmux_detach(Command):
             return
         os.system("tmux detach")
 
+class show_copy_buffer(Command):
+    """
+    :show_copy_buffer
+
+    Show copy buffer in the notify bar.
+    """
+    def execute(self):
+        self.fm.execute_console("""shell -p bash -c 'for arg in "$@"; do echo $arg; done' bash %c""")
+        # for fobj in self.fm.copy_buffer:
+            # self.fm.notify(fobj.path)
+
+# class toggled(Command):
+    # """
+    # :toggled
+
+    # Changes the name of currently highlighted files from foo_bar_baz.txt to
+    # foo-bar-baz.txt and vice versa.
+    # """
+
+    # def execute(self):
+        # from ranger.container.file import File
+        # from os import access
+
+        # # yes, this is pathetic
+        # s = str(self.fm.env.cf)
+        # s1 = s.replace('-', '_')
+        # s2 = s.replace('_', '-')
+        # new_name = ''.join([b if a != b else c for (a,b,c) in zip(s,s1,s2)])
+
+        # if access(new_name, os.F_OK):
+            # return
+
+        # self.fm.rename(self.fm.env.cf, new_name)
+        # f = File(new_name)
+        # self.fm.env.cwd.pointed_obj = f
+        # self.fm.env.cf = f
+
 # class extract(Command):
     # """:extract <paths>
     # Extract archives

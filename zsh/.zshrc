@@ -20,7 +20,7 @@ fpath+=$HOME/.config/.zsh_functions
 eval $(thefuck --alias)
 
 # 真彩色显示zsh下ls命令展示的内容
-eval `dircolors ~/.dir_colors/dircolors`
+eval $(dircolors ~/.dir_colors/dircolors)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -48,6 +48,18 @@ if ! ps -p $PPID | grep -q java; then
         fi
     fi
 fi
+
+# preventing nested ranger instances
+ranger() {
+    if [ -z "$RANGER_LEVEL" ]; then
+        /usr/bin/ranger "$@"
+    else
+        exit
+    fi
+}
+
+# Change the prompt when you open a shell from inside ranger
+[ -n "$RANGER_LEVEL" ] && PS1="$PS1"'(in ranger) '
 
 # zranger
 autoload -U zranger

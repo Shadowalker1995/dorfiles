@@ -18,7 +18,7 @@ alias sra='sudo -E ranger'
 alias s='neofetch'
 alias c="clear"
 alias df='df -H'
-alias du='ncdu'
+alias du='ncdu --color dark'
 #alias cat='pygmentize -g'
 alias bat='bat --paging=never'
 alias fzf="fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
@@ -86,3 +86,4 @@ alias aliDrive="$HOME/Softwares/installed/AliDrive/AliDrive"
 alias x11vnc="x11vnc -usepw -noxdamage -forever -auth ~/.Xauthority -display :1"
 alias aliyun-webdav="/home/zzhenry/Softwares/installed/aliyunpan/webdav.sh"
 alias aliyun-sync="/home/zzhenry/Softwares/installed/aliyunpan/sync.sh"
+alias scrcpy="scrcpy -s 10.206.113.188 -b 16M --always-on-top --prefer-text --turn-screen-off --window-borderless --window-title Honor-V20 --push-target /storage/emulated/0/zzhenry"

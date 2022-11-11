@@ -40,3 +40,5 @@ zsh/.zcompdump*
 
 .picgo/config_bak.json
 nvim/autoload/plug.vim.old
+.ccls-cache/
+nvim/spell/

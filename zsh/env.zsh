@@ -96,7 +96,8 @@ export DEFAULT_USER="zzhenry"
 #export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HOME/miniconda3/lib
 # export LD_LIBRARY_PATH=$HOME/anaconda3/pkgis/hdf5-1.10.1-h9caa474_1/lib:$LD_LIBRARY_PATH
 
-export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/local/lib64:$LD_LIBRARY_PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -107,7 +108,7 @@ else
     if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
         . "$HOME/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="$HOME/miniconda3/bin:$PATH"
+        export PATH="$PATH:$HOME/miniconda3/bin"
     fi
 fi
 unset __conda_setup

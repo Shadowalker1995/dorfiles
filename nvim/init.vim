@@ -443,9 +443,10 @@ Plugin 'dyng/ctrlsf.vim'
     nnoremap <Leader>sp :CtrlSF<CR>
     let g:ctrlsf_ackprg='ag'
 Plugin 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger="<C-k>"
-    let g:UltiSnipsJumpForwardTrigger="<Down>"
-    let g:UltiSnipsJumpBackwardTrigger="<Up>"
+    let g:UltiSnipsExpandTrigger="<leader><SPACE>"
+    let g:UltiSnipsJumpForwardTrigger="<leader><SPACE>"
+    let g:UltiSnipsJumpBackwardTrigger="<leader><C-SPACE>"
+    let g:ultisnips_python_style="numpy"
 "Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
@@ -798,7 +799,7 @@ noremap <LEADER>rc :e ~/.config/nvim/init.vim<CR>
 "map ; :
 map q; q:
 
-" Close current split window
+" Close the buffer
 nmap <Leader>q :BD<CR>
 " Save the current window
 nmap <Leader>w :w<CR>
@@ -806,6 +807,7 @@ nmap <Leader>w :w<CR>
 nmap <Leader>WQ :wa<CR>:qa<CR>
 " Quit vim without saving
 nmap <Leader>Q :qa!<CR>
+" Close the current window
 noremap <C-q> :q<CR>
 
 " Quick save
@@ -849,9 +851,9 @@ cnoremap <C-e> <End>
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 cnoremap <C-j> <Left>
-cnoremap <C-l> <Right>
-cnoremap <M-j> <S-Left>
-cnoremap <M-l> <S-Right>
+cnoremap <C-k> <Right>
+cnoremap <C-h> <S-Left>
+cnoremap <C-l> <S-Right>
 
 " ===
 " === Window management
@@ -980,6 +982,11 @@ map <C-A-F> :Format<CR>
 inoremap <C-A-F> <C-o>:Format<CR>
 
 " Spelling
+" Force to use underline for spell check results
+augroup my_colours
+  autocmd!
+  autocmd ColorScheme adrian hi SpellBad cterm=reverse
+augroup END
 map <Leader>sc :set spell!<CR>
 inoremap <Leader>sc <Esc>:set spell!<CR>A
 noremap <C-x> ea<C-x>s
@@ -1111,8 +1118,7 @@ let g:grubvbox_contrast_light = 'soft'
 " ===
 " === Configure coc
 " ===
-"let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
-let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
+let g:coc_global_extensions = ['coc-pyright', 'coc-vimlsp', 'coc-html', 'coc-json', 'coc-css', 'coc-snippets', 'coc-yank', 'coc-gitignore', 'coc-stylelint', 'coc-tslint', 'coc-lists', 'coc-git', 'coc-explorer', 'coc-flutter', 'coc-todolist', 'coc-yaml', 'coc-tasks', 'coc-actions', 'coc-diagnostic', 'coc-prettier', 'coc-syntax', 'coc-cmake', 'coc-markdownlint', 'coc-pairs', 'coc-java']
 
 " fix the most annoying bug that coc has
 silent! au BufEnter,BufRead,BufNewFile * silent! unmap if
@@ -1209,7 +1215,7 @@ augroup mygroup
     autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" set CTRL-S for selections ranges.
+" Use <tab> for select selections ranges, needs server support, like: coc-tsserver, coc-python
 "nmap <silent> <TAB> <Plug>(coc-range-select)
 "xmap <silent> <TAB> <Plug>(coc-range-select)
 

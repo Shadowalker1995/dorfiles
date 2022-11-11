@@ -33,6 +33,13 @@ snippet !env "#!/usr/bin/env (!env)"
 `!p snip.rv = '#!/usr/bin/env ' + getShell() + "\n\n" `
 endsnippet
 
+snippet header "header information" b
+# FileName: `!p snip.rv=fn`
+# Author:   Zhu Zhan
+# Email:    henry664650770@gmail.com
+# Date:     `date "+%Y-%m-%d %H:%M:%S"`
+endsnippet
+
 snippet temp "Tempfile"
 ${1:TMPFILE}="$(mktemp -t ${2:`!p
 snip.rv = re.sub(r'[^a-zA-Z]', '_', snip.fn) or "untitled"

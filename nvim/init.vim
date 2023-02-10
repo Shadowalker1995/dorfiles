@@ -430,7 +430,7 @@ Plugin 'junegunn/goyo.vim' " distraction free writing mode
     map <LEADER>gy :Goyo<CR>
 Plugin 'ntpeters/vim-better-whitespace', { 'on': ['EnableWhitespace', 'ToggleWhitespace'] } "displays trailing whitespace (after :EnableWhitespace, vim slows down)
     let g:better_whitespace_enabled=0
-Plugin 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change 'word' to `word`
+Plugin 'tpope/vim-surround' " type ysks' to wrap the word with '' or type cs'` to change word to `word`
 Plugin 'godlygeek/tabular' " type :Tabularize /= to align the =
 "Plugin 'gcmt/wildfire.vim' "in Visual mode, type n' to select all text in '', or type n) n] n} np
     "" This selects the previous closest text object.
@@ -443,14 +443,19 @@ Plugin 'dyng/ctrlsf.vim'
     nnoremap <Leader>sp :CtrlSF<CR>
     let g:ctrlsf_ackprg='ag'
 Plugin 'SirVer/ultisnips'
-    let g:UltiSnipsExpandTrigger="<leader><SPACE>"
-    let g:UltiSnipsJumpForwardTrigger="<leader><SPACE>"
-    let g:UltiSnipsJumpBackwardTrigger="<leader><C-SPACE>"
+    let g:UltiSnipsExpandTrigger="<leader><C-SPACE>"
+    let g:UltiSnipsJumpForwardTrigger="<leader><C-SPACE>"
+    let g:UltiSnipsJumpBackwardTrigger="<leader><C-S-SPACE>"
     let g:ultisnips_python_style="numpy"
 "Plugin 'honza/vim-snippets'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
+Plugin 'easymotion/vim-easymotion'
+    nmap ss <Plug>(easymotion-s2)
+Plugin 'rlue/vim-barbaric'
+    let g:barbaric_ime = 'fcitx'
+    let g:barbaric_fcitx_cmd = 'fcitx-remote'
 
 
 " ===
@@ -598,9 +603,9 @@ set smartcase
 set hlsearch
 " 刚进入的时候取消之前的高亮显示
 exec "nohlsearch"
-" 在搜索的结果中跳转 =:下一个 -:上一个
-noremap = nzz
-noremap - Nzz
+" 在搜索的结果中跳转并居中显示
+noremap n nzz
+noremap N Nzz
 " 取消高亮
 noremap <LEADER><CR> :nohl<CR>
 vnoremap <LEADER><CR> :nohl<CR>
@@ -772,6 +777,8 @@ nnoremap Y y$
 vnoremap <Leader>y "+y
 " paste from the system clipboard to vim
 nmap <Leader>p "+p
+" paste without overriding the current register
+vnoremap p pgvy
 
 " 数字自增和自减
 nn <C-g> <C-a>
@@ -830,7 +837,7 @@ noremap W 5W
 noremap B 5B
 
 " J: go to the start of the line
-noremap <silent> H 0
+noremap <silent> H ^
 " L: go to the end of the line
 noremap <silent> L $
 
@@ -844,6 +851,10 @@ noremap <C-j> 5<C-e>
 " Insert Mode Cursor Movement
 inoremap <C-e> <ESC>A
 inoremap <C-a> <ESC>I
+
+" Insert mode Cursor up/down
+inoremap <C-x><C-k> <C-x><C-y>
+inoremap <C-x><C-j> <C-x><C-e>
 
 " Command Mode Cursor Movement
 cnoremap <C-a> <Home>
@@ -891,9 +902,9 @@ noremap sw <C-W><C-W>
 noremap sd :close<CR>
 
 " Place the two screens up and down
-map sh <C-w>t<C-w>K
+map sv <C-w>t<C-w>K
 " Place the two screens side by side
-map sv <C-w>t<C-w>H
+map s\ <C-w>t<C-w>H
 
 " Rotate screens
 noremap srh <C-w>b<C-w>K
@@ -938,11 +949,12 @@ inoremap <C-h> <C-\><C-O>b
 " move formward a word
 inoremap <C-l> <C-\><C-O>w
 " delete a char
-inoremap <C-d> <C-\><C-O>x
+"inoremap <C-d> <C-\><C-O>x
+inoremap <C-d> <Delete>
 " move back a char
-inoremap <C-j> <C-\><C-O>h
+"inoremap <C-j> <C-\><C-O>h
 " move forward a char
-inoremap <C-k> <C-\><C-O>l
+"inoremap <C-k> <C-\><C-O>l
 
 " ===
 " === Other Useful Stuff
@@ -951,10 +963,8 @@ inoremap <C-k> <C-\><C-O>l
 nnoremap \s :%s//g<left><left>
 vnoremap \s :s//g<left><left>
 
-" Press ` to change case (instead of ~)
-map ` ~
-
 map <LEADER>/ :!
+" insert a shell command output
 map <LEADER>r :r !
 map <LEADER>sr :%s/
 
@@ -967,7 +977,7 @@ noremap <Leader><Leader> <Esc>/<++><CR>:nohlsearch<CR>c4l
 " Opening a terminal window
 noremap <LEADER>/ :set splitbelow<CR>:split<CR>:res -3<CR>:term<CR>
 
-" Open a new instance of st with the cwd
+" Open a new instance of alacritty with the cwd
 nnoremap \t :tabe<CR>:-tabmove<CR>:term sh -c 'alacritty'<CR><C-\><C-N>:q<CR>
 
 " Move to the Error location
@@ -1074,7 +1084,6 @@ map <F8> :call Rungdb()<CR>
   "endif
 "endfunc
 
-
 noremap <LEADER><CR> :nohl<CR>
 vnoremap <LEADER><CR> :nohl<CR>
 
@@ -1162,10 +1171,10 @@ xmap ac <Plug>(coc-classobj-a)
 omap ac <Plug>(coc-classobj-a)
 
 " Useful commands
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gr <Plug>(coc-references)
 nmap <leader>rn <Plug>(coc-rename)
 
 " Use F to show documentation in preview window
@@ -1381,3 +1390,15 @@ nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 " :%TOhtml          将当前文件转换为.html文件
 " :MarkdownPreview  打开浏览器实时Markdown文件渲染
 " Move the next character to the end of the line with ctrl+9
+" :w !sudo tee %: write out the file using sudo and tee command
+" ~ - change case
+" m[a-z] - mark text using character mode (from a to z)
+" `a - jump to position marked a
+" `. - jump to last change in file
+" `0 - jump to position where Vim was last exited
+" `` - jump to last jump
+" :marks - list all marks
+" :jumps - list all jumps
+" :changes - list all changes
+" g, - move to next instance in change list
+" g; - move to previous instance in change list

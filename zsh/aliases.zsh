@@ -6,7 +6,7 @@
 # Example aliases
 alias zshconfig="nvim $HOME/.config/zsh/{.zshrc,env.zsh,aliases.zsh}"
 alias tmuxconfig="nvim $HOME/{.tmux.conf,.tmux.conf.local}"
-alias i3config="nvim $HOME/.config/i3/config"
+alias i3config="nvim $HOME/.config/i3/conf.d/*.conf $HOME/.config/i3/config"
 alias alacrittyconfig="nvim $HOME/.config/alacritty/alacritty.yml"
 alias raconfig="nvim $HOME/.config/ranger/{rc.conf,rifle.conf,scope.sh,commands.py,commands_full.py}"
 alias ohmyzsh="nvim $HOME/.oh-my-zsh/oh-my-zsh.sh"
@@ -71,9 +71,9 @@ alias frpout_tencent="cat $HOME/Softwares/system/frp/frpc_tencent.out"
 alias chfs8082="chfs --file=$HOME/Softwares/installed/chfs/config_Root_8082.ini > /dev/null"
 alias py27='/usr/bin/python2.7'
 alias opentp='sudo modprobe psmouse'        # open touchpad
+alias boot_windows='efibootmgr | grep "Windows Boot Manager" | tail -n 1 | head -c 8 | tail -c 4 |  xargs sudo efibootmgr -n'
 alias closetp='sudo modprobe -r psmouse'    # close touchpad
 alias closescreen='xset dpms force off'     # close screen
-alias hdmionly='xrandr --output HDMI-0 --auto --output eDP-1-1 --off'
 alias hdmionly='xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output eDP-1-1 --off'
 alias screenonly='xrandr --output HDMI-0 --off --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output eDP-1-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal'
 alias twoscreen='xrandr --output HDMI-0 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-0 --off --output DP-1 --off --output DP-2 --off --output DP-3 --off --output eDP-1-1 --mode 1920x1080 --pos 0x0 --rotate normal'
@@ -87,3 +87,4 @@ alias x11vnc="x11vnc -usepw -noxdamage -forever -auth ~/.Xauthority -display :1"
 alias aliyun-webdav="/home/zzhenry/Softwares/installed/aliyunpan/webdav.sh"
 alias aliyun-sync="/home/zzhenry/Softwares/installed/aliyunpan/sync.sh"
 alias scrcpy="scrcpy -s 10.206.113.188 -b 16M --always-on-top --prefer-text --turn-screen-off --window-borderless --window-title Honor-V20 --push-target /storage/emulated/0/zzhenry"
+alias matlab-cli="matlab -nodesktop -nosplash"

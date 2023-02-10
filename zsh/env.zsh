@@ -97,7 +97,8 @@ export DEFAULT_USER="zzhenry"
 # export LD_LIBRARY_PATH=$HOME/anaconda3/pkgis/hdf5-1.10.1-h9caa474_1/lib:$LD_LIBRARY_PATH
 
 export LD_LIBRARY_PATH="/usr/lib/x86_64-linux-gnu:$LD_LIBRARY_PATH"
-export LD_LIBRARY_PATH="/usr/local/lib64:$LD_LIBRARY_PATH"
+#export LD_LIBRARY_PATH="/usr/local/lib64:$LD_LIBRARY_PATH"
+export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -126,6 +127,10 @@ export LD_LIBRARY_PATH=/opt/Qt5.14.2/5.14.2/gcc_64/lib:$LD_LIBRARY_PATH
 
 #export PATH="/opt/Qt/6.2.4/gcc_64/bin:$PATH"
 #export LD_LIBRARY_PATH=/opt/Qt/6.2.4/gcc_64/lib:$LD_LIBRARY_PATH
+
+# MATLAB
+export PATH="/usr/local/MATLAB/R2022b/bin:$PATH"
+export MATLAB_JAVA="/usr/lib/jvm/java-8-openjdk-amd64/jre/"
 
 # cuda
 export CUDA_HOME=/usr/local/cuda
@@ -158,10 +163,7 @@ export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 #export LOCALBIN=$XDG_CONFIG_HOME/bin
 #export PATH=$PATH:$LOCALBIN
-#export GOPATH=$HOME/go
-#export PATH=$PATH:$HOME/.gem/ruby/2.6.0
 export -U PATH="$HOME/bin:$PATH"
-#export PATH=$PATH:$HOME/go/bin
 export -U PATH=$PATH:$HOME/.cargo/bin
 #export PATH=$PATH:/usr/local/opt/node@12/bin
 export TERM_ITALICS=true
@@ -175,6 +177,7 @@ BPARAM=$BSOFT/parameters/
 export PATH=$BSOFT/bin:$PATH
 export LD_LIBRARY_PATH=$BSOFT/lib:$LD_LIBRARY_PATH
 
+# Golang
 export GOPATH=$HOME/Dev/go
 export GOROOT=/usr/local/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
@@ -190,3 +193,6 @@ export _Z_SRC="$HOME/.oh-my-zsh/plugins/z/z.sh"
 
 # aliyunpan
 export ALIYUNPAN_CONFIG_DIR=/home/zzhenry/Softwares/installed/aliyunpan/config
+
+# 010editor
+#export PATH=$PATH:/home/zzhenry/010editor

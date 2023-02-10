@@ -1,7 +1,3 @@
-search_inc 约萝莉炮友酒店啪啪 被男朋友调教的不错 狂干40分钟 床上干到沙发在上床【精华版】-高清原版无水
-search_inc 野狼出征老王探花约了个颜值不错大长腿少妇啪啪，摸逼口交后入上位骑坐抱起来大力猛操-高清原版
-search_inc 深夜约了个长相甜美萌妹子穿上学生制服啪啪【连续两炮】，舔弄大屌抬腿侧入后入猛操搞得妹子呻吟连连【精华版】-高清原版无水
-search_inc 
 search_inc 约了两个风情万种的外围美女，边干还有人在后帮金主加油抽肏力道 -高清原版无水
 search_inc 金三角猎艳约了个黑帽长相甜美妹子啪啪，特写口交近距离拍摄抽插侧入猛操】-高清 原版无水印
 search_inc 阿南真实深夜撩到良家少妇磕炮【第一炮】按住头抽查口爆，良家喜欢被强暴虐待-高清原版无水
@@ -27,17 +23,13 @@ quit
 s
 cd /media/zzhenry/Data8T
 rename 金先生05.mp4
-mkdir tmp
-mkdir JP
 rename 金先生01.mp4
 rename 金先生02.mp4
 search_inc 02.mp4
 rename 金先生03.mp4
 rename 金先生。.mp4
 rename 金先生04.mp4
-mkdir YB
 mkdir SOLO
-delete
 cd "/media/zzhenry/Medias/Python自然语言处理全面实战 Pytorch构建神经网络+HMM+CRF+RNN+Transformer 附带资料/Notes"
 cd /media/zzhenry/Medias/
 search_inc header
@@ -48,3 +40,11 @@ search_inc snips
 search_inc coc
 rename news_classifier2.py
 rename news_classifier.py
+rename Head_First_Python中文版.pdf
+rename Python程序.pdf
+mkdir YB
+rename guochan2048.com-01 (3).mp4
+mkdir JP
+mkdir tmp
+delete
+

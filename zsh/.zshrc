@@ -25,6 +25,9 @@ eval $(dircolors ~/.dir_colors/dircolors)
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# jetbrains
+___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
 # tmux
 #if which tmux 2>&1 >/dev/null; then
   #if [ $TERM != "screen-256color" ] && [  $TERM != "screen" ]; then
@@ -68,4 +71,5 @@ bindkey -s '\ez' "\eq zranger\n"
 #quote | cowsay
 #fortune -e chinese | cowsay
 
+eval "$(starship init zsh)"
 s
